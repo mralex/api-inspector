@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'API Inspector' target in the 'API Inspector' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+	#import <YAJL/YAJL.h>
+#endif
