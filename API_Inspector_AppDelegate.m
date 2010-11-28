@@ -10,7 +10,17 @@
 
 @implementation API_Inspector_AppDelegate
 
-@synthesize window, urlField, resultsView, jsonView, statusLabel, goButton, progressIndicator;
+@synthesize window, urlField, resultsView, jsonView, statusLabel, goButton, progressIndicator, jsonArray;
+
+- (id) init
+{
+	self = [super init];
+	if (self != nil) {
+		self.jsonArray = [NSArray array];
+	}
+	return self;
+}
+
 
 /**
     Returns the support directory for the application, used to store the Core Data
@@ -212,9 +222,14 @@
     [persistentStoreCoordinator release];
     [managedObjectModel release];
 	
+	[jsonArray dealloc];
+	
     [super dealloc];
 }
 
+#pragma mark -
+#pragma mark URL Handling
+#pragma mark -
 
 - (IBAction)goAction:sender {
 	NSLog(@"Go!");
@@ -259,20 +274,20 @@
 	//self.resultsView.string = [NSString stringWithUTF8String:[received mutableBytes]];
 	
 	NSError *error = nil;
-	NSArray *jsonArray = [NSArray array];
 	
-	jsonArray = [received yajl_JSONWithOptions:YAJLParserOptionsNone error:&error];
+	self.jsonArray = [received yajl_JSONWithOptions:YAJLParserOptionsNone error:&error];
 	
-	if (!error && [jsonArray count] > 0) {
-		self.resultsView.string = [jsonArray description];
-		self.statusLabel.stringValue = [NSString stringWithFormat:@"%d items", [jsonArray count]];
+	if (!error && [self.jsonArray count] > 0) {
+		self.resultsView.string = [self.jsonArray description];
+		self.statusLabel.stringValue = [NSString stringWithFormat:@"%d items", [self.jsonArray count]];
 		
-		NSDictionary *o = [jsonArray objectAtIndex:0];
-		o = [o objectForKey:[[o allKeys] objectAtIndex:0]];
+//		NSDictionary *o = [self.jsonArray objectAtIndex:0];
+//		o = [o objectForKey:[[o allKeys] objectAtIndex:0]];
 		
 		//NSLog(@"first object is type of: %@", [[jsonArray objectAtIndex:0] className]);
-		NSLog(@"first object's first object is type of: %@ (key: %@, value: %@)", [[o objectForKey:[[o allKeys] objectAtIndex:0]] className], [[o allKeys] objectAtIndex:0], [o objectForKey:[[o allKeys] objectAtIndex:0]]);
+		//NSLog(@"first object's first object is type of: %@ (key: %@, value: %@)", [[o objectForKey:[[o allKeys] objectAtIndex:0]] className], [[o allKeys] objectAtIndex:0], [o objectForKey:[[o allKeys] objectAtIndex:0]]);
 		
+		[jsonView reloadData];
 	} else {
 		self.resultsView.string = @"";
 		self.statusLabel.stringValue = [NSString stringWithFormat:@"Error - Not JSON! (%@)", [error localizedDescription]];
@@ -284,4 +299,60 @@
 	[connection release];
 	[received release];
 }
+
+#pragma mark -
+#pragma mark Outline view data source methods
+#pragma mark -
+
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item {
+	if (item == nil) {
+		return [jsonArray count];
+	} if ([item isKindOfClass:[NSDictionary class]]) {
+		NSString *key = [[item allKeys] objectAtIndex:0];
+		return [[[item objectForKey:key] allKeys] count];
+	}
+	
+	return 0;
+}
+
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item {
+	if ([item isKindOfClass:[NSDictionary class]]) {
+		NSDictionary *dict = [item objectForKey:[[item allKeys] objectAtIndex:0]];
+		NSString *key = [[dict allKeys] objectAtIndex:index];
+		
+		if ([[dict objectForKey:key] isKindOfClass:[NSDictionary class]]) {
+			return [dict objectForKey:key];
+		}
+		
+		return [[NSArray arrayWithObjects:key, [dict objectForKey:key], nil] retain];
+	}
+	
+	return [jsonArray objectAtIndex:index];
+}
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item {
+	if (item && [item isKindOfClass:[NSDictionary class]]) {
+		return YES;
+	}
+	return NO;
+}
+
+- (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item {
+	if ([(NSString*)[tableColumn identifier] isEqual:@"key"]) {
+		if ([item isKindOfClass:[NSArray class]]) {
+			return [item objectAtIndex:0];
+		}
+		return [[item allKeys] objectAtIndex:0];
+	} 
+	
+	if ([item isKindOfClass:[NSArray class]]) {
+		return [item objectAtIndex:1];
+	}
+	
+	return nil;
+}
+
+
+#pragma mark -
+
 @end

@@ -25,6 +25,7 @@
     NSManagedObjectContext *managedObjectContext;
 	
 	NSMutableData *received;
+	NSArray *jsonArray;
 	//NSURLConnection *urlConnection;
 }
 
@@ -40,6 +41,8 @@
 @property (nonatomic, retain) IBOutlet NSTextField *statusLabel;
 @property (nonatomic, retain) IBOutlet NSButton *goButton;
 @property (nonatomic, retain) IBOutlet NSProgressIndicator *progressIndicator;
+
+@property (nonatomic, retain) NSArray *jsonArray;
 
 //- (IBAction)saveAction:sender;
 
