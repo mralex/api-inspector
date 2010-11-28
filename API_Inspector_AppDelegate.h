@@ -27,6 +27,8 @@
 	NSMutableData *received;
 	NSArray *jsonArray;
 	//NSURLConnection *urlConnection;
+	
+	BOOL isLoading;
 }
 
 @property (nonatomic, retain) IBOutlet NSWindow *window;
@@ -43,6 +45,8 @@
 @property (nonatomic, retain) IBOutlet NSProgressIndicator *progressIndicator;
 
 @property (nonatomic, retain) NSArray *jsonArray;
+
+@property (nonatomic, assign) BOOL isLoading;
 
 //- (IBAction)saveAction:sender;
 

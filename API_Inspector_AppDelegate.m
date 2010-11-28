@@ -10,13 +10,16 @@
 
 @implementation API_Inspector_AppDelegate
 
-@synthesize window, urlField, resultsView, jsonView, statusLabel, goButton, progressIndicator, jsonArray;
+@synthesize window, urlField, resultsView, jsonView, statusLabel, goButton, progressIndicator, jsonArray, isLoading;
 
 - (id) init
 {
 	self = [super init];
 	if (self != nil) {
 		self.jsonArray = [NSArray array];
+		self.isLoading = NO;
+		
+		[self addObserver:self forKeyPath:@"isLoading" options:(NSKeyValueObservingOptionNew) context:NULL];
 	}
 	return self;
 }
@@ -232,11 +235,14 @@
 #pragma mark -
 
 - (IBAction)goAction:sender {
+	if (self.isLoading) return;
+	
 	NSLog(@"Go!");
 	
 	[progressIndicator startAnimation:nil];
 	self.statusLabel.stringValue = @"Connecting...";
 	
+	self.isLoading = YES;
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.urlField.stringValue] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
 	NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 	
@@ -245,6 +251,8 @@
 	} else {
 		[connection release];
 		self.statusLabel.stringValue = @"Connection failed";
+		
+		self.isLoading = NO;
 	}
 }
 
@@ -262,6 +270,8 @@
     [connection release];
     // receivedData is declared as a method instance elsewhere
     [received release];
+	
+	self.isLoading = NO;
 	
     // inform the user
     self.statusLabel.stringValue = [NSString stringWithFormat:@"Connection failed! %@ %@",
@@ -298,6 +308,8 @@
 	
 	[connection release];
 	[received release];
+	
+	self.isLoading = NO;
 }
 
 #pragma mark -
@@ -322,7 +334,6 @@
 }
 
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item {
-	NSLog(@"item: %@", item);
 	NSString *key;
 	
 	if ([item isKindOfClass:[NSDictionary class]]) {
@@ -374,5 +385,17 @@
 
 
 #pragma mark -
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	if ([keyPath isEqual:@"isLoading"]) {
+		BOOL loading = [(NSNumber*)[change objectForKey:NSKeyValueChangeNewKey] boolValue];
+		
+		if (loading) {
+			[self.goButton setEnabled:NO];
+		} else {
+			[self.goButton setEnabled:YES];
+		}
+	}
+}
 
 @end
