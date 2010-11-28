@@ -7,6 +7,7 @@
 //
 
 #import "API_Inspector_AppDelegate.h"
+#import "RawDataWindow.h"
 
 @implementation API_Inspector_AppDelegate
 
@@ -20,6 +21,10 @@
 		self.isLoading = NO;
 		
 		[self addObserver:self forKeyPath:@"isLoading" options:(NSKeyValueObservingOptionNew) context:NULL];
+		
+		
+		RawDataWindow *dataWindow = [[RawDataWindow alloc] initWithWindowNibName:@"RawData"];
+		[dataWindow showWindow:self];
 	}
 	return self;
 }
@@ -395,7 +400,11 @@
 		} else {
 			[self.goButton setEnabled:YES];
 		}
+		
+		return;
 	}
+	
+	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
 @end
