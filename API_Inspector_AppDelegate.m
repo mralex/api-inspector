@@ -307,23 +307,35 @@
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item {
 	if (item == nil) {
 		return [jsonArray count];
-	} if ([item isKindOfClass:[NSDictionary class]]) {
-		NSString *key = [[item allKeys] objectAtIndex:0];
-		return [[[item objectForKey:key] allKeys] count];
+	} else if ([item isKindOfClass:[NSArray class]]) {
+		//NSString *key = [[item allKeys] objectAtIndex:0];
+		//return [[[item objectForKey:key] allKeys] count];
+		
+		if ([[item objectAtIndex:1] isKindOfClass:[NSDictionary class]]) {
+			return [[[item  objectAtIndex:1] allKeys] count];
+		}
+	} else if ([item isKindOfClass:[NSDictionary class]]) {
+		return [[item allKeys] count];
 	}
 	
 	return 0;
 }
 
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item {
+	NSLog(@"item: %@", item);
+	NSString *key;
+	
 	if ([item isKindOfClass:[NSDictionary class]]) {
-		NSDictionary *dict = [item objectForKey:[[item allKeys] objectAtIndex:0]];
-		NSString *key = [[dict allKeys] objectAtIndex:index];
+		key = [[item allKeys] objectAtIndex:index];
 		
-		if ([[dict objectForKey:key] isKindOfClass:[NSDictionary class]]) {
-			return [dict objectForKey:key];
-		}
+//		if ([[item objectForKey:key] isKindOfClass:[NSDictionary class]]) {
+//			return [item objectForKey:key];
+//		}
 		
+		return [[NSArray arrayWithObjects:key, [item objectForKey:key], nil] retain];
+	} else if ([item isKindOfClass:[NSArray class]]) {
+		NSDictionary *dict = [item objectAtIndex:1];
+		key = [[dict allKeys] objectAtIndex:index];
 		return [[NSArray arrayWithObjects:key, [dict objectForKey:key], nil] retain];
 	}
 	
@@ -331,7 +343,7 @@
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item {
-	if (item && [item isKindOfClass:[NSDictionary class]]) {
+	if (item && ([item isKindOfClass:[NSDictionary class]] || [[item objectAtIndex:1] isKindOfClass:[NSDictionary class]])) {
 		return YES;
 	}
 	return NO;
@@ -340,12 +352,20 @@
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item {
 	if ([(NSString*)[tableColumn identifier] isEqual:@"key"]) {
 		if ([item isKindOfClass:[NSArray class]]) {
-			return [item objectAtIndex:0];
+			NSString *key = [item objectAtIndex:0];
+			if ([key length] == 0) {
+				key = @"Object";
+			}
+			
+			return key;
 		}
-		return [[item allKeys] objectAtIndex:0];
+		return @"Object";
 	} 
 	
 	if ([item isKindOfClass:[NSArray class]]) {
+		if ([[item objectAtIndex:1] isKindOfClass:[NSDictionary class]]) {
+			return nil; //[[[item objectAtIndex:1] allKeys] objectAtIndex:0];
+		}
 		return [item objectAtIndex:1];
 	}
 	
