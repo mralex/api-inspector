@@ -11,7 +11,7 @@
 
 @implementation API_Inspector_AppDelegate
 
-@synthesize window, urlField, resultsView, jsonView, statusLabel, goButton, progressIndicator, jsonArray, isLoading;
+@synthesize window, urlField, resultsView, jsonView, statusLabel, goButton, progressIndicator, jsonArray, isLoading, dataWindow;
 
 - (id) init
 {
@@ -23,7 +23,7 @@
 		[self addObserver:self forKeyPath:@"isLoading" options:(NSKeyValueObservingOptionNew) context:NULL];
 		
 		
-		RawDataWindow *dataWindow = [[RawDataWindow alloc] initWithWindowNibName:@"RawData"];
+		dataWindow = [[RawDataWindow alloc] initWithWindowNibName:@"RawData"];
 		[dataWindow showWindow:self];
 	}
 	return self;
@@ -282,6 +282,8 @@
     self.statusLabel.stringValue = [NSString stringWithFormat:@"Connection failed! %@ %@",
           [error localizedDescription],
           [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]];
+	
+	self.dataWindow.textView.string = @"";
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -293,7 +295,8 @@
 	self.jsonArray = [received yajl_JSONWithOptions:YAJLParserOptionsNone error:&error];
 	
 	if (!error && [self.jsonArray count] > 0) {
-		self.resultsView.string = [self.jsonArray description];
+		self.dataWindow.textView.string = [self.jsonArray description];
+		
 		self.statusLabel.stringValue = [NSString stringWithFormat:@"%d items", [self.jsonArray count]];
 		
 //		NSDictionary *o = [self.jsonArray objectAtIndex:0];
@@ -304,7 +307,7 @@
 		
 		[jsonView reloadData];
 	} else {
-		self.resultsView.string = @"";
+		self.dataWindow.textView.string = @"";
 		self.statusLabel.stringValue = [NSString stringWithFormat:@"Error - Not JSON! (%@)", [error localizedDescription]];
 	}
 	

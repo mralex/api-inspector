@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class RawDataWindow;
+
 @interface API_Inspector_AppDelegate : NSObject 
 {
     NSWindow *window;
@@ -28,6 +30,8 @@
 	NSArray *jsonArray;
 	//NSURLConnection *urlConnection;
 	
+	RawDataWindow *dataWindow;
+	
 	BOOL isLoading;
 }
 
@@ -43,6 +47,8 @@
 @property (nonatomic, retain) IBOutlet NSTextField *statusLabel;
 @property (nonatomic, retain) IBOutlet NSButton *goButton;
 @property (nonatomic, retain) IBOutlet NSProgressIndicator *progressIndicator;
+
+@property (nonatomic, retain) RawDataWindow *dataWindow;
 
 @property (nonatomic, retain) NSArray *jsonArray;
 
