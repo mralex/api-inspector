@@ -24,7 +24,6 @@
 		
 		
 		dataWindow = [[RawDataWindow alloc] initWithWindowNibName:@"RawData"];
-		[dataWindow showWindow:self];
 	}
 	return self;
 }
@@ -259,6 +258,10 @@
 		
 		self.isLoading = NO;
 	}
+}
+
+- (IBAction)showRawData:sender {
+	[dataWindow showWindow:nil];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {

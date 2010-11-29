@@ -57,5 +57,6 @@
 //- (IBAction)saveAction:sender;
 
 - (IBAction)goAction:sender;
+- (IBAction)showRawData:sender;
 
 @end
