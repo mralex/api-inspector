@@ -6,11 +6,11 @@
 //  Copyright Red Process 2010 . All rights reserved.
 //
 
-#import "API_Inspector_AppDelegate.h"
+#import "AppDelegate.h"
 #import "MainWindowController.h"
 #import "RawDataWindow.h"
 
-@implementation API_Inspector_AppDelegate
+@implementation AppDelegate
 
 @synthesize mainWindow, dataWindow;
 

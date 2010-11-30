@@ -11,7 +11,7 @@
 @class MainWindowController;
 @class RawDataWindow;
 
-@interface API_Inspector_AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate>
 {
     //NSWindow *window;
 	

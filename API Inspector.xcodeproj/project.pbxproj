@@ -15,7 +15,7 @@
 		53E5A0B812A4B304008F47E1 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A0B712A4B304008F47E1 /* MainWindowController.m */; };
 		53E5A0BA12A4B404008F47E1 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53E5A0B912A4B404008F47E1 /* MainWindow.xib */; };
 		770B37ED0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 770B37EC0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel */; };
-		77C8280E06725ACE000B614F /* API_Inspector_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C8280C06725ACE000B614F /* API_Inspector_AppDelegate.m */; };
+		77C8280E06725ACE000B614F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C8280C06725ACE000B614F /* AppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -51,8 +51,8 @@
 		53E5A0B912A4B404008F47E1 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		770B37EC0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = API_Inspector_DataModel.xcdatamodel; sourceTree = "<group>"; };
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
-		77C8280B06725ACE000B614F /* API_Inspector_AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_Inspector_AppDelegate.h; sourceTree = "<group>"; };
-		77C8280C06725ACE000B614F /* API_Inspector_AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API_Inspector_AppDelegate.m; sourceTree = "<group>"; };
+		77C8280B06725ACE000B614F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		77C8280C06725ACE000B614F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* API_Inspector-Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = "API_Inspector-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* API Inspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "API Inspector.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -73,8 +73,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				77C8280B06725ACE000B614F /* API_Inspector_AppDelegate.h */,
-				77C8280C06725ACE000B614F /* API_Inspector_AppDelegate.m */,
+				77C8280B06725ACE000B614F /* AppDelegate.h */,
+				77C8280C06725ACE000B614F /* AppDelegate.m */,
 				53E5A07512A2FE51008F47E1 /* RawDataWindow.h */,
 				53E5A07612A2FE51008F47E1 /* RawDataWindow.m */,
 				53E5A0B612A4B304008F47E1 /* MainWindowController.h */,
@@ -227,7 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				77C8280E06725ACE000B614F /* API_Inspector_AppDelegate.m in Sources */,
+				77C8280E06725ACE000B614F /* AppDelegate.m in Sources */,
 				770B37ED0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel in Sources */,
 				53E5A07712A2FE51008F47E1 /* RawDataWindow.m in Sources */,
 				53E5A0B812A4B304008F47E1 /* MainWindowController.m in Sources */,
