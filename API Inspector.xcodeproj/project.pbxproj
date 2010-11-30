@@ -54,6 +54,7 @@
 		53E5A1DC12A4D615008F47E1 /* HttpGetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpGetViewController.h; sourceTree = "<group>"; };
 		53E5A1DD12A4D615008F47E1 /* HttpGetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpGetViewController.m; sourceTree = "<group>"; };
 		53E5A1DF12A4D632008F47E1 /* HttpGetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HttpGetViewController.xib; sourceTree = "<group>"; };
+		53E5A2BA12A4E108008F47E1 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		770B37EC0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = API_Inspector_DataModel.xcdatamodel; sourceTree = "<group>"; };
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		77C8280B06725ACE000B614F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -126,6 +127,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				53E5A2BA12A4E108008F47E1 /* README */,
 			);
 			name = "API Inspector";
 			sourceTree = "<group>";

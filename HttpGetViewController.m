@@ -201,6 +201,14 @@
 	return nil;
 }
 
+- (void)outlineViewSelectionDidChange:(NSNotification *)notification {
+	id item = [jsonView itemAtRow:[jsonView selectedRow]];
+	
+	if ([item isKindOfClass:[NSArray class]]) {
+		self.resultsView.string = [NSString stringWithFormat:@"%@", [item objectAtIndex:1]];
+	}
+}
+
 #pragma mark -
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
