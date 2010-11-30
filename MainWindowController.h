@@ -8,37 +8,31 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class HttpGetViewController;
 
 @interface MainWindowController : NSWindowController {
 	NSTextField *statusLabel;
 	NSProgressIndicator *progressIndicator;
 
-	NSTextField *urlField;
-	NSButton *goButton;
-	NSOutlineView *jsonView;
-	NSTextView *resultsView;
-
-	NSMutableData *received;
-	NSArray *jsonArray;
+	NSView *contentBox;
 	
 	BOOL isLoading;
 	
 	id delegate;
+	
+	HttpGetViewController *httpGetViewController;
 }
 
-@property (nonatomic, retain) IBOutlet NSButton *goButton;
-@property (nonatomic, retain) IBOutlet NSTextField *urlField;
-@property (nonatomic, retain) IBOutlet NSTextView *resultsView;
-@property (nonatomic, retain) IBOutlet NSOutlineView *jsonView;
 
 @property (nonatomic, retain) IBOutlet NSTextField *statusLabel;
 @property (nonatomic, retain) IBOutlet NSProgressIndicator *progressIndicator;
 
-@property (nonatomic, retain) NSArray *jsonArray;
+@property (nonatomic, retain) IBOutlet NSView *contentBox;
+@property (nonatomic, retain) HttpGetViewController *httpGetViewController;
+
 @property (nonatomic, assign) BOOL isLoading;
 
 @property (nonatomic, retain) id delegate;
 
-- (IBAction)goAction:sender;
 
 @end
