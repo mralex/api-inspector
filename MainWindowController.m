@@ -11,14 +11,12 @@
 
 @implementation MainWindowController
 
-@synthesize statusLabel,progressIndicator, isLoading, delegate, contentBox, httpGetViewController;
+@synthesize statusLabel,progressIndicator, contentBox, httpGetViewController;
 
 - (id) init
 {
 	self = [super initWithWindowNibName:@"MainWindow"];
 	if (self != nil) {
-		//self.jsonArray = [NSArray array];
-		self.isLoading = NO;
 	}
 	return self;
 }
@@ -32,7 +30,7 @@
 	NSView *httpGetView = [self.httpGetViewController view];
 	[httpGetView setFrame:[self.contentBox bounds]];
 	[httpGetView setAutoresizingMask:(NSViewWidthSizable| NSViewHeightSizable)];
-	[self.contentBox addSubview:[self.httpGetViewController view]];
+	[self.contentBox addSubview:httpGetView];
 }
 
 - (void)dealloc {

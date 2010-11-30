@@ -13,12 +13,7 @@
 @interface MainWindowController : NSWindowController {
 	NSTextField *statusLabel;
 	NSProgressIndicator *progressIndicator;
-
 	NSView *contentBox;
-	
-	BOOL isLoading;
-	
-	id delegate;
 	
 	HttpGetViewController *httpGetViewController;
 }
@@ -29,10 +24,5 @@
 
 @property (nonatomic, retain) IBOutlet NSView *contentBox;
 @property (nonatomic, retain) HttpGetViewController *httpGetViewController;
-
-@property (nonatomic, assign) BOOL isLoading;
-
-@property (nonatomic, retain) id delegate;
-
 
 @end
