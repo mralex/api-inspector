@@ -13,6 +13,16 @@
 
 @synthesize textView;
 
++ (RawDataWindow *)sharedDataWindow {
+	static RawDataWindow *dataWindow = nil;
+	
+	if (dataWindow == nil) {
+		dataWindow = [[RawDataWindow alloc] init];
+	}
+	
+	return dataWindow;
+}
+
 - (id) init
 {
 	self = [super initWithWindowNibName:@"RawData" owner:self];

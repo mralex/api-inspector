@@ -15,4 +15,7 @@
 
 @property (nonatomic, retain) IBOutlet NSTextView *textView;
 
+
++(RawDataWindow *)sharedDataWindow;
+
 @end

@@ -12,6 +12,8 @@
 		53E59DAA12A1D9E8008F47E1 /* YAJL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53E59D9A12A1D9A4008F47E1 /* YAJL.framework */; };
 		53E5A07712A2FE51008F47E1 /* RawDataWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A07612A2FE51008F47E1 /* RawDataWindow.m */; };
 		53E5A07912A2FE6B008F47E1 /* RawData.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53E5A07812A2FE6B008F47E1 /* RawData.xib */; };
+		53E5A0B812A4B304008F47E1 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A0B712A4B304008F47E1 /* MainWindowController.m */; };
+		53E5A0BA12A4B404008F47E1 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53E5A0B912A4B404008F47E1 /* MainWindow.xib */; };
 		770B37ED0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 770B37EC0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel */; };
 		77C8280E06725ACE000B614F /* API_Inspector_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C8280C06725ACE000B614F /* API_Inspector_AppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -44,6 +46,9 @@
 		53E5A07512A2FE51008F47E1 /* RawDataWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawDataWindow.h; sourceTree = "<group>"; };
 		53E5A07612A2FE51008F47E1 /* RawDataWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawDataWindow.m; sourceTree = "<group>"; };
 		53E5A07812A2FE6B008F47E1 /* RawData.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RawData.xib; sourceTree = "<group>"; };
+		53E5A0B612A4B304008F47E1 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		53E5A0B712A4B304008F47E1 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		53E5A0B912A4B404008F47E1 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		770B37EC0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = API_Inspector_DataModel.xcdatamodel; sourceTree = "<group>"; };
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		77C8280B06725ACE000B614F /* API_Inspector_AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_Inspector_AppDelegate.h; sourceTree = "<group>"; };
@@ -72,6 +77,8 @@
 				77C8280C06725ACE000B614F /* API_Inspector_AppDelegate.m */,
 				53E5A07512A2FE51008F47E1 /* RawDataWindow.h */,
 				53E5A07612A2FE51008F47E1 /* RawDataWindow.m */,
+				53E5A0B612A4B304008F47E1 /* MainWindowController.h */,
+				53E5A0B712A4B304008F47E1 /* MainWindowController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -132,6 +139,7 @@
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				2F7446970DB6B7EA00F9684A /* MainMenu.xib */,
 				53E5A07812A2FE6B008F47E1 /* RawData.xib */,
+				53E5A0B912A4B404008F47E1 /* MainWindow.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -207,6 +215,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				2F7446990DB6B7EA00F9684A /* MainMenu.xib in Resources */,
 				53E5A07912A2FE6B008F47E1 /* RawData.xib in Resources */,
+				53E5A0BA12A4B404008F47E1 /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +230,7 @@
 				77C8280E06725ACE000B614F /* API_Inspector_AppDelegate.m in Sources */,
 				770B37ED0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel in Sources */,
 				53E5A07712A2FE51008F47E1 /* RawDataWindow.m in Sources */,
+				53E5A0B812A4B304008F47E1 /* MainWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +269,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -282,6 +293,7 @@
 					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = API_Inspector_Prefix.pch;

@@ -8,55 +8,39 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class MainWindowController;
 @class RawDataWindow;
 
-@interface API_Inspector_AppDelegate : NSObject 
+@interface API_Inspector_AppDelegate : NSObject <NSApplicationDelegate>
 {
-    NSWindow *window;
+    //NSWindow *window;
 	
-	NSTextField *urlField;
-	NSButton *goButton;
-	
-	NSOutlineView *jsonView;
-	NSTextView *resultsView;
-	NSTextField *statusLabel;
-	NSProgressIndicator *progressIndicator;
-    
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;
 	
-	NSMutableData *received;
-	NSArray *jsonArray;
+
 	//NSURLConnection *urlConnection;
 	
+	MainWindowController *mainWindow;
 	RawDataWindow *dataWindow;
 	
-	BOOL isLoading;
 }
 
-@property (nonatomic, retain) IBOutlet NSWindow *window;
+//@property (nonatomic, retain) IBOutlet NSWindow *window;
+
+@property (nonatomic, retain) MainWindowController *mainWindow;
 
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 
-@property (nonatomic, retain) IBOutlet NSTextField *urlField;
-@property (nonatomic, retain) IBOutlet NSTextView *resultsView;
-@property (nonatomic, retain) IBOutlet NSOutlineView *jsonView;
-@property (nonatomic, retain) IBOutlet NSTextField *statusLabel;
-@property (nonatomic, retain) IBOutlet NSButton *goButton;
-@property (nonatomic, retain) IBOutlet NSProgressIndicator *progressIndicator;
-
-@property (nonatomic, retain) RawDataWindow *dataWindow;
-
-@property (nonatomic, retain) NSArray *jsonArray;
-
-@property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, retain) IBOutlet RawDataWindow *dataWindow;
 
 //- (IBAction)saveAction:sender;
 
-- (IBAction)goAction:sender;
 - (IBAction)showRawData:sender;
+
+- (void)showMainWindow;
 
 @end
