@@ -303,6 +303,7 @@
 				INFOPLIST_FILE = "API_Inspector-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "API Inspector";
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = app;
@@ -326,6 +327,7 @@
 				INFOPLIST_FILE = "API_Inspector-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "API Inspector";
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = app;

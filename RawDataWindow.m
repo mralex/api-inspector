@@ -11,7 +11,7 @@
 
 @implementation RawDataWindow
 
-@synthesize textView;
+@synthesize textView, contentTypeField;
 
 + (RawDataWindow *)sharedDataWindow {
 	static RawDataWindow *dataWindow = nil;
@@ -34,7 +34,7 @@
 
 - (void)windowDidLoad {
 	[self.textView setFont:[NSFont userFixedPitchFontOfSize:11]];
-
+	self.contentTypeField.stringValue = @"";
 }
 
 @end

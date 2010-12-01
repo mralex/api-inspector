@@ -11,7 +11,7 @@
 #import "OutlineObject.h"
 
 @implementation HttpGetViewController
-@synthesize urlField, resultsView, jsonView, goButton, jsonArray, isLoading, statusMessage;
+@synthesize urlField, resultsView, jsonView, goButton, jsonArray, isLoading, statusMessage, contentType;
 
 - (id) init
 {
@@ -28,16 +28,16 @@
 	return @"HttpGetViewController";
 }
 
-- (void)dealloc {
-	
-	[urlField release];
-	[resultsView release];
-	[goButton release];
-	
-	[jsonArray dealloc];
-	
-    [super dealloc];
-}
+//- (void)dealloc {
+//	
+//	[urlField release];
+//	[resultsView release];
+//	[goButton release];
+//	
+//	[jsonArray dealloc];
+//	
+//    [super dealloc];
+//}
 
 
 #pragma mark -
@@ -69,6 +69,11 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
 	self.statusMessage = @"Loading...";
 	[received setLength:0];
+	
+	NSLog(@"Response: %@", [[(NSHTTPURLResponse *)response allHeaderFields] description]);
+	
+	self.contentType = [[(NSHTTPURLResponse *)response allHeaderFields] objectForKey:@"Content-Type"];
+	[[[RawDataWindow sharedDataWindow] contentTypeField] setStringValue:self.contentType];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
@@ -146,16 +151,14 @@
 	}
 
 	if (!error && [self.jsonArray count] > 0) {
-		[[[RawDataWindow sharedDataWindow] textView] setString:[NSString stringWithUTF8String:[received bytes]]];
-		
 		self.statusMessage = [NSString stringWithFormat:@"%d items", [self.jsonArray count]];
 				
-		[jsonView reloadData];
 	} else {
 		self.statusMessage = [NSString stringWithFormat:@"Error - Not JSON! (%@)", [error localizedDescription]];
-		
-		[[[RawDataWindow sharedDataWindow] textView] setString:@""];
 	}
+
+	[[[RawDataWindow sharedDataWindow] textView] setString:[NSString stringWithUTF8String:[received bytes]]];
+	[jsonView reloadData];
 	
 	[connection release];
 	[received release];

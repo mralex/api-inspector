@@ -21,6 +21,7 @@
 
 	BOOL isLoading;
 	NSString *statusMessage;
+	NSString *contentType;
 }
 
 @property (nonatomic, retain) IBOutlet NSButton *goButton;
@@ -32,6 +33,7 @@
 
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, retain) NSString *statusMessage;
+@property (nonatomic, retain) NSString *contentType;
 
 - (IBAction)goAction:sender;
 

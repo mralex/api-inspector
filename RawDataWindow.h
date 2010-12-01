@@ -11,10 +11,11 @@
 
 @interface RawDataWindow : NSWindowController {
 	NSTextView *textView;
+	NSTextField *contentTypeField;
 }
 
 @property (nonatomic, retain) IBOutlet NSTextView *textView;
-
+@property (nonatomic, retain) IBOutlet NSTextField *contentTypeField;
 
 +(RawDataWindow *)sharedDataWindow;
 
