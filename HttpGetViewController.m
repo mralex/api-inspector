@@ -99,18 +99,18 @@
 	oObj.name = key;
 	
 	if ([object isKindOfClass:[NSDictionary class]] || [object isKindOfClass:[NSArray class]]) {
-		//oObj.children = [NSMutableArray array];
+		oObj.children = [NSMutableArray array];
 		
 		if ([object isKindOfClass:[NSDictionary class]]) {
-			oObj.value = @"Dictionary!";
-			//			[object enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
-//				OutlineObject *child = [self parseJsonObject:object withKey:key];
-//				
-//				[oObj.children addObject:child];
-//				[child release];
-//			}];
+			oObj.value = [NSString stringWithFormat:@"Dictionary! %d items", [[object allKeys] count]];
+			[object enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
+				OutlineObject *child = [self parseJsonObject:object withKey:key];
+				
+				[oObj.children addObject:child];
+				[child release];
+			}];
 		} else {
-			oObj.value = @"Array!";
+			oObj.value = [NSString stringWithFormat:@"Array! %d items", [object count]];;
 //			[object enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop) {
 //				OutlineObject *child = [self parseJsonObject:object withKey:@"Object"];
 //				
@@ -193,7 +193,7 @@
 			//[oObj release];
 		}];
 	}
-	
+	NSLog(@"here i am");
 	if (!error && [self.jsonArray count] > 0) {
 		//delegate.dataWindow.textView.string = [self.jsonArray description];
 		[[[RawDataWindow sharedDataWindow] textView] setString:[self.jsonArray description]];
