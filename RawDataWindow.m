@@ -27,10 +27,14 @@
 {
 	self = [super initWithWindowNibName:@"RawData" owner:self];
 	if (self != nil) {
-		
+
 	}
 	return self;
 }
 
+- (void)windowDidLoad {
+	[self.textView setFont:[NSFont fontWithName:@"Menlo" size:11]];
+
+}
 
 @end
