@@ -23,6 +23,13 @@
 	return self;
 }
 
+- (void) loadView {
+	[super loadView];
+	
+	[self.resultsView setFont:[NSFont userFixedPitchFontOfSize:11]];
+
+}
+
 - (NSString *)nibName {
 	NSLog(@"oh hai!");
 	return @"HttpGetViewController";
