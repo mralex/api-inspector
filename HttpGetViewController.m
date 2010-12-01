@@ -146,7 +146,7 @@
 	}
 
 	if (!error && [self.jsonArray count] > 0) {
-		[[[RawDataWindow sharedDataWindow] textView] setString:[self.jsonArray description]];
+		[[[RawDataWindow sharedDataWindow] textView] setString:[NSString stringWithUTF8String:[received bytes]]];
 		
 		self.statusMessage = [NSString stringWithFormat:@"%d items", [self.jsonArray count]];
 				
