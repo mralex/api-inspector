@@ -33,7 +33,7 @@
 }
 
 - (void)windowDidLoad {
-	[self.textView setFont:[NSFont fontWithName:@"Menlo" size:11]];
+	[self.textView setFont:[NSFont userFixedPitchFontOfSize:11]];
 
 }
 
