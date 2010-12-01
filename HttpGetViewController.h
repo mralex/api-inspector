@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class OutlineObject;
 
 @interface HttpGetViewController : NSViewController {
 	NSTextField *urlField;
@@ -16,7 +17,7 @@
 	NSTextView *resultsView;
 	
 	NSMutableData *received;
-	NSArray *jsonArray;
+	NSMutableArray *jsonArray;
 
 	BOOL isLoading;
 	NSString *statusMessage;
@@ -27,11 +28,12 @@
 @property (nonatomic, retain) IBOutlet NSTextView *resultsView;
 @property (nonatomic, retain) IBOutlet NSOutlineView *jsonView;
 
-@property (nonatomic, retain) NSArray *jsonArray;
+@property (nonatomic, retain) NSMutableArray *jsonArray;
 
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, retain) NSString *statusMessage;
 
 - (IBAction)goAction:sender;
 
+- (OutlineObject *) parseJsonObject:(id)object withKey:(id)key;
 @end

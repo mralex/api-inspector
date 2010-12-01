@@ -16,6 +16,7 @@
 		53E5A0BA12A4B404008F47E1 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53E5A0B912A4B404008F47E1 /* MainWindow.xib */; };
 		53E5A1DE12A4D615008F47E1 /* HttpGetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A1DD12A4D615008F47E1 /* HttpGetViewController.m */; };
 		53E5A1E012A4D632008F47E1 /* HttpGetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53E5A1DF12A4D632008F47E1 /* HttpGetViewController.xib */; };
+		53E5A34A12A5FBF3008F47E1 /* OutlineObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A34912A5FBF3008F47E1 /* OutlineObject.m */; };
 		770B37ED0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 770B37EC0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel */; };
 		77C8280E06725ACE000B614F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C8280C06725ACE000B614F /* AppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -55,6 +56,8 @@
 		53E5A1DD12A4D615008F47E1 /* HttpGetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpGetViewController.m; sourceTree = "<group>"; };
 		53E5A1DF12A4D632008F47E1 /* HttpGetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HttpGetViewController.xib; sourceTree = "<group>"; };
 		53E5A2BA12A4E108008F47E1 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		53E5A34812A5FBF3008F47E1 /* OutlineObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutlineObject.h; sourceTree = "<group>"; };
+		53E5A34912A5FBF3008F47E1 /* OutlineObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutlineObject.m; sourceTree = "<group>"; };
 		770B37EC0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = API_Inspector_DataModel.xcdatamodel; sourceTree = "<group>"; };
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		77C8280B06725ACE000B614F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -175,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				770B37EC0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel */,
+				53E5A34812A5FBF3008F47E1 /* OutlineObject.h */,
+				53E5A34912A5FBF3008F47E1 /* OutlineObject.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				53E5A07712A2FE51008F47E1 /* RawDataWindow.m in Sources */,
 				53E5A0B812A4B304008F47E1 /* MainWindowController.m in Sources */,
 				53E5A1DE12A4D615008F47E1 /* HttpGetViewController.m in Sources */,
+				53E5A34A12A5FBF3008F47E1 /* OutlineObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +295,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -313,7 +319,7 @@
 					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = API_Inspector_Prefix.pch;
