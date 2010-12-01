@@ -152,8 +152,7 @@
 				
 		[jsonView reloadData];
 	} else {
-		//delegate.dataWindow.textView.string = @"";
-		//		self.statusLabel.stringValue = [NSString stringWithFormat:@"Error - Not JSON! (%@)", [error localizedDescription]];
+		self.statusMessage = [NSString stringWithFormat:@"Error - Not JSON! (%@)", [error localizedDescription]];
 		
 		[[[RawDataWindow sharedDataWindow] textView] setString:@""];
 	}
