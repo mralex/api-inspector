@@ -94,7 +94,6 @@
 }
 
 - (OutlineObject *) parseJsonObject:(id)object withKey:(id)key {
-	NSLog(@"Parsing %@, %@", key, [object className]);
 	OutlineObject *oObj = [[OutlineObject alloc] init];
 	oObj.name = key;
 	
@@ -107,7 +106,6 @@
 				OutlineObject *child = [self parseJsonObject:childObject withKey:key];
 				
 				[oObj.children addObject:child];
-				[child release];
 			}];
 		} else {
 			oObj.value = [NSString stringWithFormat:@"%d items", [object count]];;
@@ -115,7 +113,6 @@
 				OutlineObject *child = [self parseJsonObject:childObject withKey:@"Object"];
 				
 				[oObj.children addObject:child];
-				[child release];
 			}];
 		}
 	} else {
@@ -126,9 +123,6 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-	
-	//self.resultsView.string = [NSString stringWithUTF8String:[received mutableBytes]];
-	
 	NSError *error = nil;
 	
 	id json = [received yajl_JSONWithOptions:YAJLParserOptionsNone error:&error];
@@ -137,75 +131,25 @@
 	self.jsonArray = [NSMutableArray array];
 	
 	if ([json isKindOfClass:[NSDictionary class]]) {
-		NSLog(@"Received dictionary, parsing!");
-		//self.jsonArray = [NSArray arrayWithObject:json];
 		[json enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
 			OutlineObject *oObj = [self parseJsonObject:object withKey:key];
 			
-//			[[OutlineObject alloc] init];
-//			oObj.name = key;
-//			
-//			if ([object isKindOfClass:[NSDictionary class]] || [object isKindOfClass:[NSArray class]]) {
-//				oObj.children = [NSMutableArray array];
-//				
-//				if ([object isKindOfClass:[NSDictionary class]]) {
-//					[object enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
-//						
-//					}];
-//				} else {
-//					[object enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop) {
-//					
-//					}];
-//				}
-//			} else {
-//				oObj.value = object;
-//			}
-			
 			[self.jsonArray addObject:oObj];
-			//[oObj release];
 		}];
 				
 	} else {
-		//self.jsonArray = json;		
 		[json enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop) {
 			OutlineObject *oObj = [self parseJsonObject:object withKey:@"Object"];
 			
-			//			[[OutlineObject alloc] init];
-			//			oObj.name = key;
-			//			
-			//			if ([object isKindOfClass:[NSDictionary class]] || [object isKindOfClass:[NSArray class]]) {
-			//				oObj.children = [NSMutableArray array];
-			//				
-			//				if ([object isKindOfClass:[NSDictionary class]]) {
-			//					[object enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
-			//						
-			//					}];
-			//				} else {
-			//					[object enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop) {
-			//					
-			//					}];
-			//				}
-			//			} else {
-			//				oObj.value = object;
-			//			}
-			
 			[self.jsonArray addObject:oObj];
-			//[oObj release];
 		}];
 	}
-	NSLog(@"here i am");
+
 	if (!error && [self.jsonArray count] > 0) {
-		//delegate.dataWindow.textView.string = [self.jsonArray description];
 		[[[RawDataWindow sharedDataWindow] textView] setString:[self.jsonArray description]];
 		
 		self.statusMessage = [NSString stringWithFormat:@"%d items", [self.jsonArray count]];
-		
-		//		NSDictionary *o = [self.jsonArray objectAtIndex:0];
-		//		o = [o objectForKey:[[o allKeys] objectAtIndex:0]];
-		
-		//NSLog(@"first object is type of: %@", [[jsonArray objectAtIndex:0] className]);
-		//NSLog(@"first object's first object is type of: %@ (key: %@, value: %@)", [[o objectForKey:[[o allKeys] objectAtIndex:0]] className], [[o allKeys] objectAtIndex:0], [o objectForKey:[[o allKeys] objectAtIndex:0]]);
-		
+				
 		[jsonView reloadData];
 	} else {
 		//delegate.dataWindow.textView.string = @"";
@@ -213,9 +157,6 @@
 		
 		[[[RawDataWindow sharedDataWindow] textView] setString:@""];
 	}
-	
-	
-//	[progressIndicator stopAnimation:nil];
 	
 	[connection release];
 	[received release];
@@ -228,9 +169,7 @@
 #pragma mark -
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item {
-	NSLog(@"num for %@", [item className]);
 	if (item == nil) {
-		NSLog(@"toplevel count: %d", [jsonArray count]);
 		return [jsonArray count];
 	} else if ([item children] != nil) {
 		return [[item children] count];
@@ -246,8 +185,6 @@
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item {
-	NSLog(@"does it expand? %@", [item className]);
-	
 	if (item && ([item children] != nil)) {
 		return YES;
 	}
