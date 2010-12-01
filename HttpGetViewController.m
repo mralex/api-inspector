@@ -102,21 +102,21 @@
 		oObj.children = [NSMutableArray array];
 		
 		if ([object isKindOfClass:[NSDictionary class]]) {
-			oObj.value = [NSString stringWithFormat:@"Dictionary! %d items", [[object allKeys] count]];
-			[object enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
-				OutlineObject *child = [self parseJsonObject:object withKey:key];
+			oObj.value = [NSString stringWithFormat:@"%d items", [[object allKeys] count]];
+			[object enumerateKeysAndObjectsUsingBlock:^(id key, id childObject, BOOL *stop) {
+				OutlineObject *child = [self parseJsonObject:childObject withKey:key];
 				
 				[oObj.children addObject:child];
 				[child release];
 			}];
 		} else {
-			oObj.value = [NSString stringWithFormat:@"Array! %d items", [object count]];;
-//			[object enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop) {
-//				OutlineObject *child = [self parseJsonObject:object withKey:@"Object"];
-//				
-//				[oObj.children addObject:child];
-//				[child release];
-//			}];
+			oObj.value = [NSString stringWithFormat:@"%d items", [object count]];;
+			[object enumerateObjectsUsingBlock:^(id childObject, NSUInteger index, BOOL *stop) {
+				OutlineObject *child = [self parseJsonObject:childObject withKey:@"Object"];
+				
+				[oObj.children addObject:child];
+				[child release];
+			}];
 		}
 	} else {
 		oObj.value = object;
