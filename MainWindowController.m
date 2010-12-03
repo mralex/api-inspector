@@ -8,10 +8,11 @@
 
 #import "MainWindowController.h"
 #import "HttpGetViewController.h"
+#import "HttpPostViewController.h"
 
 @implementation MainWindowController
 
-@synthesize statusLabel,progressIndicator, contentBox, httpGetViewController;
+@synthesize statusLabel,progressIndicator, contentBox, httpGetViewController, httpPostViewController;
 
 - (id) init
 {
@@ -23,7 +24,12 @@
 
 - (void)windowDidLoad {
 	NSLog(@"window did load");
-	self.httpGetViewController = [[HttpGetViewController alloc] init];
+	
+	[[[self window] toolbar] setSelectedItemIdentifier:@"get"];
+	
+	self.httpGetViewController = [[HttpGetViewController alloc] initWithNibName:@"HttpGetView" bundle:nil];
+	self.httpPostViewController = [[HttpPostViewController alloc] initWithNibName:@"HttpPostView" bundle:nil];
+	
 	[httpGetViewController addObserver:self forKeyPath:@"isLoading" options:(NSKeyValueObservingOptionNew) context:NULL];
 	[httpGetViewController addObserver:self forKeyPath:@"statusMessage" options:(NSKeyValueObservingOptionNew) context:NULL];
 	
@@ -31,6 +37,8 @@
 	[httpGetView setFrame:[self.contentBox bounds]];
 	[httpGetView setAutoresizingMask:(NSViewWidthSizable| NSViewHeightSizable)];
 	[self.contentBox addSubview:httpGetView];
+	activeView = kHttpViewGet;
+	
 }
 
 - (void)dealloc {
@@ -41,6 +49,28 @@
     [super dealloc];
 }
 
+
+- (IBAction)switchView:(NSToolbarItem *)toolbarItem {
+	NSString *identifier = [toolbarItem itemIdentifier];
+	
+	if ([identifier isEqualToString:@"get"] && (activeView != kHttpViewGet)) {
+		
+		
+		NSView *httpGetView = [self.httpGetViewController view];
+		[httpGetView setFrame:[self.contentBox bounds]];
+		[httpGetView setAutoresizingMask:(NSViewWidthSizable| NSViewHeightSizable)];
+		[self.contentBox replaceSubview:[[self.contentBox subviews] objectAtIndex:0] with:httpGetView];
+		activeView = kHttpViewGet;
+		
+	} else if ([identifier isEqualToString:@"post"] && (activeView != kHttpViewPost)) {
+		NSView *httpPostView = [self.httpPostViewController view];
+		[httpPostView setFrame:[self.contentBox bounds]];
+		[httpPostView setAutoresizingMask:(NSViewWidthSizable| NSViewHeightSizable)];
+		[self.contentBox replaceSubview:[[self.contentBox subviews] objectAtIndex:0] with:httpPostView];
+		activeView = kHttpViewPost;
+		
+	}
+}
 
 #pragma mark -
 

@@ -15,8 +15,10 @@
 		53E5A0B812A4B304008F47E1 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A0B712A4B304008F47E1 /* MainWindowController.m */; };
 		53E5A0BA12A4B404008F47E1 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53E5A0B912A4B404008F47E1 /* MainWindow.xib */; };
 		53E5A1DE12A4D615008F47E1 /* HttpGetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A1DD12A4D615008F47E1 /* HttpGetViewController.m */; };
-		53E5A1E012A4D632008F47E1 /* HttpGetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53E5A1DF12A4D632008F47E1 /* HttpGetViewController.xib */; };
+		53E5A1E012A4D632008F47E1 /* HttpGetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53E5A1DF12A4D632008F47E1 /* HttpGetView.xib */; };
 		53E5A34A12A5FBF3008F47E1 /* OutlineObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A34912A5FBF3008F47E1 /* OutlineObject.m */; };
+		53E5A4BB12A8C514008F47E1 /* HttpPostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53E5A4BA12A8C514008F47E1 /* HttpPostView.xib */; };
+		53E5A4C812A8C5A8008F47E1 /* HttpPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A4C712A8C5A8008F47E1 /* HttpPostViewController.m */; };
 		770B37ED0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 770B37EC0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel */; };
 		77C8280E06725ACE000B614F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C8280C06725ACE000B614F /* AppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -54,10 +56,13 @@
 		53E5A0B912A4B404008F47E1 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		53E5A1DC12A4D615008F47E1 /* HttpGetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpGetViewController.h; sourceTree = "<group>"; };
 		53E5A1DD12A4D615008F47E1 /* HttpGetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpGetViewController.m; sourceTree = "<group>"; };
-		53E5A1DF12A4D632008F47E1 /* HttpGetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HttpGetViewController.xib; sourceTree = "<group>"; };
+		53E5A1DF12A4D632008F47E1 /* HttpGetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HttpGetView.xib; sourceTree = "<group>"; };
 		53E5A2BA12A4E108008F47E1 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		53E5A34812A5FBF3008F47E1 /* OutlineObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutlineObject.h; sourceTree = "<group>"; };
 		53E5A34912A5FBF3008F47E1 /* OutlineObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutlineObject.m; sourceTree = "<group>"; };
+		53E5A4BA12A8C514008F47E1 /* HttpPostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HttpPostView.xib; sourceTree = "<group>"; };
+		53E5A4C612A8C5A8008F47E1 /* HttpPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpPostViewController.h; sourceTree = "<group>"; };
+		53E5A4C712A8C5A8008F47E1 /* HttpPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpPostViewController.m; sourceTree = "<group>"; };
 		770B37EC0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = API_Inspector_DataModel.xcdatamodel; sourceTree = "<group>"; };
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		77C8280B06725ACE000B614F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -90,6 +95,8 @@
 				53E5A0B712A4B304008F47E1 /* MainWindowController.m */,
 				53E5A1DC12A4D615008F47E1 /* HttpGetViewController.h */,
 				53E5A1DD12A4D615008F47E1 /* HttpGetViewController.m */,
+				53E5A4C612A8C5A8008F47E1 /* HttpPostViewController.h */,
+				53E5A4C712A8C5A8008F47E1 /* HttpPostViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -169,7 +176,8 @@
 				2F7446970DB6B7EA00F9684A /* MainMenu.xib */,
 				53E5A07812A2FE6B008F47E1 /* RawData.xib */,
 				53E5A0B912A4B404008F47E1 /* MainWindow.xib */,
-				53E5A1DF12A4D632008F47E1 /* HttpGetViewController.xib */,
+				53E5A1DF12A4D632008F47E1 /* HttpGetView.xib */,
+				53E5A4BA12A8C514008F47E1 /* HttpPostView.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -239,7 +247,8 @@
 				2F7446990DB6B7EA00F9684A /* MainMenu.xib in Resources */,
 				53E5A07912A2FE6B008F47E1 /* RawData.xib in Resources */,
 				53E5A0BA12A4B404008F47E1 /* MainWindow.xib in Resources */,
-				53E5A1E012A4D632008F47E1 /* HttpGetViewController.xib in Resources */,
+				53E5A1E012A4D632008F47E1 /* HttpGetView.xib in Resources */,
+				53E5A4BB12A8C514008F47E1 /* HttpPostView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +266,7 @@
 				53E5A0B812A4B304008F47E1 /* MainWindowController.m in Sources */,
 				53E5A1DE12A4D615008F47E1 /* HttpGetViewController.m in Sources */,
 				53E5A34A12A5FBF3008F47E1 /* OutlineObject.m in Sources */,
+				53E5A4C812A8C5A8008F47E1 /* HttpPostViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

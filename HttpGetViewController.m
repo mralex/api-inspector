@@ -13,39 +13,14 @@
 @implementation HttpGetViewController
 @synthesize urlField, resultsView, jsonView, goButton, jsonArray, isLoading, statusMessage, contentType;
 
-- (id) init
-{
-	self = [super init];
-	if (self != nil) {
-		jsonArray = [[NSMutableArray array] retain];
-		[self addObserver:self forKeyPath:@"isLoading" options:(NSKeyValueObservingOptionNew) context:NULL];	
-	}
-	return self;
-}
-
 - (void) loadView {
 	[super loadView];
 	
 	[self.resultsView setFont:[NSFont userFixedPitchFontOfSize:11]];
+	jsonArray = [NSMutableArray array];
+	[self addObserver:self forKeyPath:@"isLoading" options:(NSKeyValueObservingOptionNew) context:NULL];	
 
 }
-
-- (NSString *)nibName {
-	NSLog(@"oh hai!");
-	return @"HttpGetViewController";
-}
-
-//- (void)dealloc {
-//	
-//	[urlField release];
-//	[resultsView release];
-//	[goButton release];
-//	
-//	[jsonArray dealloc];
-//	
-//    [super dealloc];
-//}
-
 
 #pragma mark -
 #pragma mark URL Handling
