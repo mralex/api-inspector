@@ -16,6 +16,8 @@
 - (void) loadView {
 	[super loadView];
 	
+	parseType = -1;
+	
 	[self.resultsView setFont:[NSFont userFixedPitchFontOfSize:11]];
 	jsonArray = [NSMutableArray array];
 	[self addObserver:self forKeyPath:@"isLoading" options:(NSKeyValueObservingOptionNew) context:NULL];	
@@ -56,6 +58,15 @@
 	
 	self.contentType = [[(NSHTTPURLResponse *)response allHeaderFields] objectForKey:@"Content-Type"];
 	[[[RawDataWindow sharedDataWindow] contentTypeField] setStringValue:self.contentType];
+	
+	// [NSString rangeOfString:theStringYouWant] != NSMakeRange(NSNotFound,0)
+	if ([self.contentType rangeOfString:@"application/xml"].location != NSNotFound) {
+		parseType = contentTypeXml;
+	} else if ([self.contentType rangeOfString:@"application/json"].location != NSNotFound) {
+		parseType = contentTypeJson;		
+	} else {
+		parseType = -1;
+	}
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
@@ -109,9 +120,8 @@
 	return oObj;
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+- (void)parseDataJson {
 	NSError *error = nil;
-	
 	id json = [received yajl_JSONWithOptions:YAJLParserOptionsNone error:&error];
 	
 	self.jsonArray = nil;
@@ -123,7 +133,7 @@
 			
 			[self.jsonArray addObject:oObj];
 		}];
-				
+		
 	} else {
 		[json enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop) {
 			OutlineObject *oObj = [self parseJsonObject:object withKey:@"Object"];
@@ -131,21 +141,50 @@
 			[self.jsonArray addObject:oObj];
 		}];
 	}
-
+	
 	if (!error && [self.jsonArray count] > 0) {
 		self.statusMessage = [NSString stringWithFormat:@"%d items", [self.jsonArray count]];
-				
+		
 	} else {
 		self.statusMessage = [NSString stringWithFormat:@"Error - Not JSON! (%@)", [error localizedDescription]];
 	}
-
-	[[[RawDataWindow sharedDataWindow] textView] setString:[NSString stringWithUTF8String:[received bytes]]];
 	[jsonView reloadData];
+	[received release];
+	self.isLoading = NO;
+}
+
+- (void)parseDataXml {
+	self.statusMessage = @"Got some XML!";
+	
+	self.jsonArray = nil;
+	[jsonView reloadData];
+	[received release];
+	self.isLoading = NO;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+	
+	[[[RawDataWindow sharedDataWindow] textView] setString:[NSString stringWithUTF8String:[received bytes]]];
+	
+	
+	switch (parseType) {
+		case contentTypeXml:
+			[self parseDataXml];
+			break;
+		case contentTypeJson:
+			[self parseDataJson];
+			break;
+		default:
+			self.statusMessage = @"Error - Unknown content type";
+			self.jsonArray = nil;
+			[jsonView reloadData];
+			[received release];
+			self.isLoading = NO;
+			break;
+	}
 	
 	[connection release];
-	[received release];
 	
-	self.isLoading = NO;
 }
 
 #pragma mark -

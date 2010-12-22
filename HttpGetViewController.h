@@ -10,6 +10,11 @@
 
 @class OutlineObject;
 
+enum ContentTypes {
+	contentTypeJson,
+	contentTypeXml
+};
+
 @interface HttpGetViewController : NSViewController {
 	NSTextField *urlField;
 	NSButton *goButton;
@@ -22,6 +27,7 @@
 	BOOL isLoading;
 	NSString *statusMessage;
 	NSString *contentType;
+	int parseType;
 }
 
 @property (nonatomic, retain) IBOutlet NSButton *goButton;
@@ -38,4 +44,8 @@
 - (IBAction)goAction:sender;
 
 - (OutlineObject *) parseJsonObject:(id)object withKey:(id)key;
+
+- (void)parseDataJson;
+- (void)parseDataXml;
+
 @end
