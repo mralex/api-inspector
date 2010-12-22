@@ -207,13 +207,17 @@
 	
 	[[[RawDataWindow sharedDataWindow] textView] setString:[NSString stringWithUTF8String:[received bytes]]];
 	
+	NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+	NSInvocationOperation *op;
 	
 	switch (parseType) {
 		case contentTypeXml:
-			[self parseDataXml];
+			op = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(parseDataXml) object:nil];
+			[queue addOperation:op];
 			break;
 		case contentTypeJson:
-			[self parseDataJson];
+			op = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(parseDataJson) object:nil];
+			[queue addOperation:op];
 			break;
 		default:
 			self.statusMessage = @"Error - Unknown content type";
