@@ -48,5 +48,6 @@ enum ContentTypes {
 
 - (void)parseDataJson;
 - (void)parseDataXml;
+- (void)parsingDidFinishWithMessage:(NSString *)message;
 
 @end

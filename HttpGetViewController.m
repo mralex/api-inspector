@@ -165,14 +165,11 @@
 	}
 	
 	if (!error && [self.jsonArray count] > 0) {
-		self.statusMessage = [NSString stringWithFormat:@"%d items", [self.jsonArray count]];
+		[self performSelectorOnMainThread:@selector(parsingDidFinishWithMessage:) withObject:[NSString stringWithFormat:@"%d items", [self.jsonArray count]] waitUntilDone:NO];
 		
 	} else {
-		self.statusMessage = [NSString stringWithFormat:@"Error - Not JSON! (%@)", [error localizedDescription]];
+		[self performSelectorOnMainThread:@selector(parsingDidFinishWithMessage:) withObject:[NSString stringWithFormat:@"Error - Not JSON! (%@)", [error localizedDescription]] waitUntilDone:NO];
 	}
-	[jsonView reloadData];
-	[received release];
-	self.isLoading = NO;
 }
 
 - (void)parseDataXml {
@@ -198,6 +195,11 @@
 	}
 	
 	[xml release];
+	[self performSelectorOnMainThread:@selector(parsingDidFinishWithMessage:) withObject:[NSString stringWithFormat:@"%d items", count] waitUntilDone:NO];
+}
+
+- (void)parsingDidFinishWithMessage:(NSString *)message {
+	self.statusMessage = message;
 	[jsonView reloadData];
 	[received release];
 	self.isLoading = NO;
