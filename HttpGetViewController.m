@@ -11,7 +11,7 @@
 #import "OutlineObject.h"
 
 @implementation HttpGetViewController
-@synthesize urlField, resultsView, jsonView, goButton, jsonArray, isLoading, statusMessage, contentType;
+@synthesize urlField, resultsView, dataView, goButton, dataArray, isLoading, statusMessage, contentType;
 
 - (void) loadView {
 	[super loadView];
@@ -19,7 +19,7 @@
 	parseType = -1;
 	
 	[self.resultsView setFont:[NSFont userFixedPitchFontOfSize:11]];
-	jsonArray = [NSMutableArray array];
+	dataArray = [NSMutableArray array];
 	[self addObserver:self forKeyPath:@"isLoading" options:(NSKeyValueObservingOptionNew) context:NULL];	
 
 }
@@ -146,26 +146,26 @@
 	NSError *error = nil;
 	id json = [received yajl_JSONWithOptions:YAJLParserOptionsNone error:&error];
 	
-	self.jsonArray = nil;
-	self.jsonArray = [NSMutableArray array];
+	self.dataArray = nil;
+	self.dataArray = [NSMutableArray array];
 	
 	if ([json isKindOfClass:[NSDictionary class]]) {
 		[json enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
 			OutlineObject *oObj = [self parseJsonObject:object withKey:key];
 			
-			[self.jsonArray addObject:oObj];
+			[self.dataArray addObject:oObj];
 		}];
 		
 	} else {
 		[json enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop) {
 			OutlineObject *oObj = [self parseJsonObject:object withKey:@"Object"];
 			
-			[self.jsonArray addObject:oObj];
+			[self.dataArray addObject:oObj];
 		}];
 	}
 	
-	if (!error && [self.jsonArray count] > 0) {
-		[self performSelectorOnMainThread:@selector(parsingDidFinishWithMessage:) withObject:[NSString stringWithFormat:@"%d items", [self.jsonArray count]] waitUntilDone:NO];
+	if (!error && [self.dataArray count] > 0) {
+		[self performSelectorOnMainThread:@selector(parsingDidFinishWithMessage:) withObject:[NSString stringWithFormat:@"%d items", [self.dataArray count]] waitUntilDone:NO];
 		
 	} else {
 		[self performSelectorOnMainThread:@selector(parsingDidFinishWithMessage:) withObject:[NSString stringWithFormat:@"Error - Not JSON! (%@)", [error localizedDescription]] waitUntilDone:NO];
@@ -176,8 +176,8 @@
 	self.statusMessage = @"Got some XML!";
 	NSLog(@"XML");
 	
-	self.jsonArray = nil;
-	self.jsonArray = [NSMutableArray array];
+	self.dataArray = nil;
+	self.dataArray = [NSMutableArray array];
 	
 	NSXMLDocument *xml;
 	NSError *error = nil;
@@ -191,7 +191,7 @@
 	
 	for (i = 0; i < count; i++) {
 		NSXMLNode *child = [[xml rootElement] childAtIndex:i];
-		[self.jsonArray addObject:[self traverseXmlNode:child]];
+		[self.dataArray addObject:[self traverseXmlNode:child]];
 	}
 	
 	[xml release];
@@ -200,7 +200,7 @@
 
 - (void)parsingDidFinishWithMessage:(NSString *)message {
 	self.statusMessage = message;
-	[jsonView reloadData];
+	[dataView reloadData];
 	[received release];
 	self.isLoading = NO;
 }
@@ -224,8 +224,8 @@
 			break;
 		default:
 			self.statusMessage = @"Error - Unknown content type";
-			self.jsonArray = nil;
-			[jsonView reloadData];
+			self.dataArray = nil;
+			[dataView reloadData];
 			[received release];
 			self.isLoading = NO;
 			break;
@@ -241,7 +241,7 @@
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item {
 	if (item == nil) {
-		return [jsonArray count];
+		return [dataArray count];
 	} else if ([item children] != nil) {
 		return [[item children] count];
 	}
@@ -252,7 +252,7 @@
 	if (item != nil) {
 		return [[item children] objectAtIndex:index];
 	}
-	return [jsonArray objectAtIndex:index];
+	return [dataArray objectAtIndex:index];
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item {
@@ -271,7 +271,7 @@
 }
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {
-	OutlineObject *item = [jsonView itemAtRow:[jsonView selectedRow]];
+	OutlineObject *item = [dataView itemAtRow:[dataView selectedRow]];
 	
 	self.resultsView.string = [NSString stringWithFormat:@"%@", item.value];
 }

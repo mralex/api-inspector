@@ -18,11 +18,11 @@ enum ContentTypes {
 @interface HttpGetViewController : NSViewController {
 	NSTextField *urlField;
 	NSButton *goButton;
-	NSOutlineView *jsonView;
+	NSOutlineView *dataView;
 	NSTextView *resultsView;
 	
 	NSMutableData *received;
-	NSMutableArray *jsonArray;
+	NSMutableArray *dataArray;
 
 	BOOL isLoading;
 	NSString *statusMessage;
@@ -33,9 +33,9 @@ enum ContentTypes {
 @property (nonatomic, retain) IBOutlet NSButton *goButton;
 @property (nonatomic, retain) IBOutlet NSTextField *urlField;
 @property (nonatomic, retain) IBOutlet NSTextView *resultsView;
-@property (nonatomic, retain) IBOutlet NSOutlineView *jsonView;
+@property (nonatomic, retain) IBOutlet NSOutlineView *dataView;
 
-@property (nonatomic, retain) NSMutableArray *jsonArray;
+@property (nonatomic, retain) NSMutableArray *dataArray;
 
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, retain) NSString *statusMessage;
