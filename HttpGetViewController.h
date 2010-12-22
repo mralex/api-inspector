@@ -43,7 +43,8 @@ enum ContentTypes {
 
 - (IBAction)goAction:sender;
 
-- (OutlineObject *) parseJsonObject:(id)object withKey:(id)key;
+- (OutlineObject *)parseJsonObject:(id)object withKey:(id)key;
+- (OutlineObject *)traverseXmlNode:(NSXMLNode *)node;
 
 - (void)parseDataJson;
 - (void)parseDataXml;

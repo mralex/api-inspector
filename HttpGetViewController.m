@@ -91,7 +91,7 @@
 	[[[RawDataWindow sharedDataWindow] textView] setString:@""];
 }
 
-- (OutlineObject *) parseJsonObject:(id)object withKey:(id)key {
+- (OutlineObject *)parseJsonObject:(id)object withKey:(id)key {
 	OutlineObject *oObj = [[OutlineObject alloc] init];
 	oObj.name = key;
 	
@@ -118,6 +118,28 @@
 	}
 	
 	return oObj;
+}
+
+- (OutlineObject *)traverseXmlNode:(NSXMLNode *)node {
+	OutlineObject *o = [[OutlineObject alloc] init];
+	
+	o.name = [node name];
+	
+	int i, count = [node childCount];
+	
+	if (count < 2) {
+		o.value = [node stringValue];
+	} else {
+		o.children = [NSMutableArray arrayWithCapacity:count];
+		
+		for (i = 0; i < count; i++) {
+			NSXMLNode *child = [node childAtIndex:i];
+			
+			[o.children addObject:[self traverseXmlNode:child]];
+		}
+	}
+	
+	return o;
 }
 
 - (void)parseDataJson {
@@ -172,27 +194,7 @@
 	
 	for (i = 0; i < count; i++) {
 		NSXMLNode *child = [[xml rootElement] childAtIndex:i];
-		OutlineObject *o = [[OutlineObject alloc] init];
-		o.name = [child name];
-		
-		int j, childs = [child childCount];
-		if (childs > 0) {
-			o.children = [NSMutableArray array];
-			for (j = 0; j < childs; j++) {
-				NSXMLNode *sibling = [child childAtIndex:j];
-				OutlineObject *sib = [[OutlineObject alloc] init];
-				
-				sib.name = [sibling name];
-				sib.value = [sibling stringValue];
-				
-				[o.children addObject:sib];
-				
-				[sib release];
-			}
-		}
-		
-		[self.jsonArray addObject:o];
-		[o release];
+		[self.jsonArray addObject:[self traverseXmlNode:child]];
 	}
 	
 	[xml release];
