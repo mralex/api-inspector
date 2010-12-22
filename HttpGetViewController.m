@@ -155,8 +155,47 @@
 
 - (void)parseDataXml {
 	self.statusMessage = @"Got some XML!";
+	NSLog(@"XML");
 	
 	self.jsonArray = nil;
+	self.jsonArray = [NSMutableArray array];
+	
+	NSXMLDocument *xml;
+	NSError *error = nil;
+	
+	NSString *xmlData = [[NSString alloc] initWithBytes:[received bytes] length:[received length] encoding:NSStringEncodingConversionAllowLossy];
+	
+	xml = [[NSXMLDocument alloc] initWithXMLString:xmlData options:(NSXMLNodePreserveWhitespace|NSXMLNodePreserveCDATA) error:&error];
+	
+	int i, count = [[xml rootElement] childCount];
+	NSLog(@"children of root: %d", count);
+	
+	for (i = 0; i < count; i++) {
+		NSXMLNode *child = [[xml rootElement] childAtIndex:i];
+		OutlineObject *o = [[OutlineObject alloc] init];
+		o.name = [child name];
+		
+		int j, childs = [child childCount];
+		if (childs > 0) {
+			o.children = [NSMutableArray array];
+			for (j = 0; j < childs; j++) {
+				NSXMLNode *sibling = [child childAtIndex:j];
+				OutlineObject *sib = [[OutlineObject alloc] init];
+				
+				sib.name = [sibling name];
+				sib.value = [sibling stringValue];
+				
+				[o.children addObject:sib];
+				
+				[sib release];
+			}
+		}
+		
+		[self.jsonArray addObject:o];
+		[o release];
+	}
+	
+	[xml release];
 	[jsonView reloadData];
 	[received release];
 	self.isLoading = NO;
