@@ -12,7 +12,7 @@
 
 @implementation MainWindowController
 
-@synthesize statusLabel,progressIndicator, contentBox, httpGetViewController, httpPostViewController;
+@synthesize statusLabel,progressIndicator, contentBox, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem;
 
 - (id) init
 {
@@ -39,6 +39,7 @@
 	[self.contentBox addSubview:httpGetView];
 	activeView = kHttpViewGet;
 	
+	[self showWindow:nil];	
 }
 
 - (void)dealloc {
