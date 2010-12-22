@@ -207,7 +207,8 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	
-	[[[RawDataWindow sharedDataWindow] textView] setString:[NSString stringWithUTF8String:[received bytes]]];
+	NSString *rawString = [[NSString alloc] initWithBytes:[received bytes] length:[received length] encoding:NSStringEncodingConversionAllowLossy];
+	[[[RawDataWindow sharedDataWindow] textView] setString:rawString];
 	
 	NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 	NSInvocationOperation *op;
