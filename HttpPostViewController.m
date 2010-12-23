@@ -10,7 +10,7 @@
 
 
 @implementation HttpPostViewController
-@synthesize goButton, urlField, bodyView, resultsView, isLoading, statusMessage;
+@synthesize goButton, addButton, removeButton, urlField, bodyView, resultsView, valuesTable, isLoading, statusMessage, keysArray, valuesArray;
 
 
 - (void) loadView {
@@ -18,6 +18,9 @@
 	
 	[self.bodyView setFont:[NSFont userFixedPitchFontOfSize:11]];	
 	[self.resultsView setFont:[NSFont userFixedPitchFontOfSize:11]];
+	
+	self.keysArray = [NSMutableArray array];
+	self.valuesArray = [NSMutableArray array];
 }
 
 -(IBAction)goAction:(id)sender {
@@ -28,10 +31,22 @@
 	//	[progressIndicator startAnimation:nil];
 	self.statusMessage = @"Connecting...";
 	
+	
+	int i;
+	NSString *body = [NSString string];
+	
+	for (i = 0; i < [self.keysArray count]; i++) {
+		NSString *key = [self.keysArray objectAtIndex:i];
+		NSString *value = [self.valuesArray objectAtIndex:i];
+		
+		body = [NSString stringWithFormat:@"%@%@=%@&", body, key, value];
+	}
+	
+	
 	self.isLoading = YES;
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.urlField.stringValue] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
 	[request setHTTPMethod:@"POST"];
-	[request setHTTPBody:[[self.bodyView string] dataUsingEncoding:NSUTF8StringEncoding]];
+	[request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
 	
 	NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 	
@@ -45,6 +60,18 @@
 	}
 	
 }
+
+-(IBAction)addAction:(id)sender {
+	[self.keysArray addObject:@""];
+	[self.valuesArray addObject:@""];
+	
+	[valuesTable reloadData];
+}
+
+-(IBAction)removeAction:(id)sender {
+	
+}
+
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
 
 }
@@ -63,5 +90,30 @@
 	[connection release];
 	self.isLoading = NO;
 
+}
+
+
+#pragma mark -
+#pragma mark Table View Data Source
+#pragma mark -
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
+	return [self.keysArray count];
+}
+
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
+	if ([[aTableColumn identifier] isEqualToString:@"keys"]) {
+		return [self.keysArray objectAtIndex:rowIndex];
+	}
+		
+	return [self.valuesArray objectAtIndex:rowIndex];
+}
+
+-  (void)tableView:(NSTableView *)aTableView setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
+	if ([[aTableColumn identifier] isEqualToString:@"keys"]) {
+		[self.keysArray replaceObjectAtIndex:rowIndex withObject:anObject];
+	} else {
+		[self.valuesArray replaceObjectAtIndex:rowIndex withObject:anObject];
+	}
 }
 @end
