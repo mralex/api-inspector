@@ -10,7 +10,23 @@
 
 
 @interface HttpPostViewController : NSViewController {
+	NSTextField *urlField;
+	NSButton *goButton;
+	NSTextView *bodyView;
+	NSTextView *resultsView;
 
+	NSMutableData *received;
+	BOOL isLoading;
+	NSString *statusMessage;
 }
+
+@property (nonatomic, retain) IBOutlet NSTextField *urlField;
+@property (nonatomic, retain) IBOutlet NSButton *goButton;
+@property (nonatomic, retain) IBOutlet NSTextView *bodyView;
+@property (nonatomic, retain) IBOutlet NSTextView *resultsView;
+@property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, retain) NSString *statusMessage;
+
+-(IBAction)goAction:(id)sender;
 
 @end
