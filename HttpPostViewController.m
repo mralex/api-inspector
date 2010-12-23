@@ -66,6 +66,7 @@
 	[self.valuesArray addObject:@""];
 	
 	[valuesTable reloadData];
+	[valuesTable selectRowIndexes:[NSIndexSet indexSetWithIndex:[self.keysArray count] - 1] byExtendingSelection:NO];
 }
 
 -(IBAction)removeAction:(id)sender {
