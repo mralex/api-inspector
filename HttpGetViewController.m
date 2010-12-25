@@ -8,7 +8,7 @@
 
 #import "HttpGetViewController.h"
 #import "RawDataWindow.h"
-#import "OutlineObject.h"
+#import "TreeNode.h"
 
 @implementation HttpGetViewController
 @synthesize urlField, resultsView, dataView, goButton, dataArray, isLoading, statusMessage, contentType;
@@ -91,8 +91,8 @@
 	[[[RawDataWindow sharedDataWindow] textView] setString:@""];
 }
 
-- (OutlineObject *)parseJsonObject:(id)object withKey:(id)key {
-	OutlineObject *oObj = [[OutlineObject alloc] init];
+- (TreeNode *)parseJsonObject:(id)object withKey:(id)key {
+	TreeNode *oObj = [[TreeNode alloc] init];
 	oObj.name = key;
 	
 	if ([object isKindOfClass:[NSDictionary class]] || [object isKindOfClass:[NSArray class]]) {
@@ -101,14 +101,14 @@
 		if ([object isKindOfClass:[NSDictionary class]]) {
 			oObj.value = [NSString stringWithFormat:@"%d items", [[object allKeys] count]];
 			[object enumerateKeysAndObjectsUsingBlock:^(id key, id childObject, BOOL *stop) {
-				OutlineObject *child = [self parseJsonObject:childObject withKey:key];
+				TreeNode *child = [self parseJsonObject:childObject withKey:key];
 				
 				[oObj.children addObject:child];
 			}];
 		} else {
 			oObj.value = [NSString stringWithFormat:@"%d items", [object count]];;
 			[object enumerateObjectsUsingBlock:^(id childObject, NSUInteger index, BOOL *stop) {
-				OutlineObject *child = [self parseJsonObject:childObject withKey:@"Object"];
+				TreeNode *child = [self parseJsonObject:childObject withKey:@"Object"];
 				
 				[oObj.children addObject:child];
 			}];
@@ -120,8 +120,8 @@
 	return oObj;
 }
 
-- (OutlineObject *)traverseXmlNode:(NSXMLNode *)node {
-	OutlineObject *o = [[OutlineObject alloc] init];
+- (TreeNode *)traverseXmlNode:(NSXMLNode *)node {
+	TreeNode *o = [[TreeNode alloc] init];
 	
 	o.name = [node name];
 	
@@ -151,14 +151,14 @@
 	
 	if ([json isKindOfClass:[NSDictionary class]]) {
 		[json enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
-			OutlineObject *oObj = [self parseJsonObject:object withKey:key];
+			TreeNode *oObj = [self parseJsonObject:object withKey:key];
 			
 			[self.dataArray addObject:oObj];
 		}];
 		
 	} else {
 		[json enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop) {
-			OutlineObject *oObj = [self parseJsonObject:object withKey:@"Object"];
+			TreeNode *oObj = [self parseJsonObject:object withKey:@"Object"];
 			
 			[self.dataArray addObject:oObj];
 		}];
@@ -264,14 +264,14 @@
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item {
 	if ([(NSString*)[tableColumn identifier] isEqual:@"key"]) {
-		return [(OutlineObject *)item name];
+		return [(TreeNode *)item name];
 	} 
 	
-	return [(OutlineObject *)item value];
+	return [(TreeNode *)item value];
 }
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {
-	OutlineObject *item = [dataView itemAtRow:[dataView selectedRow]];
+	TreeNode *item = [dataView itemAtRow:[dataView selectedRow]];
 	
 	self.resultsView.string = [NSString stringWithFormat:@"%@", item.value];
 }

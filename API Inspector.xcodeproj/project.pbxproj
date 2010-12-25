@@ -16,7 +16,7 @@
 		53E5A0BA12A4B404008F47E1 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53E5A0B912A4B404008F47E1 /* MainWindow.xib */; };
 		53E5A1DE12A4D615008F47E1 /* HttpGetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A1DD12A4D615008F47E1 /* HttpGetViewController.m */; };
 		53E5A1E012A4D632008F47E1 /* HttpGetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53E5A1DF12A4D632008F47E1 /* HttpGetView.xib */; };
-		53E5A34A12A5FBF3008F47E1 /* OutlineObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A34912A5FBF3008F47E1 /* OutlineObject.m */; };
+		53E5A34A12A5FBF3008F47E1 /* TreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A34912A5FBF3008F47E1 /* TreeNode.m */; };
 		53E5A4BB12A8C514008F47E1 /* HttpPostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53E5A4BA12A8C514008F47E1 /* HttpPostView.xib */; };
 		53E5A4C812A8C5A8008F47E1 /* HttpPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A4C712A8C5A8008F47E1 /* HttpPostViewController.m */; };
 		770B37ED0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 770B37EC0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel */; };
@@ -58,8 +58,8 @@
 		53E5A1DD12A4D615008F47E1 /* HttpGetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpGetViewController.m; sourceTree = "<group>"; };
 		53E5A1DF12A4D632008F47E1 /* HttpGetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HttpGetView.xib; sourceTree = "<group>"; };
 		53E5A2BA12A4E108008F47E1 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		53E5A34812A5FBF3008F47E1 /* OutlineObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutlineObject.h; sourceTree = "<group>"; };
-		53E5A34912A5FBF3008F47E1 /* OutlineObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutlineObject.m; sourceTree = "<group>"; };
+		53E5A34812A5FBF3008F47E1 /* TreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
+		53E5A34912A5FBF3008F47E1 /* TreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeNode.m; sourceTree = "<group>"; };
 		53E5A4BA12A8C514008F47E1 /* HttpPostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HttpPostView.xib; sourceTree = "<group>"; };
 		53E5A4C612A8C5A8008F47E1 /* HttpPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpPostViewController.h; sourceTree = "<group>"; };
 		53E5A4C712A8C5A8008F47E1 /* HttpPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpPostViewController.m; sourceTree = "<group>"; };
@@ -186,8 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				770B37EC0679A11B001EADE2 /* API_Inspector_DataModel.xcdatamodel */,
-				53E5A34812A5FBF3008F47E1 /* OutlineObject.h */,
-				53E5A34912A5FBF3008F47E1 /* OutlineObject.m */,
+				53E5A34812A5FBF3008F47E1 /* TreeNode.h */,
+				53E5A34912A5FBF3008F47E1 /* TreeNode.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -265,7 +265,7 @@
 				53E5A07712A2FE51008F47E1 /* RawDataWindow.m in Sources */,
 				53E5A0B812A4B304008F47E1 /* MainWindowController.m in Sources */,
 				53E5A1DE12A4D615008F47E1 /* HttpGetViewController.m in Sources */,
-				53E5A34A12A5FBF3008F47E1 /* OutlineObject.m in Sources */,
+				53E5A34A12A5FBF3008F47E1 /* TreeNode.m in Sources */,
 				53E5A4C812A8C5A8008F47E1 /* HttpPostViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class OutlineObject;
+@class TreeNode;
 
 enum ContentTypes {
 	contentTypeJson,
@@ -43,8 +43,8 @@ enum ContentTypes {
 
 - (IBAction)goAction:sender;
 
-- (OutlineObject *)parseJsonObject:(id)object withKey:(id)key;
-- (OutlineObject *)traverseXmlNode:(NSXMLNode *)node;
+- (TreeNode *)parseJsonObject:(id)object withKey:(id)key;
+- (TreeNode *)traverseXmlNode:(NSXMLNode *)node;
 
 - (void)parseDataJson;
 - (void)parseDataXml;
