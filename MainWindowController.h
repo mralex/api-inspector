@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class Folder;
+@class HttpViewController;
 @class HttpGetViewController;
 @class HttpPostViewController;
 
@@ -22,6 +23,7 @@
 	NSToolbarItem *getToolbarItem;
 	NSToolbarItem *postToolbarItem;
 	
+	HttpViewController *currentHttpViewController;
 	HttpGetViewController *httpGetViewController;
 	HttpPostViewController *httpPostViewController;
 	
@@ -40,6 +42,7 @@
 @property (nonatomic, retain) IBOutlet NSToolbarItem *postToolbarItem;
 
 @property (nonatomic, retain) IBOutlet NSView *contentBox;
+@property (nonatomic, retain) HttpViewController *currentHttpViewController;
 @property (nonatomic, retain) HttpGetViewController *httpGetViewController;
 @property (nonatomic, retain) HttpPostViewController *httpPostViewController;
 

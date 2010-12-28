@@ -9,12 +9,13 @@
 #import "constants.h"
 #import "Folder.h"
 #import "MainWindowController.h"
+#import "HttpViewController.h"
 #import "HttpGetViewController.h"
 #import "HttpPostViewController.h"
 
 @implementation MainWindowController
 
-@synthesize statusLabel,progressIndicator, contentBox, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem, managedObjectContext, sourcelist, getBookmarks;
+@synthesize statusLabel,progressIndicator, contentBox, currentHttpViewController, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem, managedObjectContext, sourcelist, getBookmarks;
 
 - (id) init
 {
@@ -43,6 +44,7 @@
 	[httpGetView setAutoresizingMask:(NSViewWidthSizable| NSViewHeightSizable)];
 	[self.contentBox addSubview:httpGetView];
 	activeView = kHttpViewGet;
+	self.currentHttpViewController = self.httpGetViewController;
 }
 
 - (void)dealloc {
@@ -65,7 +67,8 @@
 		[self.httpPostViewController viewWillSwitch];
 		[self.contentBox replaceSubview:[[self.contentBox subviews] objectAtIndex:0] with:httpGetView];
 		[self.httpGetViewController viewDidSwitch];		
-
+		
+		self.currentHttpViewController = self.httpGetViewController;
 		activeView = kHttpViewGet;
 		
 	} else if ([identifier isEqualToString:@"post"] && (activeView != kHttpViewPost)) {
@@ -76,7 +79,8 @@
 		[self.httpGetViewController viewWillSwitch];
 		[self.contentBox replaceSubview:[[self.contentBox subviews] objectAtIndex:0] with:httpPostView];
 		[self.httpPostViewController viewDidSwitch];		
-		
+
+		self.currentHttpViewController = self.httpPostViewController;
 		activeView = kHttpViewPost;
 	}
 }
