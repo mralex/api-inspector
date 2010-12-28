@@ -117,9 +117,9 @@
 	[[[RawDataWindow sharedDataWindow] contentTypeField] setStringValue:self.contentType];
 	
 	// [NSString rangeOfString:theStringYouWant] != NSMakeRange(NSNotFound,0)
-	if ([self.contentType rangeOfString:@"application/xml"].location != NSNotFound) {
+	if ([self.contentType rangeOfString:@"xml"].location != NSNotFound) {
 		parseType = contentTypeXml;
-	} else if ([self.contentType rangeOfString:@"application/json"].location != NSNotFound) {
+	} else if (([self.contentType rangeOfString:@"json"].location != NSNotFound) || ([self.contentType rangeOfString:@"javascript"].location != NSNotFound)) {
 		parseType = contentTypeJson;		
 	} else {
 		parseType = -1;
