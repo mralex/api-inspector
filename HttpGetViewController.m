@@ -378,4 +378,20 @@
 	return [self.urlHistory count];
 }
 
+- (NSString *)comboBox:(NSComboBox *)aComboBox completedString:(NSString *)uncompletedString {
+	History *history;
+	int index = [self indexOfItemInHistoryWithStringValue:uncompletedString];
+	
+	if (index == -1) {
+		return nil;
+	}
+	
+	history = [self.urlHistory objectAtIndex:index];
+	return history.url;
+}
+
+- (NSUInteger)comboBox:(NSComboBox *)aComboBox indexOfItemWithStringValue:(NSString *)aString {
+	return [self indexOfItemInHistoryWithStringValue:aString];
+}
+
 @end
