@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "HttpViewController.h"
 
 @class TreeNode;
 
@@ -15,7 +16,7 @@ enum ContentTypes {
 	contentTypeXml
 };
 
-@interface HttpGetViewController : NSViewController {
+@interface HttpGetViewController : HttpViewController {
 	NSComboBox *urlField;
 	NSButton *goButton;
 	NSOutlineView *dataView;

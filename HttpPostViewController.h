@@ -7,9 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "HttpViewController.h"
 
 
-@interface HttpPostViewController : NSViewController {
+@interface HttpPostViewController : HttpViewController {
 	NSTextField *urlField;
 	NSTextView *bodyView;
 	NSTextView *resultsView;
