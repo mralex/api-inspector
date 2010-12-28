@@ -64,4 +64,17 @@
 	return [self indexOfItemInHistoryWithStringValue:aString];
 }
 
+#pragma mark -
+
+- (void)urlFieldChanged:(NSNotification *)aNotification {
+	NSComboBox *urlField = [aNotification object];
+	NSString *url = urlField.stringValue;
+	
+	if ([url length] < 6) return;
+	
+	if (([url rangeOfString:@"http:"].location != NSNotFound) || ([url rangeOfString:@"https:"].location != NSNotFound)) return;
+	
+	[urlField setStringValue:[NSString stringWithFormat:@"http://%@", url]];
+}
+
 @end

@@ -19,6 +19,6 @@
 @property (nonatomic, retain) NSMutableArray *urlHistory;
 
 - (NSUInteger)indexOfItemInHistoryWithStringValue:(NSString *)value;
-
+- (void)urlFieldChanged:(NSNotification *)aNotification;
 
 @end

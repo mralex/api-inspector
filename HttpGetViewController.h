@@ -51,6 +51,4 @@ enum ContentTypes {
 - (void)parseDataXml;
 - (void)parsingDidFinishWithMessage:(NSString *)message;
 
-- (void)urlFieldChanged:(NSNotification *)aNotification;
-
 @end
