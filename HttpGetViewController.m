@@ -34,6 +34,8 @@
 	
 	if (self.managedObjectContext == nil) return;
 	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(urlFieldChanged:) name:NSControlTextDidChangeNotification object:nil];
+	
 	// Initialise array containing history items
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"History" inManagedObjectContext:self.managedObjectContext];
 	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
@@ -347,6 +349,21 @@
 	}
 	
 	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+}
+
+
+#pragma mark -
+#pragma mark Combobox Delegate
+#pragma mark -
+
+- (void)urlFieldChanged:(NSNotification *)aNotification {
+	NSString *url = self.urlField.stringValue;
+	
+	if ([url length] < 6) return;
+	
+	if (([url rangeOfString:@"http:"].location != NSNotFound) || ([url rangeOfString:@"https:"].location != NSNotFound)) return;
+	
+	[self.urlField setStringValue:[NSString stringWithFormat:@"http://%@", url]];
 }
 
 @end

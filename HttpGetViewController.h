@@ -16,7 +16,7 @@ enum ContentTypes {
 	contentTypeXml
 };
 
-@interface HttpGetViewController : HttpViewController {
+@interface HttpGetViewController : HttpViewController <NSComboBoxDelegate> {
 	NSComboBox *urlField;
 	NSButton *goButton;
 	NSOutlineView *dataView;
@@ -51,5 +51,6 @@ enum ContentTypes {
 - (void)parseDataXml;
 - (void)parsingDidFinishWithMessage:(NSString *)message;
 
+- (void)urlFieldChanged:(NSNotification *)aNotification;
 
 @end
