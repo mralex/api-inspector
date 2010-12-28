@@ -49,4 +49,5 @@
 
 - (IBAction)switchView:(NSToolbarItem *)toolbarItem;
 
+- (IBAction)addBookmark:(id)sender;
 @end

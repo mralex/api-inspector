@@ -147,7 +147,13 @@
 	return (([item class] == [Folder class]) ? NO : YES);
 }
 
+#pragma mark -
+#pragma mark Bookmark handling
+#pragma mark -
 
+- (IBAction)addBookmark:(id)sender {
+	NSLog(@"hai!");
+}
 
 
 
