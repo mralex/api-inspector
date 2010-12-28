@@ -165,6 +165,8 @@
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
+	self.mainWindow.managedObjectContext = self.managedObjectContext;
+	
 	[self showMainWindow];
 }
 

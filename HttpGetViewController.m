@@ -6,22 +6,54 @@
 //  Copyright 2010 Red Process. All rights reserved.
 //
 
+#import "constants.h"
 #import "HttpGetViewController.h"
 #import "RawDataWindow.h"
 #import "TreeNode.h"
+#import "History.h"
 
 @implementation HttpGetViewController
-@synthesize urlField, resultsView, dataView, goButton, dataArray, isLoading, statusMessage, contentType;
+@synthesize urlField, resultsView, dataView, goButton, dataArray, isLoading, statusMessage, contentType, managedObjectContext, urlHistory;
+
+- (id) init
+{
+	self = [super init];
+	if (self != nil) {
+		urlHistory = [NSMutableArray array];
+		parseType = -1;
+	}
+	return self;
+}
+
 
 - (void) loadView {
 	[super loadView];
 	
-	parseType = -1;
-	
 	[self.resultsView setFont:[NSFont userFixedPitchFontOfSize:11]];
 	dataArray = [NSMutableArray array];
 	[self addObserver:self forKeyPath:@"isLoading" options:(NSKeyValueObservingOptionNew) context:NULL];	
+	
+	if (self.managedObjectContext == nil) return;
+	
+	// Initialise array containing history items
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"History" inManagedObjectContext:self.managedObjectContext];
+	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+	request.entity = entity;
+	
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"httpAction == %d", kHttpViewGet];
+	request.predicate = predicate;
+	
+	NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"updated_at" ascending:NO];
+	request.sortDescriptors = [NSArray arrayWithObject:sort];
 
+	NSError *error = nil;
+	NSArray *results = [managedObjectContext executeFetchRequest:request error:&error];
+	if (results == nil) {
+		NSLog(@"Error fetching history (%@)", [error description]);
+		return;
+	}
+	
+	self.urlHistory = [NSMutableArray arrayWithArray:results];
 }
 
 #pragma mark -

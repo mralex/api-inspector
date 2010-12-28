@@ -50,6 +50,7 @@
 		32CA4F630368D1EE00C91783 /* API_Inspector_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_Inspector_Prefix.pch; sourceTree = "<group>"; };
 		53224A2B12C9694600251185 /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
 		53224A2C12C9694600251185 /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
+		53224A8512C971CA00251185 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		53E59D9A12A1D9A4008F47E1 /* YAJL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJL.framework; path = Frameworks/YAJL.framework; sourceTree = "<group>"; };
 		53E5A07512A2FE51008F47E1 /* RawDataWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawDataWindow.h; sourceTree = "<group>"; };
 		53E5A07612A2FE51008F47E1 /* RawDataWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawDataWindow.m; sourceTree = "<group>"; };
@@ -150,6 +151,7 @@
 			children = (
 				32CA4F630368D1EE00C91783 /* API_Inspector_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
+				53224A8512C971CA00251185 /* constants.h */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";

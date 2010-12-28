@@ -6,13 +6,14 @@
 //  Copyright 2010 Red Process. All rights reserved.
 //
 
+#import "constants.h"
 #import "MainWindowController.h"
 #import "HttpGetViewController.h"
 #import "HttpPostViewController.h"
 
 @implementation MainWindowController
 
-@synthesize statusLabel,progressIndicator, contentBox, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem;
+@synthesize statusLabel,progressIndicator, contentBox, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem, managedObjectContext;
 
 - (id) init
 {
@@ -33,6 +34,8 @@
 	[httpGetViewController addObserver:self forKeyPath:@"isLoading" options:(NSKeyValueObservingOptionNew) context:NULL];
 	[httpGetViewController addObserver:self forKeyPath:@"statusMessage" options:(NSKeyValueObservingOptionNew) context:NULL];
 	
+	self.httpGetViewController.managedObjectContext = self.managedObjectContext;
+		
 	NSView *httpGetView = [self.httpGetViewController view];
 	[httpGetView setFrame:[self.contentBox bounds]];
 	[httpGetView setAutoresizingMask:(NSViewWidthSizable| NSViewHeightSizable)];

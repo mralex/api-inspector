@@ -11,9 +11,6 @@
 @class HttpGetViewController;
 @class HttpPostViewController;
 
-static const int kHttpViewGet = 1;
-static const int kHttpViewPost = 2;
-
 @interface MainWindowController : NSWindowController {
 	NSTextField *statusLabel;
 	NSProgressIndicator *progressIndicator;
@@ -26,8 +23,10 @@ static const int kHttpViewPost = 2;
 	HttpPostViewController *httpPostViewController;
 	
 	int activeView;
+	NSManagedObjectContext *managedObjectContext;
 }
 
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @property (nonatomic, retain) IBOutlet NSTextField *statusLabel;
 @property (nonatomic, retain) IBOutlet NSProgressIndicator *progressIndicator;
