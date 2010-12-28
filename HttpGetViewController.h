@@ -31,13 +31,9 @@ enum ContentTypes {
 	int parseType;
 	
 	NSManagedObjectContext *managedObjectContext;
-	
-	NSMutableArray *urlHistory;
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) NSMutableArray *urlHistory;
-
 
 @property (nonatomic, retain) IBOutlet NSButton *goButton;
 @property (nonatomic, retain) IBOutlet NSComboBox *urlField;
@@ -59,6 +55,5 @@ enum ContentTypes {
 - (void)parseDataXml;
 - (void)parsingDidFinishWithMessage:(NSString *)message;
 
-- (NSUInteger)indexOfItemInHistoryWithStringValue:(NSString *)value;
 
 @end

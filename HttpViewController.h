@@ -10,7 +10,13 @@
 
 
 @interface HttpViewController : NSViewController {
+	NSMutableArray *urlHistory;
 
 }
+
+@property (nonatomic, retain) NSMutableArray *urlHistory;
+
+- (NSUInteger)indexOfItemInHistoryWithStringValue:(NSString *)value;
+
 
 @end
