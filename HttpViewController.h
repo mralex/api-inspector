@@ -10,15 +10,16 @@
 
 
 @interface HttpViewController : NSViewController {
-	NSMutableArray *urlHistory;
 	NSManagedObjectContext *managedObjectContext;
+	NSArrayController *urlHistoryController;
 
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) NSMutableArray *urlHistory;
 
-- (NSUInteger)indexOfItemInHistoryWithStringValue:(NSString *)value;
+@property (nonatomic, retain) IBOutlet NSArrayController *urlHistoryController;
+
+//- (NSUInteger)indexOfItemInHistoryWithStringValue:(NSString *)value;
 - (void)urlFieldChanged:(NSNotification *)aNotification;
 
 - (void)viewWillSwitch;

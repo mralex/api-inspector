@@ -24,31 +24,6 @@
 	
 	self.keysArray = [NSMutableArray array];
 	self.valuesArray = [NSMutableArray array];
-
-	if (self.managedObjectContext == nil) return;
-	
-	// Initialise array containing history items
-	NSEntityDescription *entity = [NSEntityDescription entityForName:@"History" inManagedObjectContext:self.managedObjectContext];
-	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
-	request.entity = entity;
-	
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"httpAction == %d", kHttpViewPost];
-	request.predicate = predicate;
-	
-	NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"updated_at" ascending:NO];
-	request.sortDescriptors = [NSArray arrayWithObject:sort];
-	
-	NSError *error = nil;
-	NSArray *results = [managedObjectContext executeFetchRequest:request error:&error];
-	if (results == nil) {
-		NSLog(@"Error fetching history (%@)", [error description]);
-		return;
-	}
-	
-	self.urlHistory = [NSMutableArray arrayWithArray:results];
-	NSLog(@"Loaded %d history items", [self.urlHistory count]);
-	
-	[self.urlField reloadData];
 }
 
 -(IBAction)goAction:(id)sender {
@@ -57,26 +32,23 @@
 	NSLog(@"POST Go!");
 	
 	// Create url history item here
-	int index = [self indexOfItemInHistoryWithStringValue:self.urlField.stringValue];
 	History *historic;
-	if (index == -1) {
+	if ([self.urlHistoryController selectionIndex] == NSNotFound) {
+		NSLog(@"New!");
 		historic = (History *)[NSEntityDescription insertNewObjectForEntityForName:@"History" inManagedObjectContext:self.managedObjectContext];
 		historic.httpAction = [NSNumber numberWithInt:kHttpViewPost];
 		historic.url = self.urlField.stringValue;
 	} else {
-		historic = [self.urlHistory objectAtIndex:index];
+		historic = (History *)[[self.urlHistoryController selectedObjects] objectAtIndex:0];
 		historic.updated_at = [NSDate date];
-		
-		[self.urlHistory removeObjectAtIndex:index];
 	}
 	
 	NSError *error = nil;
 	[self.managedObjectContext save:&error];
 	if (error == nil) {
-		[self.urlHistory insertObject:historic atIndex:0];
-		[self.urlField reloadData];
+		[self.urlHistoryController rearrangeObjects];
 	}
-	
+
 	//	[progressIndicator startAnimation:nil];
 	self.statusMessage = @"Connecting...";
 	
