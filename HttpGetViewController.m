@@ -54,6 +54,7 @@
 	}
 	
 	self.urlHistory = [NSMutableArray arrayWithArray:results];
+	NSLog(@"Loaded %d history items", [self.urlHistory count]);
 }
 
 #pragma mark -
@@ -64,6 +65,17 @@
 	if (self.isLoading) return;
 	
 	NSLog(@"Go!");
+	
+	// Create url history item here
+	History *historic = (History *)[NSEntityDescription insertNewObjectForEntityForName:@"History" inManagedObjectContext:self.managedObjectContext];
+	historic.httpAction = [NSNumber numberWithInt:kHttpViewGet];
+	historic.url = self.urlField.stringValue;
+	
+	NSError *error = nil;
+	[self.managedObjectContext save:&error];
+	if (error == nil) {
+		[urlHistory insertObject:historic atIndex:0];
+	}
 	
 //	[progressIndicator startAnimation:nil];
 	self.statusMessage = @"Connecting...";

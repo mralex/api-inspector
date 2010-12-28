@@ -17,7 +17,7 @@
 @dynamic url;
 
 - (void)awakeFromInsert {
-	self.added_at = [NSDate date];
+	self.added_at = self.updated_at = [NSDate date];
 }
 
 @end
