@@ -7,13 +7,14 @@
 //
 
 #import "constants.h"
+#import "Folder.h"
 #import "MainWindowController.h"
 #import "HttpGetViewController.h"
 #import "HttpPostViewController.h"
 
 @implementation MainWindowController
 
-@synthesize statusLabel,progressIndicator, contentBox, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem, managedObjectContext;
+@synthesize statusLabel,progressIndicator, contentBox, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem, managedObjectContext, sourcelist, getBookmarks;
 
 - (id) init
 {
@@ -25,6 +26,8 @@
 
 - (void)awakeFromNib {
 	[[[self window] toolbar] setSelectedItemIdentifier:@"get"];
+	
+	self.getBookmarks = [[Folder alloc] initWithName:@"GET Bookmarks"];
 	
 	self.httpGetViewController = [[HttpGetViewController alloc] initWithNibName:@"HttpGetView" bundle:nil];
 	self.httpPostViewController = [[HttpPostViewController alloc] initWithNibName:@"HttpPostView" bundle:nil];
@@ -101,6 +104,48 @@
 	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
+#pragma mark -
+#pragma mark outlineview datasource methods
+#pragma mark -
+
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item {
+	if (item == nil) {
+		return getBookmarks;
+	} else {
+		return [[(Folder *)item items] objectAtIndex:index];
+	}
+}
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item {
+	if ([item class] == [Folder class]) return YES;
+	
+	return NO;
+}
+
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item {
+	if (item == nil) {
+		return 1;
+	} else if ([item class] == [Folder class]) {
+		return [[(Folder *)item items] count];	
+	} 
+	
+	return 0;
+}
+
+- (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item {
+	if ([item class] == [Folder class]) {
+		return [(Folder *)item name];
+	}
+	return @"Item";
+}
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView isGroupItem:(id)item {
+	return (([item class] == [Folder class]) ? YES : NO);
+}
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item {
+	return (([item class] == [Folder class]) ? NO : YES);
+}
 
 
 

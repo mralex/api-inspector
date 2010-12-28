@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class Folder;
 @class HttpGetViewController;
 @class HttpPostViewController;
 
@@ -15,6 +16,8 @@
 	NSTextField *statusLabel;
 	NSProgressIndicator *progressIndicator;
 	NSView *contentBox;
+	
+	NSOutlineView *sourcelist;
 	
 	NSToolbarItem *getToolbarItem;
 	NSToolbarItem *postToolbarItem;
@@ -24,6 +27,8 @@
 	
 	int activeView;
 	NSManagedObjectContext *managedObjectContext;
+	
+	Folder *getBookmarks;
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
@@ -37,6 +42,10 @@
 @property (nonatomic, retain) IBOutlet NSView *contentBox;
 @property (nonatomic, retain) HttpGetViewController *httpGetViewController;
 @property (nonatomic, retain) HttpPostViewController *httpPostViewController;
+
+@property (nonatomic, retain) IBOutlet NSOutlineView *sourcelist;
+
+@property (nonatomic, retain) Folder *getBookmarks;
 
 - (IBAction)switchView:(NSToolbarItem *)toolbarItem;
 
