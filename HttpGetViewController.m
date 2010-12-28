@@ -55,6 +55,8 @@
 	
 	self.urlHistory = [NSMutableArray arrayWithArray:results];
 	NSLog(@"Loaded %d history items", [self.urlHistory count]);
+	
+	[self.urlField reloadData];
 }
 
 #pragma mark -
@@ -74,7 +76,8 @@
 	NSError *error = nil;
 	[self.managedObjectContext save:&error];
 	if (error == nil) {
-		[urlHistory insertObject:historic atIndex:0];
+		[self.urlHistory insertObject:historic atIndex:0];
+		[self.urlField reloadData];
 	}
 	
 //	[progressIndicator startAnimation:nil];
@@ -337,4 +340,18 @@
 	
 	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
+
+#pragma mark -
+#pragma mark Combobox Data Source
+#pragma mark -
+
+- (id)comboBox:(NSComboBox *)aComboBox objectValueForItemAtIndex:(NSInteger)index {
+	History *item = [self.urlHistory objectAtIndex:index];
+	return item.url;
+}
+
+- (NSInteger)numberOfItemsInComboBox:(NSComboBox *)aComboBox {
+	return [self.urlHistory count];
+}
+
 @end

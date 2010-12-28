@@ -16,7 +16,7 @@ enum ContentTypes {
 };
 
 @interface HttpGetViewController : NSViewController {
-	NSTextField *urlField;
+	NSComboBox *urlField;
 	NSButton *goButton;
 	NSOutlineView *dataView;
 	NSTextView *resultsView;
@@ -39,7 +39,7 @@ enum ContentTypes {
 
 
 @property (nonatomic, retain) IBOutlet NSButton *goButton;
-@property (nonatomic, retain) IBOutlet NSTextField *urlField;
+@property (nonatomic, retain) IBOutlet NSComboBox *urlField;
 @property (nonatomic, retain) IBOutlet NSTextView *resultsView;
 @property (nonatomic, retain) IBOutlet NSOutlineView *dataView;
 
