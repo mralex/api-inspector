@@ -11,7 +11,7 @@
 
 
 @interface HttpPostViewController : HttpViewController {
-	NSTextField *urlField;
+	NSComboBox *urlField;
 	NSTextView *bodyView;
 	NSTextView *resultsView;
 	NSTableView *valuesTable;
@@ -26,9 +26,10 @@
 	
 	NSMutableArray *keysArray;
 	NSMutableArray *valuesArray;
+
 }
 
-@property (nonatomic, retain) IBOutlet NSTextField *urlField;
+@property (nonatomic, retain) IBOutlet NSComboBox *urlField;
 @property (nonatomic, retain) IBOutlet NSTextView *bodyView;
 @property (nonatomic, retain) IBOutlet NSTextView *resultsView;
 @property (nonatomic, retain) IBOutlet NSTableView *valuesTable;

@@ -29,11 +29,7 @@ enum ContentTypes {
 	NSString *statusMessage;
 	NSString *contentType;
 	int parseType;
-	
-	NSManagedObjectContext *managedObjectContext;
 }
-
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @property (nonatomic, retain) IBOutlet NSButton *goButton;
 @property (nonatomic, retain) IBOutlet NSComboBox *urlField;

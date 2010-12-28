@@ -10,7 +10,7 @@
 #import "History.h"
 
 @implementation HttpViewController
-@synthesize urlHistory;
+@synthesize urlHistory, managedObjectContext;
 
 - (id) init
 {

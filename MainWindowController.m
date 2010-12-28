@@ -35,6 +35,7 @@
 	[httpGetViewController addObserver:self forKeyPath:@"statusMessage" options:(NSKeyValueObservingOptionNew) context:NULL];
 	
 	self.httpGetViewController.managedObjectContext = self.managedObjectContext;
+	self.httpPostViewController.managedObjectContext = self.managedObjectContext;
 		
 	NSView *httpGetView = [self.httpGetViewController view];
 	[httpGetView setFrame:[self.contentBox bounds]];

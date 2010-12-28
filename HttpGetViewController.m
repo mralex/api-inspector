@@ -13,13 +13,12 @@
 #import "History.h"
 
 @implementation HttpGetViewController
-@synthesize urlField, resultsView, dataView, goButton, dataArray, isLoading, statusMessage, contentType, managedObjectContext;
+@synthesize urlField, resultsView, dataView, goButton, dataArray, isLoading, statusMessage, contentType;
 
 - (id) init
 {
 	self = [super init];
 	if (self != nil) {
-		urlHistory = [NSMutableArray array];
 		parseType = -1;
 	}
 	return self;

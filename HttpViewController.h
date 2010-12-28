@@ -11,9 +11,11 @@
 
 @interface HttpViewController : NSViewController {
 	NSMutableArray *urlHistory;
+	NSManagedObjectContext *managedObjectContext;
 
 }
 
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSMutableArray *urlHistory;
 
 - (NSUInteger)indexOfItemInHistoryWithStringValue:(NSString *)value;
