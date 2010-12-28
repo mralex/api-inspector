@@ -21,4 +21,7 @@
 - (NSUInteger)indexOfItemInHistoryWithStringValue:(NSString *)value;
 - (void)urlFieldChanged:(NSNotification *)aNotification;
 
+- (void)viewWillSwitch;
+- (void)viewDidSwitch;
+
 @end

@@ -23,9 +23,7 @@
 	return self;
 }
 
-- (void)windowDidLoad {
-	NSLog(@"window did load");
-	
+- (void)awakeFromNib {
 	[[[self window] toolbar] setSelectedItemIdentifier:@"get"];
 	
 	self.httpGetViewController = [[HttpGetViewController alloc] initWithNibName:@"HttpGetView" bundle:nil];
@@ -42,8 +40,6 @@
 	[httpGetView setAutoresizingMask:(NSViewWidthSizable| NSViewHeightSizable)];
 	[self.contentBox addSubview:httpGetView];
 	activeView = kHttpViewGet;
-	
-	[self showWindow:nil];	
 }
 
 - (void)dealloc {
@@ -59,21 +55,26 @@
 	NSString *identifier = [toolbarItem itemIdentifier];
 	
 	if ([identifier isEqualToString:@"get"] && (activeView != kHttpViewGet)) {
-		
-		
 		NSView *httpGetView = [self.httpGetViewController view];
 		[httpGetView setFrame:[self.contentBox bounds]];
 		[httpGetView setAutoresizingMask:(NSViewWidthSizable| NSViewHeightSizable)];
+
+		[self.httpPostViewController viewWillSwitch];
 		[self.contentBox replaceSubview:[[self.contentBox subviews] objectAtIndex:0] with:httpGetView];
+		[self.httpGetViewController viewDidSwitch];		
+
 		activeView = kHttpViewGet;
 		
 	} else if ([identifier isEqualToString:@"post"] && (activeView != kHttpViewPost)) {
 		NSView *httpPostView = [self.httpPostViewController view];
 		[httpPostView setFrame:[self.contentBox bounds]];
 		[httpPostView setAutoresizingMask:(NSViewWidthSizable| NSViewHeightSizable)];
+
+		[self.httpGetViewController viewWillSwitch];
 		[self.contentBox replaceSubview:[[self.contentBox subviews] objectAtIndex:0] with:httpPostView];
-		activeView = kHttpViewPost;
+		[self.httpPostViewController viewDidSwitch];		
 		
+		activeView = kHttpViewPost;
 	}
 }
 

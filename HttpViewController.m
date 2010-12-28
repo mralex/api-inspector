@@ -77,4 +77,14 @@
 	[urlField setStringValue:[NSString stringWithFormat:@"http://%@", url]];
 }
 
+#pragma mark -
+- (void)viewWillSwitch {
+	
+}
+
+- (void)viewDidSwitch {
+	
+}
+
+
 @end
