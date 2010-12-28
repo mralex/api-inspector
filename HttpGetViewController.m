@@ -358,7 +358,7 @@
 		NSString *url = [(History *)obj url];
 		if ([url rangeOfString:value options:NSCaseInsensitiveSearch].location == 0) {
 			index = idx;
-			stop = YES;
+			*stop = YES;
 		}
 	}];
 	
@@ -379,14 +379,13 @@
 }
 
 - (NSString *)comboBox:(NSComboBox *)aComboBox completedString:(NSString *)uncompletedString {
-	History *history;
 	int index = [self indexOfItemInHistoryWithStringValue:uncompletedString];
 	
 	if (index == -1) {
 		return nil;
 	}
 	
-	history = [self.urlHistory objectAtIndex:index];
+	History *history = [self.urlHistory objectAtIndex:index];
 	return history.url;
 }
 
