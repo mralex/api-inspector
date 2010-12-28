@@ -69,9 +69,18 @@
 	NSLog(@"Go!");
 	
 	// Create url history item here
-	History *historic = (History *)[NSEntityDescription insertNewObjectForEntityForName:@"History" inManagedObjectContext:self.managedObjectContext];
-	historic.httpAction = [NSNumber numberWithInt:kHttpViewGet];
-	historic.url = self.urlField.stringValue;
+	int index = [self indexOfItemInHistoryWithStringValue:self.urlField.stringValue];
+	History *historic;
+	if (index == -1) {
+		historic = (History *)[NSEntityDescription insertNewObjectForEntityForName:@"History" inManagedObjectContext:self.managedObjectContext];
+		historic.httpAction = [NSNumber numberWithInt:kHttpViewGet];
+		historic.url = self.urlField.stringValue;
+	} else {
+		historic = [self.urlHistory objectAtIndex:index];
+		historic.updated_at = [NSDate date];
+		
+		[self.urlHistory removeObjectAtIndex:index];
+	}
 	
 	NSError *error = nil;
 	[self.managedObjectContext save:&error];
@@ -339,6 +348,21 @@
 	}
 	
 	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+}
+
+- (NSUInteger)indexOfItemInHistoryWithStringValue:(NSString *)value {
+	__block NSUInteger index = -1;
+	if (value == nil) return index;
+	
+	[self.urlHistory enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		NSString *url = [(History *)obj url];
+		if ([url rangeOfString:value options:NSCaseInsensitiveSearch].location == 0) {
+			index = idx;
+			stop = YES;
+		}
+	}];
+	
+	return index;
 }
 
 #pragma mark -

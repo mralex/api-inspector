@@ -58,4 +58,6 @@ enum ContentTypes {
 - (void)parseDataXml;
 - (void)parsingDidFinishWithMessage:(NSString *)message;
 
+- (NSUInteger)indexOfItemInHistoryWithStringValue:(NSString *)value;
+
 @end
