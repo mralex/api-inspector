@@ -8,6 +8,7 @@
 
 #import "constants.h"
 #import "Folder.h"
+#import "Bookmark.h"
 #import "MainWindowController.h"
 #import "HttpViewController.h"
 #import "HttpGetViewController.h"
@@ -31,8 +32,8 @@
 	[[[self window] toolbar] setSelectedItemIdentifier:@"get"];
 	
 	self.bookmarks = [[Folder alloc] initWithName:@"Bookmarks"];
-	
 	self.newBookmarkSheetController.parentManagedObjectContext = self.managedObjectContext;
+	[self loadBookmarks];
 	
 	self.httpGetViewController = [[HttpGetViewController alloc] initWithNibName:@"HttpGetView" bundle:nil];
 	self.httpPostViewController = [[HttpPostViewController alloc] initWithNibName:@"HttpPostView" bundle:nil];
@@ -59,6 +60,29 @@
     [super dealloc];
 }
 
+- (void)loadBookmarks {
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Bookmark" inManagedObjectContext:self.managedObjectContext];
+	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+	request.entity = entity;
+	
+//	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"httpAction == %d", kHttpViewGet];
+//	request.predicate = predicate;
+	
+	NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"updated_at" ascending:NO];
+	request.sortDescriptors = [NSArray arrayWithObject:sort];
+	
+	NSError *error = nil;
+	NSArray *results = [managedObjectContext executeFetchRequest:request error:&error];
+	if (results == nil) {
+		NSLog(@"Error fetching history (%@)", [error description]);
+		return;
+	}
+	
+	self.bookmarks.items = [NSMutableArray arrayWithArray:results];
+	NSLog(@"Loaded %d bookmarks", [self.bookmarks.items count]);
+	
+	[self.sourcelist reloadData];
+}
 
 - (IBAction)switchView:(NSToolbarItem *)toolbarItem {
 	NSString *identifier = [toolbarItem itemIdentifier];
@@ -146,7 +170,7 @@
 	if ([item class] == [Folder class]) {
 		return [(Folder *)item name];
 	}
-	return @"Item";
+	return [(Bookmark *)item name];
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isGroupItem:(id)item {

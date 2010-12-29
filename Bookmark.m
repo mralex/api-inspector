@@ -21,7 +21,7 @@
 
 - (void)awakeFromInsert {
 	NSLog(@"Holla!");
-	self.created_at = [NSDate date];
+	self.created_at = self.updated_at = [NSDate date];
 }
 
 @end
