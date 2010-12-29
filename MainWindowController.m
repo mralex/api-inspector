@@ -186,10 +186,10 @@
 	
 	NSImage *icon;
 	switch ([[item httpAction] intValue]) {
-		case 1:
+		case kHttpViewGet:
 			icon = [NSImage imageNamed:@"bookmark-get.png"];
 			break;
-		case 2:
+		case kHttpViewPost:
 			icon = [NSImage imageNamed:@"bookmark-post.png"];
 			break;
 			

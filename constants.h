@@ -7,6 +7,6 @@
  *
  */
 
-static const int kHttpViewGet = 1;
-static const int kHttpViewPost = 2;
+#define kHttpViewGet 1
+#define kHttpViewPost 2
 
