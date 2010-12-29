@@ -16,7 +16,7 @@
 
 @implementation MainWindowController
 
-@synthesize statusLabel,progressIndicator, contentBox, currentHttpViewController, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem, managedObjectContext, sourcelist, getBookmarks;
+@synthesize statusLabel,progressIndicator, contentBox, currentHttpViewController, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem, managedObjectContext, sourcelist, bookmarks;
 @synthesize getBookmarksController, newBookmarkSheetController;
 
 - (id) init
@@ -30,7 +30,7 @@
 - (void)awakeFromNib {
 	[[[self window] toolbar] setSelectedItemIdentifier:@"get"];
 	
-	self.getBookmarks = [[Folder alloc] initWithName:@"GET Bookmarks"];
+	self.bookmarks = [[Folder alloc] initWithName:@"Bookmarks"];
 	
 	self.newBookmarkSheetController.parentManagedObjectContext = self.managedObjectContext;
 	
@@ -118,7 +118,7 @@
 
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item {
 	if (item == nil) {
-		return getBookmarks;
+		return bookmarks;
 	} else {
 		return [[(Folder *)item items] objectAtIndex:index];
 		//return [[self.getBookmarksController arrangedObjects] objectAtIndex:index];

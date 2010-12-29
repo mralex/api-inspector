@@ -33,7 +33,7 @@
 	
 	NSArrayController *getBookmarksController;
 	
-	Folder *getBookmarks;
+	Folder *bookmarks;
 	
 	NewBookmarkSheetController *newBookmarkSheetController;
 }
@@ -53,7 +53,7 @@
 
 @property (nonatomic, retain) IBOutlet NSOutlineView *sourcelist;
 
-@property (nonatomic, retain) Folder *getBookmarks;
+@property (nonatomic, retain) Folder *bookmarks;
 @property (nonatomic, retain) IBOutlet NSArrayController *getBookmarksController;
 
 @property (nonatomic, retain) IBOutlet NewBookmarkSheetController *newBookmarkSheetController;
