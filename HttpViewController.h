@@ -17,6 +17,8 @@
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
+@property (nonatomic, retain, readonly) NSString *currentUrl;
+
 @property (nonatomic, retain) IBOutlet NSArrayController *urlHistoryController;
 
 //- (NSUInteger)indexOfItemInHistoryWithStringValue:(NSString *)value;

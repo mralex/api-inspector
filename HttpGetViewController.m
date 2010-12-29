@@ -337,7 +337,9 @@
 	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
-
+- (NSString *)currentUrl {
+	return self.urlField.stringValue;
+}
 
 
 

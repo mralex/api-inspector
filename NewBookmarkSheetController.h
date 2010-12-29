@@ -40,3 +40,9 @@
 - (IBAction)redo:sender;
 
 @end
+
+@protocol NewBookmarkSheetControllerDelegate
+@optional
+- (NSString *)urlForBookmark;
+@end
+

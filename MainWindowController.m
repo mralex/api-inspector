@@ -13,7 +13,6 @@
 #import "HttpViewController.h"
 #import "HttpGetViewController.h"
 #import "HttpPostViewController.h"
-#import "NewBookmarkSheetController.h"
 
 @implementation MainWindowController
 
@@ -184,6 +183,10 @@
 
 - (IBAction)addBookmark:(id)sender {
 	NSLog(@"hai!");
+}
+
+- (NSString *)urlForBookmark {
+	return currentHttpViewController.currentUrl;
 }
 
 

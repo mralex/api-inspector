@@ -7,14 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NewBookmarkSheetController.h"
 
 @class Folder;
 @class HttpViewController;
 @class HttpGetViewController;
 @class HttpPostViewController;
-@class NewBookmarkSheetController;
 
-@interface MainWindowController : NSWindowController {
+@interface MainWindowController : NSWindowController <NewBookmarkSheetControllerDelegate> {
 	NSTextField *statusLabel;
 	NSProgressIndicator *progressIndicator;
 	NSView *contentBox;

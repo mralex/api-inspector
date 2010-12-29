@@ -42,6 +42,9 @@
 	[undoManager disableUndoRegistration];
 	
 	id obj = [newBookmarkController newObject];
+	if ([delegate respondsToSelector:@selector(urlForBookmark)])
+		[obj setUrl:[delegate urlForBookmark]];
+	
 	[newBookmarkController addObject:obj];
 	
 	[self.managedObjectContext processPendingChanges];
