@@ -13,7 +13,7 @@
 #import "History.h"
 
 @implementation HttpGetViewController
-@synthesize urlField, resultsView, dataView, goButton, dataArray, isLoading, statusMessage, contentType;
+@synthesize urlField, resultsView, dataView, goButton, dataArray, contentType;
 
 - (id) init
 {
@@ -330,8 +330,6 @@
 		} else {
 			[self.goButton setEnabled:YES];
 		}
-		
-		return;
 	}
 	
 	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

@@ -11,6 +11,7 @@
 
 @implementation HttpViewController
 @synthesize managedObjectContext, urlHistoryController, currentUrl;
+@synthesize statusLabel, progressIndicator, isLoading, statusMessage;
 
 - (id) init
 {
@@ -24,6 +25,9 @@
 - (void) awakeFromNib {
 	NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"updated_at" ascending:NO];
 	self.urlHistoryController.sortDescriptors = [NSArray arrayWithObject:sort];
+	
+	[self addObserver:self forKeyPath:@"isLoading" options:(NSKeyValueObservingOptionNew) context:NULL];
+	[self addObserver:self forKeyPath:@"statusMessage" options:(NSKeyValueObservingOptionNew) context:NULL];
 }
 
 //- (NSUInteger)indexOfItemInHistoryWithStringValue:(NSString *)value {
@@ -101,6 +105,30 @@
 - (void)loadWithURL:(NSString *)aUrl {
 	NSLog(@"Loading with %@", aUrl);
 }
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	if ([keyPath isEqual:@"isLoading"]) {
+		BOOL loading = [(NSNumber*)[change objectForKey:NSKeyValueChangeNewKey] boolValue];
+		
+		if (loading) {
+			[self.progressIndicator startAnimation:self];
+			NSLog(@"start prog");
+		} else {
+			[self.progressIndicator stopAnimation:self];
+			NSLog(@"stop prog");
+		}
+		
+		return;
+	}
+	
+	if ([keyPath isEqual:@"statusMessage"]) {
+		self.statusLabel.stringValue = [change objectForKey:NSKeyValueChangeNewKey];
+		return;
+	}
+	
+	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+}
+
 
 
 @end

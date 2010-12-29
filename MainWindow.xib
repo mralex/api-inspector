@@ -21,7 +21,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="80"/>
+			<integer value="75"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -385,13 +385,13 @@
 											<int key="NSvFlags">290</int>
 											<object class="NSMutableArray" key="NSSubviews">
 												<bool key="EncodedWithXMLCoder">YES</bool>
-												<object class="BWAnchoredButton" id="476713222">
+												<object class="BWAnchoredButton" id="619056646">
 													<reference key="NSNextResponder" ref="688632883"/>
 													<int key="NSvFlags">268</int>
 													<string key="NSFrame">{{-1, -1}, {32, 24}}</string>
 													<reference key="NSSuperview" ref="688632883"/>
 													<bool key="NSEnabled">YES</bool>
-													<object class="BWAnchoredButtonCell" key="NSCell" id="46922358">
+													<object class="BWAnchoredButtonCell" key="NSCell" id="721538340">
 														<int key="NSCellFlags">67239424</int>
 														<int key="NSCellFlags2">134348800</int>
 														<string key="NSContents"/>
@@ -400,7 +400,7 @@
 															<double key="NSSize">11</double>
 															<int key="NSfFlags">3100</int>
 														</object>
-														<reference key="NSControlView" ref="476713222"/>
+														<reference key="NSControlView" ref="619056646"/>
 														<int key="NSButtonFlags">-2033958657</int>
 														<int key="NSButtonFlags2">163</int>
 														<object class="NSCustomResource" key="NSNormalImage">
@@ -413,18 +413,18 @@
 														<int key="NSPeriodicInterval">25</int>
 													</object>
 												</object>
-												<object class="BWAnchoredButton" id="713990931">
+												<object class="BWAnchoredButton" id="20779122">
 													<reference key="NSNextResponder" ref="688632883"/>
 													<int key="NSvFlags">268</int>
 													<string key="NSFrame">{{30, -1}, {32, 24}}</string>
 													<reference key="NSSuperview" ref="688632883"/>
 													<bool key="NSEnabled">YES</bool>
-													<object class="BWAnchoredButtonCell" key="NSCell" id="1060712539">
+													<object class="BWAnchoredButtonCell" key="NSCell" id="547128079">
 														<int key="NSCellFlags">67239424</int>
 														<int key="NSCellFlags2">134348800</int>
 														<string key="NSContents"/>
 														<reference key="NSSupport" ref="26"/>
-														<reference key="NSControlView" ref="713990931"/>
+														<reference key="NSControlView" ref="20779122"/>
 														<int key="NSButtonFlags">-2033958657</int>
 														<int key="NSButtonFlags2">163</int>
 														<object class="NSCustomResource" key="NSNormalImage">
@@ -602,7 +602,7 @@
 										<object class="NSCustomView" id="730728702">
 											<reference key="NSNextResponder" ref="806919132"/>
 											<int key="NSvFlags">274</int>
-											<string key="NSFrame">{{20, 20}, {538, 442}}</string>
+											<string key="NSFrame">{{20, 0}, {538, 462}}</string>
 											<reference key="NSSuperview" ref="806919132"/>
 											<string key="NSClassName">NSView</string>
 										</object>
@@ -650,10 +650,10 @@
 				<string key="NSMinSize">{480, 488}</string>
 				<string key="NSMaxSize">{1.79769e+308, 1.79769e+308}</string>
 			</object>
-			<object class="NSCustomObject" id="483189655">
+			<object class="NSCustomObject" id="1030939987">
 				<string key="NSClassName">NewBookmarkSheetController</string>
 			</object>
-			<object class="NSArrayController" id="399769309">
+			<object class="NSArrayController" id="838550313">
 				<bool key="NSAutomaticallyPreparesContent">YES</bool>
 				<object class="_NSManagedProxy" key="_NSManagedProxy">
 					<string key="NSEntityName">Bookmark</string>
@@ -765,7 +765,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">parentWindow</string>
-						<reference key="source" ref="483189655"/>
+						<reference key="source" ref="1030939987"/>
 						<reference key="destination" ref="776549882"/>
 					</object>
 					<int key="connectionID">118</int>
@@ -773,8 +773,8 @@
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">add:</string>
-						<reference key="source" ref="483189655"/>
-						<reference key="destination" ref="476713222"/>
+						<reference key="source" ref="1030939987"/>
+						<reference key="destination" ref="619056646"/>
 					</object>
 					<int key="connectionID">120</int>
 				</object>
@@ -782,14 +782,14 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">newBookmarkSheetController</string>
 						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="483189655"/>
+						<reference key="destination" ref="1030939987"/>
 					</object>
 					<int key="connectionID">121</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
-						<reference key="source" ref="483189655"/>
+						<reference key="source" ref="1030939987"/>
 						<reference key="destination" ref="1001"/>
 					</object>
 					<int key="connectionID">124</int>
@@ -797,10 +797,10 @@
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">managedObjectContext: managedObjectContext</string>
-						<reference key="source" ref="399769309"/>
+						<reference key="source" ref="838550313"/>
 						<reference key="destination" ref="1001"/>
 						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="399769309"/>
+							<reference key="NSSource" ref="838550313"/>
 							<reference key="NSDestination" ref="1001"/>
 							<string key="NSLabel">managedObjectContext: managedObjectContext</string>
 							<string key="NSBinding">managedObjectContext</string>
@@ -814,15 +814,15 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">bookmarksController</string>
 						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="399769309"/>
+						<reference key="destination" ref="838550313"/>
 					</object>
 					<int key="connectionID">127</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">sourceArrayController</string>
-						<reference key="source" ref="483189655"/>
-						<reference key="destination" ref="399769309"/>
+						<reference key="source" ref="1030939987"/>
+						<reference key="destination" ref="838550313"/>
 					</object>
 					<int key="connectionID">128</int>
 				</object>
@@ -1026,8 +1026,8 @@
 						<reference key="object" ref="688632883"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="476713222"/>
-							<reference ref="713990931"/>
+							<reference ref="619056646"/>
+							<reference ref="20779122"/>
 						</object>
 						<reference key="parent" ref="32981667"/>
 					</object>
@@ -1038,40 +1038,40 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">106</int>
-						<reference key="object" ref="476713222"/>
+						<reference key="object" ref="619056646"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="46922358"/>
+							<reference ref="721538340"/>
 						</object>
 						<reference key="parent" ref="688632883"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">107</int>
-						<reference key="object" ref="46922358"/>
-						<reference key="parent" ref="476713222"/>
+						<reference key="object" ref="721538340"/>
+						<reference key="parent" ref="619056646"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">108</int>
-						<reference key="object" ref="713990931"/>
+						<reference key="object" ref="20779122"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1060712539"/>
+							<reference ref="547128079"/>
 						</object>
 						<reference key="parent" ref="688632883"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">109</int>
-						<reference key="object" ref="1060712539"/>
-						<reference key="parent" ref="713990931"/>
+						<reference key="object" ref="547128079"/>
+						<reference key="parent" ref="20779122"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">117</int>
-						<reference key="object" ref="483189655"/>
+						<reference key="object" ref="1030939987"/>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">125</int>
-						<reference key="object" ref="399769309"/>
+						<reference key="object" ref="838550313"/>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Bookmarks Controller</string>
 					</object>

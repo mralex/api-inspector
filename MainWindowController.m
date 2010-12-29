@@ -17,7 +17,7 @@
 
 @implementation MainWindowController
 
-@synthesize statusLabel,progressIndicator, contentBox, currentHttpViewController, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem, managedObjectContext, sourcelist, bookmarks;
+@synthesize contentBox, currentHttpViewController, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem, managedObjectContext, sourcelist, bookmarks;
 @synthesize bookmarksController, newBookmarkSheetController;
 
 - (id) init
@@ -43,9 +43,6 @@
 	self.httpGetViewController = [[HttpGetViewController alloc] initWithNibName:@"HttpGetView" bundle:nil];
 	self.httpPostViewController = [[HttpPostViewController alloc] initWithNibName:@"HttpPostView" bundle:nil];
 	
-	[httpGetViewController addObserver:self forKeyPath:@"isLoading" options:(NSKeyValueObservingOptionNew) context:NULL];
-	[httpGetViewController addObserver:self forKeyPath:@"statusMessage" options:(NSKeyValueObservingOptionNew) context:NULL];
-	
 	self.httpGetViewController.managedObjectContext = self.managedObjectContext;
 	self.httpPostViewController.managedObjectContext = self.managedObjectContext;
 		
@@ -57,14 +54,6 @@
 	self.currentHttpViewController = self.httpGetViewController;
 	
 	[self.sourcelist expandItem:[self.sourcelist itemAtRow:0]];
-}
-
-- (void)dealloc {
-	
-	[statusLabel release];
-	[progressIndicator release];
-	
-    [super dealloc];
 }
 
 - (IBAction)switchView:(NSToolbarItem *)toolbarItem {
@@ -103,16 +92,16 @@
 		BOOL loading = [(NSNumber*)[change objectForKey:NSKeyValueChangeNewKey] boolValue];
 		
 		if (loading) {
-			[self.progressIndicator startAnimation:self];
+			//[self.progressIndicator startAnimation:self];
 		} else {
-			[self.progressIndicator stopAnimation:self];
+			//[self.progressIndicator stopAnimation:self];
 		}
 		
 		return;
 	}
 	
 	if ([keyPath isEqual:@"statusMessage"]) {
-		self.statusLabel.stringValue = [change objectForKey:NSKeyValueChangeNewKey];
+		//self.statusLabel.stringValue = [change objectForKey:NSKeyValueChangeNewKey];
 		return;
 	}
 	

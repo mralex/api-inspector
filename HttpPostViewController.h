@@ -21,8 +21,6 @@
 	NSButton *removeButton;
 	
 	NSMutableData *received;
-	BOOL isLoading;
-	NSString *statusMessage;
 	
 	NSMutableArray *keysArray;
 	NSMutableArray *valuesArray;
@@ -36,8 +34,6 @@
 @property (nonatomic, retain) IBOutlet NSButton *goButton;
 @property (nonatomic, retain) IBOutlet NSButton *addButton;
 @property (nonatomic, retain) IBOutlet NSButton *removeButton;
-@property (nonatomic, assign) BOOL isLoading;
-@property (nonatomic, retain) NSString *statusMessage;
 
 @property (nonatomic, retain) NSMutableArray *keysArray;
 @property (nonatomic, retain) NSMutableArray *valuesArray;

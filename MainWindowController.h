@@ -15,8 +15,6 @@
 @class HttpPostViewController;
 
 @interface MainWindowController : NSWindowController <NewBookmarkSheetControllerDelegate> {
-	NSTextField *statusLabel;
-	NSProgressIndicator *progressIndicator;
 	NSView *contentBox;
 	
 	NSOutlineView *sourcelist;
@@ -39,9 +37,6 @@
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-
-@property (nonatomic, retain) IBOutlet NSTextField *statusLabel;
-@property (nonatomic, retain) IBOutlet NSProgressIndicator *progressIndicator;
 
 @property (nonatomic, retain) IBOutlet NSToolbarItem *getToolbarItem;
 @property (nonatomic, retain) IBOutlet NSToolbarItem *postToolbarItem;

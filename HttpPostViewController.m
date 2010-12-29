@@ -11,7 +11,7 @@
 #import "History.h"
 
 @implementation HttpPostViewController
-@synthesize goButton, addButton, removeButton, urlField, bodyView, resultsView, valuesTable, isLoading, statusMessage, keysArray, valuesArray;
+@synthesize goButton, addButton, removeButton, urlField, bodyView, resultsView, valuesTable, keysArray, valuesArray;
 
 
 - (void) loadView {

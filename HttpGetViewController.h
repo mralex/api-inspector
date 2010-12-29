@@ -25,8 +25,6 @@ enum ContentTypes {
 	NSMutableData *received;
 	NSMutableArray *dataArray;
 
-	BOOL isLoading;
-	NSString *statusMessage;
 	NSString *contentType;
 	int parseType;
 }
@@ -38,8 +36,6 @@ enum ContentTypes {
 
 @property (nonatomic, retain) NSMutableArray *dataArray;
 
-@property (nonatomic, assign) BOOL isLoading;
-@property (nonatomic, retain) NSString *statusMessage;
 @property (nonatomic, retain) NSString *contentType;
 
 - (IBAction)goAction:sender;
