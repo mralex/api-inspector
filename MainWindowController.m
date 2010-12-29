@@ -184,7 +184,7 @@
 #pragma mark -
 
 - (IBAction)addBookmark:(id)sender {
-	NSLog(@"hai!");
+	[newBookmarkSheetController add:nil];
 }
 
 - (NSString *)urlForBookmark {
