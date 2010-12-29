@@ -81,6 +81,18 @@
 	}
 }
 
+- (void)loadWithURL:(NSString *)aUrl {
+	[self.urlField setStringValue:aUrl];
+	
+	NSUInteger index = [self.urlField indexOfItemWithObjectValue:aUrl];
+	
+	if (index != NSNotFound) {
+		[self.urlHistoryController setSelectionIndex:index];
+	}
+	
+	[self goAction:nil];
+}
+
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
 	self.statusMessage = @"Loading...";
 	[received setLength:0];

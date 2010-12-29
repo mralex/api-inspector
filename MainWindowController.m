@@ -169,6 +169,15 @@
 	return (([item class] == [Folder class]) ? NO : YES);
 }
 
+- (void)outlineViewSelectionDidChange:(NSNotification *)notification {
+	Bookmark *selected = [self.sourcelist itemAtRow:[self.sourcelist selectedRow]];
+	NSLog(@"Selected: %@ (%@)", selected.name, selected.url);
+	
+	if (activeView == kHttpViewPost) return; // FIXME: Add POST support
+	
+	[currentHttpViewController loadWithURL:selected.url];
+}
+
 #pragma mark -
 #pragma mark Bookmark handling
 #pragma mark -

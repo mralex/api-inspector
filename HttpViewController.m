@@ -85,6 +85,7 @@
 #pragma mark Combobox Delegate
 #pragma mark -
 - (void)comboBoxSelectionDidChange:(NSNotification *)notification {
+	NSLog(@"New selection idx: %d", [[notification object] indexOfSelectedItem]);
 	[self.urlHistoryController setSelectionIndex:[[notification object] indexOfSelectedItem]];
 }
 
@@ -95,6 +96,10 @@
 
 - (void)viewDidSwitch {
 	
+}
+
+- (void)loadWithURL:(NSString *)aUrl {
+	NSLog(@"Loading with %@", aUrl);
 }
 
 

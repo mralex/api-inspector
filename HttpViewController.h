@@ -25,4 +25,6 @@
 - (void)viewWillSwitch;
 - (void)viewDidSwitch;
 
+- (void)loadWithURL:(NSString *)aUrl;
+
 @end
