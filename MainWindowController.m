@@ -14,6 +14,7 @@
 #import "HttpGetViewController.h"
 #import "HttpPostViewController.h"
 #import "WMNoteItemCell.h"
+#import "ImageAndTextCell.h"
 
 @implementation MainWindowController
 
@@ -166,7 +167,7 @@
 	if ([item class] == [Folder class]) {
 		return [tableColumn dataCell];
 	} else {
-		return [[WMNoteItemCell alloc] init];
+		return [[ImageAndTextCell alloc] init];
 	}
 }
 
@@ -185,7 +186,7 @@
 		default:
 			break;
 	}
-	[(WMNoteItemCell *)cell setCellIcon:icon];
+	[(ImageAndTextCell *)cell setImage:icon];
 }
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {
