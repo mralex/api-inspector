@@ -12,10 +12,12 @@
 #import "HttpViewController.h"
 #import "HttpGetViewController.h"
 #import "HttpPostViewController.h"
+#import "NewBookmarkSheetController.h"
 
 @implementation MainWindowController
 
 @synthesize statusLabel,progressIndicator, contentBox, currentHttpViewController, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem, managedObjectContext, sourcelist, getBookmarks;
+@synthesize getBookmarksController, newBookmarkSheetController;
 
 - (id) init
 {
@@ -29,6 +31,8 @@
 	[[[self window] toolbar] setSelectedItemIdentifier:@"get"];
 	
 	self.getBookmarks = [[Folder alloc] initWithName:@"GET Bookmarks"];
+	
+	self.newBookmarkSheetController.parentManagedObjectContext = self.managedObjectContext;
 	
 	self.httpGetViewController = [[HttpGetViewController alloc] initWithNibName:@"HttpGetView" bundle:nil];
 	self.httpPostViewController = [[HttpPostViewController alloc] initWithNibName:@"HttpPostView" bundle:nil];
@@ -117,6 +121,7 @@
 		return getBookmarks;
 	} else {
 		return [[(Folder *)item items] objectAtIndex:index];
+		//return [[self.getBookmarksController arrangedObjects] objectAtIndex:index];
 	}
 }
 
@@ -131,6 +136,7 @@
 		return 1;
 	} else if ([item class] == [Folder class]) {
 		return [[(Folder *)item items] count];	
+		//return [[self.getBookmarksController arrangedObjects] count];
 	} 
 	
 	return 0;

@@ -13,6 +13,9 @@
 		53224BE512C9CBBD00251185 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53224BE412C9CBBD00251185 /* BWToolkitFramework.framework */; };
 		53224C1612C9CBCD00251185 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53224BE412C9CBBD00251185 /* BWToolkitFramework.framework */; };
 		53224C4012CA69C100251185 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 53224C3F12CA69C100251185 /* Folder.m */; };
+		53224D6E12CAAF2A00251185 /* NewBookmarkSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53224D6D12CAAF2A00251185 /* NewBookmarkSheetController.m */; };
+		53224D7512CAB11C00251185 /* NewBookmarkSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53224D7412CAB11C00251185 /* NewBookmarkSheet.xib */; };
+		53224D8012CAB4B300251185 /* Gets.m in Sources */ = {isa = PBXBuildFile; fileRef = 53224D7F12CAB4B300251185 /* Gets.m */; };
 		53E59D9B12A1D9A4008F47E1 /* YAJL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E59D9A12A1D9A4008F47E1 /* YAJL.framework */; };
 		53E59DAA12A1D9E8008F47E1 /* YAJL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53E59D9A12A1D9A4008F47E1 /* YAJL.framework */; };
 		53E5A07712A2FE51008F47E1 /* RawDataWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A07612A2FE51008F47E1 /* RawDataWindow.m */; };
@@ -61,6 +64,11 @@
 		53224BE412C9CBBD00251185 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = /Users/bse/src/BWToolkit/BWToolkitFramework.framework; sourceTree = "<absolute>"; };
 		53224C3E12CA69C100251185 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
 		53224C3F12CA69C100251185 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
+		53224D6C12CAAF2A00251185 /* NewBookmarkSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewBookmarkSheetController.h; sourceTree = "<group>"; };
+		53224D6D12CAAF2A00251185 /* NewBookmarkSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewBookmarkSheetController.m; sourceTree = "<group>"; };
+		53224D7412CAB11C00251185 /* NewBookmarkSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewBookmarkSheet.xib; sourceTree = "<group>"; };
+		53224D7E12CAB4B300251185 /* Gets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gets.h; sourceTree = "<group>"; };
+		53224D7F12CAB4B300251185 /* Gets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gets.m; sourceTree = "<group>"; };
 		53E59D9A12A1D9A4008F47E1 /* YAJL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJL.framework; path = Frameworks/YAJL.framework; sourceTree = "<group>"; };
 		53E5A07512A2FE51008F47E1 /* RawDataWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawDataWindow.h; sourceTree = "<group>"; };
 		53E5A07612A2FE51008F47E1 /* RawDataWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawDataWindow.m; sourceTree = "<group>"; };
@@ -114,6 +122,8 @@
 				53E5A4C712A8C5A8008F47E1 /* HttpPostViewController.m */,
 				53224B0212C9817E00251185 /* HttpViewController.h */,
 				53224B0312C9817E00251185 /* HttpViewController.m */,
+				53224D6C12CAAF2A00251185 /* NewBookmarkSheetController.h */,
+				53224D6D12CAAF2A00251185 /* NewBookmarkSheetController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -197,6 +207,7 @@
 				53E5A0B912A4B404008F47E1 /* MainWindow.xib */,
 				53E5A1DF12A4D632008F47E1 /* HttpGetView.xib */,
 				53E5A4BA12A8C514008F47E1 /* HttpPostView.xib */,
+				53224D7412CAB11C00251185 /* NewBookmarkSheet.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -211,6 +222,8 @@
 				53E5A34912A5FBF3008F47E1 /* TreeNode.m */,
 				53224C3E12CA69C100251185 /* Folder.h */,
 				53224C3F12CA69C100251185 /* Folder.m */,
+				53224D7E12CAB4B300251185 /* Gets.h */,
+				53224D7F12CAB4B300251185 /* Gets.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -272,6 +285,7 @@
 				53E5A0BA12A4B404008F47E1 /* MainWindow.xib in Resources */,
 				53E5A1E012A4D632008F47E1 /* HttpGetView.xib in Resources */,
 				53E5A4BB12A8C514008F47E1 /* HttpPostView.xib in Resources */,
+				53224D7512CAB11C00251185 /* NewBookmarkSheet.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +307,8 @@
 				53224A2D12C9694600251185 /* History.m in Sources */,
 				53224B0412C9817E00251185 /* HttpViewController.m in Sources */,
 				53224C4012CA69C100251185 /* Folder.m in Sources */,
+				53224D6E12CAAF2A00251185 /* NewBookmarkSheetController.m in Sources */,
+				53224D8012CAB4B300251185 /* Gets.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

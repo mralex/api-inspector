@@ -12,6 +12,7 @@
 @class HttpViewController;
 @class HttpGetViewController;
 @class HttpPostViewController;
+@class NewBookmarkSheetController;
 
 @interface MainWindowController : NSWindowController {
 	NSTextField *statusLabel;
@@ -30,7 +31,11 @@
 	int activeView;
 	NSManagedObjectContext *managedObjectContext;
 	
+	NSArrayController *getBookmarksController;
+	
 	Folder *getBookmarks;
+	
+	NewBookmarkSheetController *newBookmarkSheetController;
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
@@ -49,6 +54,9 @@
 @property (nonatomic, retain) IBOutlet NSOutlineView *sourcelist;
 
 @property (nonatomic, retain) Folder *getBookmarks;
+@property (nonatomic, retain) IBOutlet NSArrayController *getBookmarksController;
+
+@property (nonatomic, retain) IBOutlet NewBookmarkSheetController *newBookmarkSheetController;
 
 - (IBAction)switchView:(NSToolbarItem *)toolbarItem;
 
