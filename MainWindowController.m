@@ -18,7 +18,7 @@
 @implementation MainWindowController
 
 @synthesize statusLabel,progressIndicator, contentBox, currentHttpViewController, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem, managedObjectContext, sourcelist, bookmarks;
-@synthesize getBookmarksController, newBookmarkSheetController;
+@synthesize bookmarksController, newBookmarkSheetController;
 
 - (id) init
 {
@@ -31,9 +31,13 @@
 - (void)awakeFromNib {
 	[[[self window] toolbar] setSelectedItemIdentifier:@"get"];
 	
-	self.bookmarks = [[Folder alloc] initWithName:@"Bookmarks"];
-	self.newBookmarkSheetController.parentManagedObjectContext = self.managedObjectContext;
+	self.bookmarks = [[Folder alloc] initWithName:@"BOOKMARKS"];
+	//self.newBookmarkSheetController.parentManagedObjectContext = self.managedObjectContext;
 	[self loadBookmarks];
+	
+	[self.bookmarksController addObserver:self
+							   forKeyPath:@"arrangedObjects"
+								  options:NSKeyValueObservingOptionNew context:NULL];
 	
 	self.httpGetViewController = [[HttpGetViewController alloc] initWithNibName:@"HttpGetView" bundle:nil];
 	self.httpPostViewController = [[HttpPostViewController alloc] initWithNibName:@"HttpPostView" bundle:nil];
@@ -133,6 +137,13 @@
 		return;
 	}
 	
+	if ([keyPath isEqual:@"arrangedObjects"]) {
+		NSLog(@"Change observered in bookmarks array controller! %@", change);
+		[sourcelist reloadData];
+		
+		return;
+	}
+	
 	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
@@ -144,8 +155,8 @@
 	if (item == nil) {
 		return bookmarks;
 	} else {
-		return [[(Folder *)item items] objectAtIndex:index];
-		//return [[self.getBookmarksController arrangedObjects] objectAtIndex:index];
+		//return [[(Folder *)item items] objectAtIndex:index];
+		return [[self.bookmarksController arrangedObjects] objectAtIndex:index];
 	}
 }
 
@@ -159,8 +170,8 @@
 	if (item == nil) {
 		return 1;
 	} else if ([item class] == [Folder class]) {
-		return [[(Folder *)item items] count];	
-		//return [[self.getBookmarksController arrangedObjects] count];
+		//return [[(Folder *)item items] count];	
+		return [[self.bookmarksController arrangedObjects] count];
 	} 
 	
 	return 0;
@@ -188,7 +199,6 @@
 - (IBAction)addBookmark:(id)sender {
 	NSLog(@"hai!");
 }
-
 
 
 @end

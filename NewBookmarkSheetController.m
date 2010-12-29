@@ -14,6 +14,10 @@
 
 @synthesize parentManagedObjectContext, managedObjectContext, parentWindow, sourceArrayController, newBookmarkController, newBookmarkSheet, delegate;
 
+- (NSManagedObjectContext *)parentManagedObjectContext {
+	return [sourceArrayController managedObjectContext];
+}
+
 - (NSManagedObjectContext *)managedObjectContext {
 	if (managedObjectContext == nil) {
 		managedObjectContext = [[NSManagedObjectContext alloc] init];
@@ -65,30 +69,24 @@
 }
 
 - (void)newBookmarkSheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo {
-	//Gets *sheetObj = [newBookmarkController content];
+	NSManagedObject *sheetObj = [newBookmarkController content];
 
 	if (returnCode == NSOKButton) {
 		NSLog(@"changes? %d", [self.managedObjectContext hasChanges]);
 		
-		[[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification
-														  object:managedObjectContext 
-														   queue:nil
-													  usingBlock:^(NSNotification *saveNotification) {
-														  [self.parentManagedObjectContext mergeChangesFromContextDidSaveNotification:saveNotification];
-														  // Notify delegate here
-													  }];
+		NSManagedObject *newObj = [self.sourceArrayController newObject];
+		[newObj setValuesForKeysWithDictionary:[sheetObj dictionaryWithValuesForKeys:[NSArray arrayWithObjects:@"name", @"url", nil]]];
+		[sourceArrayController addObject:newObj];
 		
 		NSError *error;
-		if (![managedObjectContext save:&error]) {
+		if (![self.parentManagedObjectContext save:&error]) {
 			NSLog(@"Error occured saving moc");
 		}
-		[[NSNotificationCenter defaultCenter] removeObserver:self name:NSManagedObjectContextDidSaveNotification object:managedObjectContext];
-	} else {
-		[managedObjectContext rollback];
 	}
-	
-	[newBookmarkSheet orderOut:self];
+
+	[self.managedObjectContext reset];
 	[self.newBookmarkController setContent:nil];
+	[newBookmarkSheet orderOut:self];
 }
 
 - (IBAction)undo:sender {

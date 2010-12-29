@@ -31,7 +31,7 @@
 	int activeView;
 	NSManagedObjectContext *managedObjectContext;
 	
-	NSArrayController *getBookmarksController;
+	NSArrayController *bookmarksController;
 	
 	Folder *bookmarks;
 	
@@ -54,7 +54,7 @@
 @property (nonatomic, retain) IBOutlet NSOutlineView *sourcelist;
 
 @property (nonatomic, retain) Folder *bookmarks;
-@property (nonatomic, retain) IBOutlet NSArrayController *getBookmarksController;
+@property (nonatomic, retain) IBOutlet NSArrayController *bookmarksController;
 
 @property (nonatomic, retain) IBOutlet NewBookmarkSheetController *newBookmarkSheetController;
 
