@@ -13,6 +13,7 @@
 #import "HttpViewController.h"
 #import "HttpGetViewController.h"
 #import "HttpPostViewController.h"
+#import "WMNoteItemCell.h"
 
 @implementation MainWindowController
 
@@ -168,6 +169,34 @@
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item {
 	return (([item class] == [Folder class]) ? NO : YES);
+}
+
+- (NSCell *)outlineView:(NSOutlineView *)outlineView dataCellForTableColumn:(NSTableColumn *)tableColumn item:(id)item {
+	if (tableColumn == nil) return nil;
+	
+	if ([item class] == [Folder class]) {
+		return [tableColumn dataCell];
+	} else {
+		return [[WMNoteItemCell alloc] init];
+	}
+}
+
+- (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item {
+	if ([item class] == [Folder class]) return;
+	
+	NSImage *icon;
+	switch ([[item httpAction] intValue]) {
+		case 1:
+			icon = [NSImage imageNamed:@"bookmark-get.png"];
+			break;
+		case 2:
+			icon = [NSImage imageNamed:@"bookmark-post.png"];
+			break;
+			
+		default:
+			break;
+	}
+	[(WMNoteItemCell *)cell setCellIcon:icon];
 }
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {
