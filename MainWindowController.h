@@ -58,7 +58,6 @@
 
 @property (nonatomic, retain) IBOutlet NewBookmarkSheetController *newBookmarkSheetController;
 
-- (void)loadBookmarks;
 - (IBAction)switchView:(NSToolbarItem *)toolbarItem;
 
 - (IBAction)addBookmark:(id)sender;
