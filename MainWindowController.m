@@ -54,6 +54,8 @@
 	[self.contentBox addSubview:httpGetView];
 	activeView = kHttpViewGet;
 	self.currentHttpViewController = self.httpGetViewController;
+	
+	[self.sourcelist expandItem:[self.sourcelist itemAtRow:0]];
 }
 
 - (void)dealloc {
