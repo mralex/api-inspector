@@ -7,7 +7,7 @@
 //
 
 #import "NewBookmarkSheetController.h"
-#import "Gets.h"
+#import "Bookmark.h"
 
 
 @implementation NewBookmarkSheetController
@@ -54,7 +54,7 @@
 - (IBAction)complete:sender {
 	[self.newBookmarkController commitEditing];
 	
-	Gets *sheetObj = [newBookmarkController content];
+	Bookmark *sheetObj = [newBookmarkController content];
 	if ([sheetObj.url length] < 1 && [sheetObj.name length] < 1) return;
 
 	[NSApp endSheet:self.newBookmarkSheet returnCode:NSOKButton];

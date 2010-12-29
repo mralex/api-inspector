@@ -1,23 +1,27 @@
 // 
-//  Gets.m
+//  Bookmark.m
 //  API Inspector
 //
 //  Created by Alex Roberts on 12/28/10.
 //  Copyright 2010 Red Process. All rights reserved.
 //
 
-#import "Gets.h"
+#import "Bookmark.h"
 
 
-@implementation Gets 
+@implementation Bookmark 
 
+@dynamic valueArray;
+@dynamic created_at;
+@dynamic httpAction;
+@dynamic keyArray;
+@dynamic updated_at;
 @dynamic name;
 @dynamic url;
-@dynamic added_at;
 
 - (void)awakeFromInsert {
 	NSLog(@"Holla!");
-	self.added_at = [NSDate date];
+	self.created_at = [NSDate date];
 }
 
 @end
