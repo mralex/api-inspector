@@ -38,6 +38,8 @@ enum ContentTypes {
 
 @property (nonatomic, retain) NSString *contentType;
 
+- (void)updateUrlSelection;
+
 - (IBAction)goAction:sender;
 
 - (TreeNode *)parseJsonObject:(id)object withKey:(id)key;

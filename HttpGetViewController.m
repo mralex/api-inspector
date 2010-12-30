@@ -38,6 +38,14 @@
 #pragma mark -
 #pragma mark URL Handling
 #pragma mark -
+- (void)updateUrlSelection {
+	NSString *url = self.urlField.stringValue;
+	NSUInteger index = [self.urlField indexOfItemWithObjectValue:url];
+	
+	if (index != NSNotFound) {
+		[self.urlHistoryController setSelectionIndex:index];
+	}
+}
 
 - (IBAction)goAction:sender {
 	if (self.isLoading) return;
@@ -45,6 +53,8 @@
 	NSLog(@"Go!");
 
 	History *historic;
+	
+	[self updateUrlSelection];
 	
 	NSLog(@"selection: %d", [self.urlHistoryController selectionIndex]);
 	
@@ -83,13 +93,6 @@
 
 - (void)loadWithURL:(NSString *)aUrl {
 	[self.urlField setStringValue:aUrl];
-	
-	NSUInteger index = [self.urlField indexOfItemWithObjectValue:aUrl];
-	
-	if (index != NSNotFound) {
-		[self.urlHistoryController setSelectionIndex:index];
-	}
-	
 	[self goAction:nil];
 }
 
