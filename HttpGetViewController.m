@@ -78,7 +78,8 @@
 	self.statusMessage = @"Connecting...";
 	
 	self.isLoading = YES;
-	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.urlField.stringValue] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.urlField.stringValue] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+	[request setValue:@"API Inspector/1.0" forHTTPHeaderField:@"User-Agent"];
 	NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 	
 	if (connection) {
