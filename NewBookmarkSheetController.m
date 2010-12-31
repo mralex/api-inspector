@@ -8,6 +8,7 @@
 
 #import "NewBookmarkSheetController.h"
 #import "Bookmark.h"
+#import "constants.h"
 
 
 @implementation NewBookmarkSheetController
@@ -42,8 +43,19 @@
 	[undoManager disableUndoRegistration];
 	
 	id obj = [newBookmarkController newObject];
-	if ([delegate respondsToSelector:@selector(urlForBookmark)])
+	if (self.delegate) {
 		[obj setUrl:[delegate urlForBookmark]];
+		
+		NSInteger action = [delegate httpActionForBookmark];
+		[obj setHttpAction:[NSNumber numberWithInt:action]];
+		
+		if (action == kHttpViewPost) {
+			NSDictionary *keysAndValues = [delegate postKeysAndValuesForBookmark];
+			[obj setKeyArray:[keysAndValues objectForKey:kHttpPostKeys]];
+			[obj setValueArray:[keysAndValues objectForKey:kHttpPostValues]];
+		}
+	}
+	NSLog(@"object: %@", obj);
 	
 	[newBookmarkController addObject:obj];
 	
@@ -78,7 +90,7 @@
 		NSLog(@"changes? %d", [self.managedObjectContext hasChanges]);
 		
 		NSManagedObject *newObj = [self.sourceArrayController newObject];
-		[newObj setValuesForKeysWithDictionary:[sheetObj dictionaryWithValuesForKeys:[NSArray arrayWithObjects:@"name", @"url", nil]]];
+		[newObj setValuesForKeysWithDictionary:[sheetObj dictionaryWithValuesForKeys:[NSArray arrayWithObjects:@"name", @"url", @"httpAction", @"keyArray", @"valueArray", nil]]];
 		[sourceArrayController addObject:newObj];
 		
 		NSError *error;

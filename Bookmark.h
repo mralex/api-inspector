@@ -13,10 +13,10 @@
 {
 }
 
-@property (nonatomic, retain) NSData * valueArray;
+@property (nonatomic, retain) id valueArray;
 @property (nonatomic, retain) NSDate * created_at;
 @property (nonatomic, retain) NSNumber * httpAction;
-@property (nonatomic, retain) NSData * keyArray;
+@property (nonatomic, retain) id keyArray;
 @property (nonatomic, retain) NSDate * updated_at;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * url;

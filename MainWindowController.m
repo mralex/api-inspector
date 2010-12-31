@@ -210,5 +210,14 @@
 	return currentHttpViewController.currentUrl;
 }
 
+- (NSInteger)httpActionForBookmark {
+	return activeView;
+}
+- (NSDictionary *)postKeysAndValuesForBookmark {
+	NSDictionary *keysAndValues = [NSDictionary dictionaryWithObjectsAndKeys:self.httpPostViewController.keysArray, kHttpPostKeys,
+																			self.httpPostViewController.valuesArray, kHttpPostValues, nil];
+	
+	return keysAndValues;
+}
 
 @end

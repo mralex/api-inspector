@@ -10,3 +10,5 @@
 #define kHttpViewGet 1
 #define kHttpViewPost 2
 
+#define kHttpPostKeys	@"httpPostKeys"
+#define kHttpPostValues	@"httpPostValues"

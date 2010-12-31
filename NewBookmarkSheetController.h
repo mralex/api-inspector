@@ -42,7 +42,8 @@
 @end
 
 @protocol NewBookmarkSheetControllerDelegate
-@optional
+- (NSInteger)httpActionForBookmark;
+- (NSDictionary *)postKeysAndValuesForBookmark;
 - (NSString *)urlForBookmark;
 @end
 
