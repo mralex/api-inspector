@@ -57,14 +57,12 @@
 	[self.sourcelist expandItem:[self.sourcelist itemAtRow:0]];
 }
 
-- (IBAction)switchViewAction:(NSToolbarItem *)toolbarItem {
-	NSString *identifier = [toolbarItem itemIdentifier];
-	
-	if ([identifier isEqualToString:@"get"] && (activeView != kHttpViewGet)) {
+- (void)switchView:(NSInteger)viewType {
+	if ((viewType == kHttpViewGet) && (activeView != kHttpViewGet)) {
 		NSView *httpGetView = [self.httpGetViewController view];
 		[httpGetView setFrame:[self.contentBox bounds]];
 		[httpGetView setAutoresizingMask:(NSViewWidthSizable| NSViewHeightSizable)];
-
+		
 		[self.httpPostViewController viewWillSwitch];
 		[self.contentBox replaceSubview:[[self.contentBox subviews] objectAtIndex:0] with:httpGetView];
 		[self.httpGetViewController viewDidSwitch];		
@@ -72,17 +70,28 @@
 		self.currentHttpViewController = self.httpGetViewController;
 		activeView = kHttpViewGet;
 		
-	} else if ([identifier isEqualToString:@"post"] && (activeView != kHttpViewPost)) {
+	} else if ((viewType == kHttpViewPost) && (activeView != kHttpViewPost)) {
 		NSView *httpPostView = [self.httpPostViewController view];
 		[httpPostView setFrame:[self.contentBox bounds]];
 		[httpPostView setAutoresizingMask:(NSViewWidthSizable| NSViewHeightSizable)];
-
+		
 		[self.httpGetViewController viewWillSwitch];
 		[self.contentBox replaceSubview:[[self.contentBox subviews] objectAtIndex:0] with:httpPostView];
 		[self.httpPostViewController viewDidSwitch];		
-
+		
 		self.currentHttpViewController = self.httpPostViewController;
 		activeView = kHttpViewPost;
+	}
+}
+
+- (IBAction)switchViewAction:(NSToolbarItem *)toolbarItem {
+	NSString *identifier = [toolbarItem itemIdentifier];
+	
+	if ([identifier isEqualToString:@"get"]) {
+		[self switchView:kHttpViewGet];
+		
+	} else if ([identifier isEqualToString:@"post"]) {
+		[self switchView:kHttpViewPost];
 	}
 }
 
@@ -191,15 +200,18 @@
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {
 	Bookmark *selected = [self.sourcelist itemAtRow:[self.sourcelist selectedRow]];
-	NSLog(@"Selected: %@ (%@)", selected.name, selected.url);
-	
-	if ([selected.httpAction intValue] == kHttpViewPost) {
-		if ((activeView != kHttpViewPost)) return; // FIXME: Add POST support	
-		[currentHttpViewController loadWithBookmark:selected];
 
+	switch ([selected.httpAction intValue]) {
+		case kHttpViewPost:
+			[self switchView:kHttpViewPost];
+			break;
+		case kHttpViewGet:
+			[self switchView:kHttpViewGet];
+			break;
+		default:
+			break;
 	}
-	if (activeView == kHttpViewPost) return;
-
+	
 	[currentHttpViewController loadWithBookmark:selected];
 }
 
