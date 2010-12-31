@@ -28,6 +28,7 @@
 		5322503B12CC098D00251185 /* toolbar-get-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5322503A12CC098D00251185 /* toolbar-get-2.png */; };
 		5322504512CC0B9300251185 /* toolbar-post-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5322504412CC0B9300251185 /* toolbar-post-2.png */; };
 		532250AD12CE776F00251185 /* API Inspector.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 532250AC12CE776F00251185 /* API Inspector.xcmappingmodel */; };
+		5322516312CE950400251185 /* WMOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5322516212CE950400251185 /* WMOutlineView.m */; };
 		53E59D9B12A1D9A4008F47E1 /* YAJL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E59D9A12A1D9A4008F47E1 /* YAJL.framework */; };
 		53E59DAA12A1D9E8008F47E1 /* YAJL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53E59D9A12A1D9A4008F47E1 /* YAJL.framework */; };
 		53E5A07712A2FE51008F47E1 /* RawDataWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A07612A2FE51008F47E1 /* RawDataWindow.m */; };
@@ -95,6 +96,9 @@
 		5322504412CC0B9300251185 /* toolbar-post-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar-post-2.png"; sourceTree = "<group>"; };
 		5322508512CE76FA00251185 /* API_Inspector_DataModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "API_Inspector_DataModel 3.xcdatamodel"; sourceTree = "<group>"; };
 		532250AC12CE776F00251185 /* API Inspector.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = "API Inspector.xcmappingmodel"; sourceTree = "<group>"; };
+		5322516112CE950400251185 /* WMOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMOutlineView.h; sourceTree = "<group>"; };
+		5322516212CE950400251185 /* WMOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMOutlineView.m; sourceTree = "<group>"; };
+		5322516712CE952800251185 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
 		53E59D9A12A1D9A4008F47E1 /* YAJL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJL.framework; path = Frameworks/YAJL.framework; sourceTree = "<group>"; };
 		53E5A07512A2FE51008F47E1 /* RawDataWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawDataWindow.h; sourceTree = "<group>"; };
 		53E5A07612A2FE51008F47E1 /* RawDataWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawDataWindow.m; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				53224D6D12CAAF2A00251185 /* NewBookmarkSheetController.m */,
 				53224F4A12CBBFE700251185 /* WMNoteItemCell.h */,
 				53224F4B12CBBFE700251185 /* WMNoteItemCell.m */,
+				5322516112CE950400251185 /* WMOutlineView.h */,
+				5322516212CE950400251185 /* WMOutlineView.m */,
 				53224FFC12CBCC6200251185 /* ImageAndTextCell.h */,
 				53224FFD12CBCC6200251185 /* ImageAndTextCell.m */,
 			);
@@ -203,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				32CA4F630368D1EE00C91783 /* API_Inspector_Prefix.pch */,
+				5322516712CE952800251185 /* debug.h */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				53224A8512C971CA00251185 /* constants.h */,
 			);
@@ -365,6 +372,7 @@
 				53224F4C12CBBFE700251185 /* WMNoteItemCell.m in Sources */,
 				53224FFE12CBCC6200251185 /* ImageAndTextCell.m in Sources */,
 				532250AD12CE776F00251185 /* API Inspector.xcmappingmodel in Sources */,
+				5322516312CE950400251185 /* WMOutlineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +417,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = API_Inspector_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				INFOPLIST_FILE = "API_Inspector-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";

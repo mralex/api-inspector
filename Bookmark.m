@@ -20,7 +20,7 @@
 @dynamic url;
 
 - (void)awakeFromInsert {
-	NSLog(@"Holla!");
+	DLog(@"Holla!");
 	self.created_at = self.updated_at = [NSDate date];
 }
 

@@ -43,16 +43,16 @@
 - (IBAction)goAction:sender {
 	if (self.isLoading) return;
 	
-	NSLog(@"Go!");
+	DLog(@"Go!");
 
 	History *historic;
 	
 	[self updateUrlSelection];
 	
-	NSLog(@"selection: %d", [self.urlHistoryController selectionIndex]);
+	DLog(@"selection: %d", [self.urlHistoryController selectionIndex]);
 	
 	if ([self.urlHistoryController selectionIndex] == NSNotFound) {
-		NSLog(@"New!");
+		DLog(@"New!");
 		historic = (History *)[NSEntityDescription insertNewObjectForEntityForName:@"History" inManagedObjectContext:self.managedObjectContext];
 		historic.httpAction = [NSNumber numberWithInt:kHttpViewGet];
 		historic.url = self.urlField.stringValue;
@@ -94,7 +94,7 @@
 	self.statusMessage = @"Loading...";
 	[received setLength:0];
 	
-	NSLog(@"Response: %@", [[(NSHTTPURLResponse *)response allHeaderFields] description]);
+	DLog(@"Response: %@", [[(NSHTTPURLResponse *)response allHeaderFields] description]);
 	
 	self.contentType = [[(NSHTTPURLResponse *)response allHeaderFields] objectForKey:@"Content-Type"];
 	[[[RawDataWindow sharedDataWindow] contentTypeField] setStringValue:self.contentType];
@@ -214,7 +214,7 @@
 
 - (void)parseDataXml {
 	self.statusMessage = @"Got some XML!";
-	NSLog(@"XML");
+	DLog(@"XML");
 	
 	self.dataArray = nil;
 	self.dataArray = [NSMutableArray array];
@@ -227,7 +227,7 @@
 	xml = [[NSXMLDocument alloc] initWithXMLString:xmlData options:(NSXMLNodePreserveWhitespace|NSXMLNodePreserveCDATA) error:&error];
 	
 	int i, count = [[xml rootElement] childCount];
-	NSLog(@"children of root: %d", count);
+	DLog(@"children of root: %d", count);
 	
 	for (i = 0; i < count; i++) {
 		NSXMLNode *child = [[xml rootElement] childAtIndex:i];

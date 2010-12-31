@@ -118,7 +118,7 @@
 	}
 	
 	if ([keyPath isEqual:@"arrangedObjects"]) {
-		NSLog(@"Change observered in bookmarks array controller! %@", change);
+		DLog(@"Change observered in bookmarks array controller! %@", change);
 		[sourcelist reloadData];
 		
 		return;

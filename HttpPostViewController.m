@@ -28,7 +28,7 @@
 }
 
 - (void)loadWithBookmark:(Bookmark *)bookmark {
-	NSLog(@"hai!");
+	DLog(@"hai!");
 	
 	[self.urlField setStringValue:bookmark.url];
 	self.keysArray = [NSMutableArray arrayWithArray:bookmark.keyArray];
@@ -41,14 +41,14 @@
 -(IBAction)goAction:(id)sender {
 	if (self.isLoading) return;
 	
-	NSLog(@"POST Go!");
+	DLog(@"POST Go!");
 	
 	[self updateUrlSelection];
 
 	// Create url history item here
 	History *historic;
 	if ([self.urlHistoryController selectionIndex] == NSNotFound) {
-		NSLog(@"New!");
+		DLog(@"New!");
 		historic = (History *)[NSEntityDescription insertNewObjectForEntityForName:@"History" inManagedObjectContext:self.managedObjectContext];
 		historic.httpAction = [NSNumber numberWithInt:kHttpViewPost];
 		historic.url = self.urlField.stringValue;

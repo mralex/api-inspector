@@ -34,7 +34,7 @@
 		BOOL fail = [nib instantiateNibWithOwner:self topLevelObjects:nil];
 		
 		if (fail != YES) {
-			NSLog(@"Error instantiating sheet");
+			DLog(@"Error instantiating sheet");
 			return;
 		}
 	}
@@ -55,7 +55,7 @@
 			[obj setValueArray:[keysAndValues objectForKey:kHttpPostValues]];
 		}
 	}
-	NSLog(@"object: %@", obj);
+	DLog(@"object: %@", obj);
 	
 	[newBookmarkController addObject:obj];
 	
@@ -87,7 +87,7 @@
 	NSManagedObject *sheetObj = [newBookmarkController content];
 
 	if (returnCode == NSOKButton) {
-		NSLog(@"changes? %d", [self.managedObjectContext hasChanges]);
+		DLog(@"changes? %d", [self.managedObjectContext hasChanges]);
 		
 		NSManagedObject *newObj = [self.sourceArrayController newObject];
 		[newObj setValuesForKeysWithDictionary:[sheetObj dictionaryWithValuesForKeys:[NSArray arrayWithObjects:@"name", @"url", @"httpAction", @"keyArray", @"valueArray", nil]]];
@@ -95,7 +95,7 @@
 		
 		NSError *error;
 		if (![self.parentManagedObjectContext save:&error]) {
-			NSLog(@"Error occured saving moc");
+			DLog(@"Error occured saving moc");
 		}
 	}
 

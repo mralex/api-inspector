@@ -97,7 +97,7 @@
 #pragma mark Combobox Delegate
 #pragma mark -
 - (void)comboBoxSelectionDidChange:(NSNotification *)notification {
-	NSLog(@"New selection idx: %d", [[notification object] indexOfSelectedItem]);
+	DLog(@"New selection idx: %d", [[notification object] indexOfSelectedItem]);
 	[self.urlHistoryController setSelectionIndex:[[notification object] indexOfSelectedItem]];
 }
 
@@ -111,7 +111,7 @@
 }
 
 - (void)loadWithBookmark:(Bookmark *)bookmark {
-	NSLog(@"Loading with bookmark %@", bookmark.name);
+	DLog(@"Loading with bookmark %@", bookmark.name);
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -120,10 +120,10 @@
 		
 		if (loading) {
 			[self.progressIndicator startAnimation:self];
-			NSLog(@"start prog");
+			DLog(@"start prog");
 		} else {
 			[self.progressIndicator stopAnimation:self];
-			NSLog(@"stop prog");
+			DLog(@"stop prog");
 		}
 		
 		return;
