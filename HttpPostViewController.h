@@ -11,7 +11,6 @@
 
 
 @interface HttpPostViewController : HttpViewController {
-	NSComboBox *urlField;
 	NSTextView *bodyView;
 	NSTextView *resultsView;
 	NSTableView *valuesTable;
@@ -27,7 +26,6 @@
 
 }
 
-@property (nonatomic, retain) IBOutlet NSComboBox *urlField;
 @property (nonatomic, retain) IBOutlet NSTextView *bodyView;
 @property (nonatomic, retain) IBOutlet NSTextView *resultsView;
 @property (nonatomic, retain) IBOutlet NSTableView *valuesTable;
@@ -38,7 +36,6 @@
 @property (nonatomic, retain) NSMutableArray *keysArray;
 @property (nonatomic, retain) NSMutableArray *valuesArray;
 
-- (void)updateUrlSelection;
 -(IBAction)goAction:(id)sender;
 
 -(IBAction)addAction:(id)sender;

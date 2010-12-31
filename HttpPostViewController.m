@@ -12,7 +12,7 @@
 #import "Bookmark.h"
 
 @implementation HttpPostViewController
-@synthesize goButton, addButton, removeButton, urlField, bodyView, resultsView, valuesTable, keysArray, valuesArray;
+@synthesize goButton, addButton, removeButton, bodyView, resultsView, valuesTable, keysArray, valuesArray;
 
 
 - (void) loadView {
@@ -36,15 +36,6 @@
 	[self.valuesTable reloadData];
 	
 	[self goAction:nil];
-}
-
-- (void)updateUrlSelection {
-	NSString *url = self.urlField.stringValue;
-	NSUInteger index = [self.urlField indexOfItemWithObjectValue:url];
-	
-	if (index != NSNotFound) {
-		[self.urlHistoryController setSelectionIndex:index];
-	}
 }
 
 -(IBAction)goAction:(id)sender {

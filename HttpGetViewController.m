@@ -14,7 +14,7 @@
 #import "Bookmark.h"
 
 @implementation HttpGetViewController
-@synthesize urlField, resultsView, dataView, goButton, dataArray, contentType;
+@synthesize resultsView, dataView, goButton, dataArray, contentType;
 
 - (id) init
 {
@@ -39,14 +39,6 @@
 #pragma mark -
 #pragma mark URL Handling
 #pragma mark -
-- (void)updateUrlSelection {
-	NSString *url = self.urlField.stringValue;
-	NSUInteger index = [self.urlField indexOfItemWithObjectValue:url];
-	
-	if (index != NSNotFound) {
-		[self.urlHistoryController setSelectionIndex:index];
-	}
-}
 
 - (IBAction)goAction:sender {
 	if (self.isLoading) return;

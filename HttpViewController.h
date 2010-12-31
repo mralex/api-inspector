@@ -14,6 +14,7 @@
 	NSManagedObjectContext *managedObjectContext;
 	NSArrayController *urlHistoryController;
 	
+	NSComboBox *urlField;
 	NSTextField *statusLabel;
 	NSProgressIndicator *progressIndicator;
 
@@ -23,6 +24,7 @@
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
+@property (nonatomic, retain) IBOutlet NSComboBox *urlField;
 @property (nonatomic, retain) IBOutlet NSTextField *statusLabel;
 @property (nonatomic, retain) IBOutlet NSProgressIndicator *progressIndicator;
 
@@ -34,6 +36,7 @@
 @property (nonatomic, retain) NSString *statusMessage;
 
 //- (NSUInteger)indexOfItemInHistoryWithStringValue:(NSString *)value;
+- (void)updateUrlSelection;
 - (void)urlFieldChanged:(NSNotification *)aNotification;
 
 - (void)viewWillSwitch;

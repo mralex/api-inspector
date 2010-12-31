@@ -17,7 +17,6 @@ enum ContentTypes {
 };
 
 @interface HttpGetViewController : HttpViewController <NSComboBoxDelegate> {
-	NSComboBox *urlField;
 	NSButton *goButton;
 	NSOutlineView *dataView;
 	NSTextView *resultsView;
@@ -30,15 +29,12 @@ enum ContentTypes {
 }
 
 @property (nonatomic, retain) IBOutlet NSButton *goButton;
-@property (nonatomic, retain) IBOutlet NSComboBox *urlField;
 @property (nonatomic, retain) IBOutlet NSTextView *resultsView;
 @property (nonatomic, retain) IBOutlet NSOutlineView *dataView;
 
 @property (nonatomic, retain) NSMutableArray *dataArray;
 
 @property (nonatomic, retain) NSString *contentType;
-
-- (void)updateUrlSelection;
 
 - (IBAction)goAction:sender;
 

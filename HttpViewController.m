@@ -12,7 +12,7 @@
 
 @implementation HttpViewController
 @synthesize managedObjectContext, urlHistoryController, currentUrl;
-@synthesize statusLabel, progressIndicator, isLoading, statusMessage;
+@synthesize urlField, statusLabel, progressIndicator, isLoading, statusMessage;
 
 - (id) init
 {
@@ -75,16 +75,23 @@
 //}
 
 #pragma mark -
+- (void)updateUrlSelection {
+	NSString *url = self.urlField.stringValue;
+	NSUInteger index = [self.urlField indexOfItemWithObjectValue:url];
+	
+	if (index != NSNotFound) {
+		[self.urlHistoryController setSelectionIndex:index];
+	}
+}
 
 - (void)urlFieldChanged:(NSNotification *)aNotification {
-	NSComboBox *urlField = [aNotification object];
-	NSString *url = urlField.stringValue;
+	NSString *url = self.urlField.stringValue;
 	
 	if ([url length] < 6) return;
 	
 	if (([url rangeOfString:@"http:"].location != NSNotFound) || ([url rangeOfString:@"https:"].location != NSNotFound)) return;
 	
-	[urlField setStringValue:[NSString stringWithFormat:@"http://%@", url]];
+	[self.urlField setStringValue:[NSString stringWithFormat:@"http://%@", url]];
 }
 #pragma mark -
 #pragma mark Combobox Delegate
