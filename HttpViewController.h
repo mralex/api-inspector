@@ -42,6 +42,6 @@
 - (void)viewWillSwitch;
 - (void)viewDidSwitch;
 
-- (void)loadWithBookmark:(Bookmark *)bookmark;
+- (void)loadWithBookmark:(Bookmark *)bookmark openUrl:(BOOL)opening;
 
 @end

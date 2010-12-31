@@ -110,8 +110,8 @@
 	
 }
 
-- (void)loadWithBookmark:(Bookmark *)bookmark {
-	DLog(@"Loading with bookmark %@", bookmark.name);
+- (void)loadWithBookmark:(Bookmark *)bookmark openUrl:(BOOL)opening {
+	DLog(@"Loading view with bookmark %@", bookmark.name);
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

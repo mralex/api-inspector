@@ -55,6 +55,7 @@
 	self.currentHttpViewController = self.httpGetViewController;
 	
 	[self.sourcelist expandItem:[self.sourcelist itemAtRow:0]];
+	[self.sourcelist setDoubleAction:@selector(bookmarksDoubleClicked:)];
 }
 
 - (void)switchView:(NSInteger)viewType {
@@ -200,9 +201,9 @@
 	[(ImageAndTextCell *)cell setImage:icon];
 }
 
-- (void)outlineViewSelectionDidChange:(NSNotification *)notification {
+- (void)handleSelectedBookmarkAndLoad:(BOOL)load {
 	Bookmark *selected = [self.sourcelist itemAtRow:[self.sourcelist selectedRow]];
-
+	
 	switch ([selected.httpAction intValue]) {
 		case kHttpViewPost:
 			[self switchView:kHttpViewPost];
@@ -214,7 +215,15 @@
 			break;
 	}
 	
-	[currentHttpViewController loadWithBookmark:selected];
+	[currentHttpViewController loadWithBookmark:selected openUrl:load];
+}
+
+- (IBAction)bookmarksClicked:(id)sender {
+	[self handleSelectedBookmarkAndLoad:NO];
+}
+
+- (IBAction)bookmarksDoubleClicked:(id)sender {
+	[self handleSelectedBookmarkAndLoad:YES];
 }
 
 #pragma mark -

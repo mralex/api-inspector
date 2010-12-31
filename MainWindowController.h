@@ -56,4 +56,8 @@
 - (IBAction)switchViewAction:(NSToolbarItem *)toolbarItem;
 
 - (IBAction)addBookmark:(id)sender;
+
+- (void)handleSelectedBookmarkAndLoad:(BOOL)load;
+- (IBAction)bookmarksClicked:(id)sender;
+- (IBAction)bookmarksDoubleClicked:(id)sender;
 @end

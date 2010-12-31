@@ -27,7 +27,7 @@
 	self.valuesArray = [NSMutableArray array];
 }
 
-- (void)loadWithBookmark:(Bookmark *)bookmark {
+- (void)loadWithBookmark:(Bookmark *)bookmark openUrl:(BOOL)opening {
 	DLog(@"hai!");
 	
 	[self.urlField setStringValue:bookmark.url];
@@ -35,7 +35,7 @@
 	self.valuesArray = [NSMutableArray arrayWithArray:bookmark.valueArray];
 	[self.valuesTable reloadData];
 	
-	[self goAction:nil];
+	if (opening) [self goAction:nil];
 }
 
 -(IBAction)goAction:(id)sender {

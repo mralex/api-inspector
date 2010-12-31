@@ -85,9 +85,10 @@
 	}
 }
 
-- (void)loadWithBookmark:(Bookmark *)bookmark {
+- (void)loadWithBookmark:(Bookmark *)bookmark openUrl:(BOOL)opening{
 	[self.urlField setStringValue:bookmark.url];
-	[self goAction:nil];
+	
+	if (opening) [self goAction:nil];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
