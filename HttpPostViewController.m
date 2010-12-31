@@ -138,4 +138,12 @@
 		[self.valuesArray replaceObjectAtIndex:rowIndex withObject:anObject];
 	}
 }
+
+#pragma mark -
+
+- (NSString *)currentUrl {
+	return self.urlField.stringValue;
+}
+
+
 @end
