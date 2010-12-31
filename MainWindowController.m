@@ -69,7 +69,8 @@
 		
 		self.currentHttpViewController = self.httpGetViewController;
 		activeView = kHttpViewGet;
-		
+		[[[self window] toolbar] setSelectedItemIdentifier:@"get"];
+
 	} else if ((viewType == kHttpViewPost) && (activeView != kHttpViewPost)) {
 		NSView *httpPostView = [self.httpPostViewController view];
 		[httpPostView setFrame:[self.contentBox bounds]];
@@ -81,6 +82,7 @@
 		
 		self.currentHttpViewController = self.httpPostViewController;
 		activeView = kHttpViewPost;
+		[[[self window] toolbar] setSelectedItemIdentifier:@"post"];
 	}
 }
 
