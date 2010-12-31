@@ -38,11 +38,22 @@
 	[self goAction:nil];
 }
 
+- (void)updateUrlSelection {
+	NSString *url = self.urlField.stringValue;
+	NSUInteger index = [self.urlField indexOfItemWithObjectValue:url];
+	
+	if (index != NSNotFound) {
+		[self.urlHistoryController setSelectionIndex:index];
+	}
+}
+
 -(IBAction)goAction:(id)sender {
 	if (self.isLoading) return;
 	
 	NSLog(@"POST Go!");
 	
+	[self updateUrlSelection];
+
 	// Create url history item here
 	History *historic;
 	if ([self.urlHistoryController selectionIndex] == NSNotFound) {

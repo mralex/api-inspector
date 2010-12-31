@@ -38,6 +38,7 @@
 @property (nonatomic, retain) NSMutableArray *keysArray;
 @property (nonatomic, retain) NSMutableArray *valuesArray;
 
+- (void)updateUrlSelection;
 -(IBAction)goAction:(id)sender;
 
 -(IBAction)addAction:(id)sender;
