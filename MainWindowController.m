@@ -57,7 +57,7 @@
 	[self.sourcelist expandItem:[self.sourcelist itemAtRow:0]];
 }
 
-- (IBAction)switchView:(NSToolbarItem *)toolbarItem {
+- (IBAction)switchViewAction:(NSToolbarItem *)toolbarItem {
 	NSString *identifier = [toolbarItem itemIdentifier];
 	
 	if ([identifier isEqualToString:@"get"] && (activeView != kHttpViewGet)) {
