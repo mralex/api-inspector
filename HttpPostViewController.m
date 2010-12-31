@@ -9,6 +9,7 @@
 #import "constants.h"
 #import "HttpPostViewController.h"
 #import "History.h"
+#import "Bookmark.h"
 
 @implementation HttpPostViewController
 @synthesize goButton, addButton, removeButton, urlField, bodyView, resultsView, valuesTable, keysArray, valuesArray;
@@ -24,6 +25,17 @@
 	
 	self.keysArray = [NSMutableArray array];
 	self.valuesArray = [NSMutableArray array];
+}
+
+- (void)loadWithBookmark:(Bookmark *)bookmark {
+	NSLog(@"hai!");
+	
+	[self.urlField setStringValue:bookmark.url];
+	self.keysArray = [NSMutableArray arrayWithArray:bookmark.keyArray];
+	self.valuesArray = [NSMutableArray arrayWithArray:bookmark.valueArray];
+	[self.valuesTable reloadData];
+	
+	[self goAction:nil];
 }
 
 -(IBAction)goAction:(id)sender {

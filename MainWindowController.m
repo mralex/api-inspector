@@ -193,8 +193,13 @@
 	Bookmark *selected = [self.sourcelist itemAtRow:[self.sourcelist selectedRow]];
 	NSLog(@"Selected: %@ (%@)", selected.name, selected.url);
 	
-	if (activeView == kHttpViewPost) return; // FIXME: Add POST support
-	
+	if ([selected.httpAction intValue] == kHttpViewPost) {
+		if ((activeView != kHttpViewPost)) return; // FIXME: Add POST support	
+		[currentHttpViewController loadWithBookmark:selected];
+
+	}
+	if (activeView == kHttpViewPost) return;
+
 	[currentHttpViewController loadWithBookmark:selected];
 }
 
