@@ -195,7 +195,7 @@
 	
 	if (activeView == kHttpViewPost) return; // FIXME: Add POST support
 	
-	[currentHttpViewController loadWithURL:selected.url];
+	[currentHttpViewController loadWithBookmark:selected];
 }
 
 #pragma mark -

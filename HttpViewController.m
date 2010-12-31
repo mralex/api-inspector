@@ -8,6 +8,7 @@
 
 #import "HttpViewController.h"
 #import "History.h"
+#import "Bookmark.h"
 
 @implementation HttpViewController
 @synthesize managedObjectContext, urlHistoryController, currentUrl;
@@ -102,8 +103,8 @@
 	
 }
 
-- (void)loadWithURL:(NSString *)aUrl {
-	NSLog(@"Loading with %@", aUrl);
+- (void)loadWithBookmark:(Bookmark *)bookmark {
+	NSLog(@"Loading with bookmark %@", bookmark.name);
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

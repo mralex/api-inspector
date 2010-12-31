@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class Bookmark;
 
 @interface HttpViewController : NSViewController {
 	NSManagedObjectContext *managedObjectContext;
@@ -38,6 +39,6 @@
 - (void)viewWillSwitch;
 - (void)viewDidSwitch;
 
-- (void)loadWithURL:(NSString *)aUrl;
+- (void)loadWithBookmark:(Bookmark *)bookmark;
 
 @end

@@ -11,6 +11,7 @@
 #import "RawDataWindow.h"
 #import "TreeNode.h"
 #import "History.h"
+#import "Bookmark.h"
 
 @implementation HttpGetViewController
 @synthesize urlField, resultsView, dataView, goButton, dataArray, contentType;
@@ -92,8 +93,8 @@
 	}
 }
 
-- (void)loadWithURL:(NSString *)aUrl {
-	[self.urlField setStringValue:aUrl];
+- (void)loadWithBookmark:(Bookmark *)bookmark {
+	[self.urlField setStringValue:bookmark.url];
 	[self goAction:nil];
 }
 
