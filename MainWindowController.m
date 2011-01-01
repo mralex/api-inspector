@@ -208,6 +208,8 @@
 	[self.bookmarksController setSelectedObjects:[NSArray arrayWithObject:selected]];
 	//[self.editBookmarkMenuItem isEnabled:YES];
 	DLog(@"Selection changed");
+	[self handleSelectedBookmarkAndLoad:NO];
+
 }
 
 - (void)handleSelectedBookmarkAndLoad:(BOOL)load {
@@ -228,7 +230,6 @@
 }
 
 - (IBAction)bookmarksClicked:(id)sender {
-	[self handleSelectedBookmarkAndLoad:NO];
 }
 
 - (IBAction)bookmarksDoubleClicked:(id)sender {
@@ -245,6 +246,16 @@
 
 - (IBAction)editBookmark:(id)sender {
 	if ([self.bookmarksController selection]) [self.newBookmarkSheetController edit:nil];
+}
+
+- (IBAction)deleteBookmark:(id)sender {
+	DLog(@"deletebookmark");
+	if (![self.bookmarksController selection]) return;
+
+	DLog(@"selected objects!");
+	[self.bookmarksController removeObjects:[self.bookmarksController selectedObjects]];
+	[self handleSelectedBookmarkAndLoad:NO];
+	//[self.sourcelist deselectAll:nil];
 }
 
 - (NSString *)urlForBookmark {

@@ -59,6 +59,7 @@
 
 - (IBAction)editBookmark:(id)sender;
 - (IBAction)addBookmark:(id)sender;
+- (IBAction)deleteBookmark:(id)sender;
 
 - (void)handleSelectedBookmarkAndLoad:(BOOL)load;
 - (IBAction)bookmarksClicked:(id)sender;
