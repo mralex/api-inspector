@@ -12,7 +12,7 @@
 
 @implementation AppDelegate
 
-@synthesize mainWindow, dataWindow, mainWindowMenu;
+@synthesize mainWindow, dataWindow;
 
 - (id) init
 {
