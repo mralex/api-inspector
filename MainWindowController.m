@@ -237,7 +237,11 @@
 #pragma mark -
 
 - (IBAction)addBookmark:(id)sender {
-	[newBookmarkSheetController add:nil];
+	[self.newBookmarkSheetController add:nil];
+}
+
+- (IBAction)editBookmark:(id)sender {
+	if ([self.bookmarksController selection]) [self.newBookmarkSheetController edit:nil];
 }
 
 - (NSString *)urlForBookmark {
