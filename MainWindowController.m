@@ -74,6 +74,10 @@
 	return [self.managedObjectContext undoManager];
 }
 
+- (IBAction)close:(id)sender {
+	[self.window close];
+}
+
 - (void)switchView:(NSInteger)viewType {
 	if ((viewType == kHttpViewGet) && (activeView != kHttpViewGet)) {
 		NSView *httpGetView = [self.httpGetViewController view];

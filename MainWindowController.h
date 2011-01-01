@@ -57,6 +57,8 @@
 
 - (IBAction)switchViewAction:(NSToolbarItem *)toolbarItem;
 
+- (IBAction)close:(id)sender;
+
 - (IBAction)editBookmark:(id)sender;
 - (IBAction)addBookmark:(id)sender;
 - (IBAction)deleteBookmark:(id)sender;
