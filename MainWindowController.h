@@ -60,6 +60,7 @@
 - (IBAction)editBookmark:(id)sender;
 - (IBAction)addBookmark:(id)sender;
 - (IBAction)deleteBookmark:(id)sender;
+- (void) alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 
 - (void)handleSelectedBookmarkAndLoad:(BOOL)load;
 - (IBAction)bookmarksClicked:(id)sender;
