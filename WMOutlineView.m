@@ -15,7 +15,7 @@
 	self = [super initWithCoder:aDecoder];
 	
 	if (self != nil) {
-		[self setIntercellSpacing:NSMakeSize(0, 5.0)];
+		//[self setIntercellSpacing:NSMakeSize(0, 5.0)];
 	}
 	
 	return self;

@@ -19,7 +19,7 @@
 @implementation MainWindowController
 
 @synthesize contentBox, currentHttpViewController, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem, managedObjectContext, sourcelist, bookmarks;
-@synthesize bookmarksController, newBookmarkSheetController;
+@synthesize bookmarksController, newBookmarkSheetController, editBookmarkMenuItem;
 
 - (id) init
 {
@@ -31,6 +31,8 @@
 
 - (void)awakeFromNib {
 	[[[self window] toolbar] setSelectedItemIdentifier:@"get"];
+	
+	//[self.editBookmarkMenuItem isEnabled:NO];
 	
 	self.bookmarks = [[Folder alloc] initWithName:@"BOOKMARKS"];
 	
@@ -204,6 +206,7 @@
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {
 	Bookmark *selected = [self.sourcelist itemAtRow:[self.sourcelist selectedRow]];
 	[self.bookmarksController setSelectedObjects:[NSArray arrayWithObject:selected]];
+	//[self.editBookmarkMenuItem isEnabled:YES];
 	DLog(@"Selection changed");
 }
 
