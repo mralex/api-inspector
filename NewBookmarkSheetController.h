@@ -15,23 +15,31 @@
 	NSObjectController *newBookmarkController;
 	NSPanel *newBookmarkSheet;
 	
+	NSButton *okButton;
+	
 	NSManagedObjectContext *parentManagedObjectContext;
 	NSManagedObjectContext *managedObjectContext;
 	
 	id delegate;
+	
+	BOOL isEditing;
 }
 
 @property (nonatomic, retain) IBOutlet NSWindow *parentWindow;
 @property (nonatomic, retain) IBOutlet NSArrayController *sourceArrayController;
 @property (nonatomic, retain) IBOutlet NSObjectController *newBookmarkController;
 @property (nonatomic, retain) IBOutlet NSPanel *newBookmarkSheet;
+@property (nonatomic, retain) IBOutlet NSButton *okButton;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) IBOutlet NSManagedObjectContext *parentManagedObjectContext;
 
+@property (nonatomic, assign) BOOL isEditing;
+
 @property (nonatomic, retain) IBOutlet id delegate;
 
 - (IBAction)add:(id)sender;
+- (IBAction)edit:(id)sender;
 
 - (IBAction)complete:sender;
 - (IBAction)cancelOperation:sender;

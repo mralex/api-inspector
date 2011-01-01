@@ -201,6 +201,12 @@
 	[(ImageAndTextCell *)cell setImage:icon];
 }
 
+- (void)outlineViewSelectionDidChange:(NSNotification *)notification {
+	Bookmark *selected = [self.sourcelist itemAtRow:[self.sourcelist selectedRow]];
+	[self.bookmarksController setSelectedObjects:[NSArray arrayWithObject:selected]];
+	DLog(@"Selection changed");
+}
+
 - (void)handleSelectedBookmarkAndLoad:(BOOL)load {
 	Bookmark *selected = [self.sourcelist itemAtRow:[self.sourcelist selectedRow]];
 	

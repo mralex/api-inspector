@@ -59,6 +59,7 @@
 				<string key="NSWindowTitle">Window</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>
+				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
 				<object class="NSView" key="NSWindowView" id="799643658">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -302,6 +303,14 @@
 					</object>
 					<int key="connectionID">32</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">okButton</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="937966176"/>
+					</object>
+					<int key="connectionID">33</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -507,9 +516,9 @@
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{386, 836}, {369, 120}}</string>
+					<string>{{814, 881}, {369, 120}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{386, 836}, {369, 120}}</string>
+					<string>{{814, 881}, {369, 120}}</string>
 					<boolean value="NO"/>
 				</object>
 			</object>
@@ -529,7 +538,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">32</int>
+			<int key="maxID">33</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -544,11 +553,13 @@
 							<string>add:</string>
 							<string>cancelOperation:</string>
 							<string>complete:</string>
+							<string>edit:</string>
 							<string>redo:</string>
 							<string>undo:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -563,6 +574,7 @@
 							<string>add:</string>
 							<string>cancelOperation:</string>
 							<string>complete:</string>
+							<string>edit:</string>
 							<string>redo:</string>
 							<string>undo:</string>
 						</object>
@@ -578,6 +590,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">complete:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">edit:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -597,6 +613,7 @@
 							<string>delegate</string>
 							<string>newBookmarkController</string>
 							<string>newBookmarkSheet</string>
+							<string>okButton</string>
 							<string>parentManagedObjectContext</string>
 							<string>parentWindow</string>
 							<string>sourceArrayController</string>
@@ -606,6 +623,7 @@
 							<string>id</string>
 							<string>NSObjectController</string>
 							<string>NSPanel</string>
+							<string>NSButton</string>
 							<string>NSManagedObjectContext</string>
 							<string>NSWindow</string>
 							<string>NSArrayController</string>
@@ -618,6 +636,7 @@
 							<string>delegate</string>
 							<string>newBookmarkController</string>
 							<string>newBookmarkSheet</string>
+							<string>okButton</string>
 							<string>parentManagedObjectContext</string>
 							<string>parentWindow</string>
 							<string>sourceArrayController</string>
@@ -635,6 +654,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">newBookmarkSheet</string>
 								<string key="candidateClassName">NSPanel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">okButton</string>
+								<string key="candidateClassName">NSButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">parentManagedObjectContext</string>

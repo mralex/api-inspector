@@ -13,7 +13,7 @@
 
 @implementation NewBookmarkSheetController
 
-@synthesize parentManagedObjectContext, managedObjectContext, parentWindow, sourceArrayController, newBookmarkController, newBookmarkSheet, delegate;
+@synthesize parentManagedObjectContext, managedObjectContext, parentWindow, sourceArrayController, newBookmarkController, newBookmarkSheet, delegate, isEditing, okButton;
 
 - (NSManagedObjectContext *)parentManagedObjectContext {
 	return [sourceArrayController managedObjectContext];
@@ -38,6 +38,9 @@
 			return;
 		}
 	}
+	
+	self.isEditing = NO;
+	[self.okButton setTitle:@"Add"];
 	
 	NSUndoManager *undoManager = [self.managedObjectContext undoManager];
 	[undoManager disableUndoRegistration];
@@ -70,6 +73,36 @@
 	
 }
 
+- (IBAction)edit:(id)sender {
+	if (self.newBookmarkSheet == nil) {
+		NSNib *nib = [[NSNib alloc] initWithNibNamed:@"NewBookmarkSheet" bundle:[NSBundle bundleForClass:[self class]]];
+		BOOL fail = [nib instantiateNibWithOwner:self topLevelObjects:nil];
+		
+		if (fail != YES) {
+			DLog(@"Error instantiating sheet");
+			return;
+		}
+	}
+	
+	self.isEditing = YES;
+	[self.okButton setTitle:@"Update"];
+	
+	NSUndoManager *undoManager = [self.managedObjectContext undoManager];
+	[undoManager disableUndoRegistration];
+	
+	id obj = [[self.sourceArrayController selectedObjects] objectAtIndex:0];
+	[newBookmarkController addObject:obj];
+	
+	[self.managedObjectContext processPendingChanges];
+	[undoManager enableUndoRegistration];
+	
+	[NSApp beginSheet:self.newBookmarkSheet 
+	   modalForWindow:self.parentWindow 
+		modalDelegate:self 
+	   didEndSelector:@selector(newBookmarkSheetDidEnd:returnCode:contextInfo:) 
+		  contextInfo:NULL];
+}
+
 - (IBAction)complete:sender {
 	[self.newBookmarkController commitEditing];
 	
@@ -89,9 +122,11 @@
 	if (returnCode == NSOKButton) {
 		DLog(@"changes? %d", [self.managedObjectContext hasChanges]);
 		
-		NSManagedObject *newObj = [self.sourceArrayController newObject];
-		[newObj setValuesForKeysWithDictionary:[sheetObj dictionaryWithValuesForKeys:[NSArray arrayWithObjects:@"name", @"url", @"httpAction", @"keyArray", @"valueArray", nil]]];
-		[sourceArrayController addObject:newObj];
+		if (!isEditing) {
+			NSManagedObject *newObj = [self.sourceArrayController newObject];
+			[newObj setValuesForKeysWithDictionary:[sheetObj dictionaryWithValuesForKeys:[NSArray arrayWithObjects:@"name", @"url", @"httpAction", @"keyArray", @"valueArray", nil]]];
+			[sourceArrayController addObject:newObj];
+		}
 		
 		NSError *error;
 		if (![self.parentManagedObjectContext save:&error]) {
