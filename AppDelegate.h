@@ -19,7 +19,7 @@
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;
 	
-
+	NSMenuItem *mainWindowMenu;
 	//NSURLConnection *urlConnection;
 	
 	MainWindowController *mainWindow;
@@ -36,11 +36,12 @@
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 
 @property (nonatomic, retain) IBOutlet RawDataWindow *dataWindow;
+@property (nonatomic, retain) IBOutlet NSMenuItem *mainWindowMenu;
 
 //- (IBAction)saveAction:sender;
 
 - (IBAction)showRawData:sender;
 
-- (void)showMainWindow;
+- (IBAction)showMainWindow:(id)sender;
 
 @end

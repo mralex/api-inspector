@@ -12,7 +12,7 @@
 
 @implementation AppDelegate
 
-@synthesize mainWindow, dataWindow;
+@synthesize mainWindow, dataWindow, mainWindowMenu;
 
 - (id) init
 {
@@ -28,7 +28,7 @@
 	return self;
 }
 
-- (void)showMainWindow {
+- (IBAction)showMainWindow:(id)sender {
 	[[self.mainWindow window] makeKeyAndOrderFront:self];
 }
 
@@ -170,13 +170,13 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
 	self.mainWindow.managedObjectContext = self.managedObjectContext;
 	
-	[self showMainWindow];
+	[self showMainWindow:nil];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
 	if (flag) return YES;
 	
-	[self showMainWindow];
+	[self showMainWindow:nil];
 	return NO;  
 }
 

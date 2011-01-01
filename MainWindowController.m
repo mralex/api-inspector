@@ -75,7 +75,7 @@
 }
 
 - (IBAction)close:(id)sender {
-	[self.window close];
+	[self close];
 }
 
 - (void)switchView:(NSInteger)viewType {
