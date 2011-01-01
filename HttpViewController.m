@@ -11,8 +11,9 @@
 #import "Bookmark.h"
 
 @implementation HttpViewController
-@synthesize managedObjectContext, urlHistoryController, currentUrl;
+@synthesize managedObjectContext, urlHistoryController;
 @synthesize urlField, statusLabel, progressIndicator, isLoading, statusMessage;
+@dynamic currentUrl;
 
 - (id) init
 {
