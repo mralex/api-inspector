@@ -16,6 +16,12 @@
 #import "WMNoteItemCell.h"
 #import "ImageAndTextCell.h"
 
+@interface MainWindowController ()
+- (void)managedObjectContextDidChange:(NSNotification *)notification;
+
+@end
+
+
 @implementation MainWindowController
 
 @synthesize contentBox, currentHttpViewController, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem, managedObjectContext, sourcelist, bookmarks;
@@ -42,6 +48,10 @@
 	[self.bookmarksController addObserver:self
 							   forKeyPath:@"arrangedObjects"
 								  options:NSKeyValueObservingOptionNew context:NULL];
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(managedObjectContextDidChange:) 
+												 name:NSManagedObjectContextObjectsDidChangeNotification
+											   object:nil];
 	
 	self.httpGetViewController = [[HttpGetViewController alloc] initWithNibName:@"HttpGetView" bundle:nil];
 	self.httpPostViewController = [[HttpPostViewController alloc] initWithNibName:@"HttpPostView" bundle:nil];
@@ -58,6 +68,10 @@
 	
 	[self.sourcelist expandItem:[self.sourcelist itemAtRow:0]];
 	[self.sourcelist setDoubleAction:@selector(bookmarksDoubleClicked:)];
+}
+
+- (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window {
+	return [self.managedObjectContext undoManager];
 }
 
 - (void)switchView:(NSInteger)viewType {
@@ -236,6 +250,11 @@
 	[self handleSelectedBookmarkAndLoad:YES];
 }
 
+- (void)managedObjectContextDidChange:(NSNotification *)notification {
+	DLog(@"context changed!");
+	[self.sourcelist reloadData];
+}
+
 #pragma mark -
 #pragma mark Bookmark handling
 #pragma mark -
@@ -257,7 +276,7 @@
 	
 	NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"Are you sure you want to delete bookmark '%@'?",  selected.name]
 									 defaultButton:@"Yes" alternateButton:@"No" otherButton:nil 
-						 informativeTextWithFormat:@"Deleting bookmarks cannot be undone."];
+						 informativeTextWithFormat:@"Deleting bookmarks can be undone."];
 	
 	[alert setAlertStyle:NSWarningAlertStyle];
 	[alert setIcon:[NSImage imageNamed:NSImageNameCaution]];
