@@ -24,6 +24,8 @@
 	
 	NSMenuItem *editBookmarkMenuItem;
 	
+	BWSplitView *splitView;
+	
 	HttpViewController *currentHttpViewController;
 	HttpGetViewController *httpGetViewController;
 	HttpPostViewController *httpPostViewController;
@@ -43,6 +45,7 @@
 @property (nonatomic, retain) IBOutlet NSToolbarItem *getToolbarItem;
 @property (nonatomic, retain) IBOutlet NSToolbarItem *postToolbarItem;
 @property (nonatomic, retain) IBOutlet NSMenuItem *editBookmarkMenuItem;
+@property (nonatomic, retain) IBOutlet BWSplitView *splitView;
 @property (nonatomic, retain) IBOutlet NSView *contentBox;
 @property (nonatomic, retain) HttpViewController *currentHttpViewController;
 @property (nonatomic, retain) HttpGetViewController *httpGetViewController;
@@ -67,4 +70,5 @@
 - (void)handleSelectedBookmarkAndLoad:(BOOL)load;
 - (IBAction)bookmarksClicked:(id)sender;
 - (IBAction)bookmarksDoubleClicked:(id)sender;
+
 @end

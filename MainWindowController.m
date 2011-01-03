@@ -25,7 +25,7 @@
 @implementation MainWindowController
 
 @synthesize contentBox, currentHttpViewController, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem, managedObjectContext, sourcelist, bookmarks;
-@synthesize bookmarksController, newBookmarkSheetController, editBookmarkMenuItem;
+@synthesize bookmarksController, newBookmarkSheetController, editBookmarkMenuItem, splitView;
 
 - (id) init
 {
@@ -84,9 +84,13 @@
 		[httpGetView setFrame:[self.contentBox bounds]];
 		[httpGetView setAutoresizingMask:(NSViewWidthSizable| NSViewHeightSizable)];
 		
-		[self.httpPostViewController viewWillSwitch];
+		[self.httpPostViewController viewWillDisappear];
+		[self.httpGetViewController viewWillAppear];
+		
 		[self.contentBox replaceSubview:[[self.contentBox subviews] objectAtIndex:0] with:httpGetView];
-		[self.httpGetViewController viewDidSwitch];		
+		
+		[self.httpPostViewController viewDidDisappear];
+		[self.httpGetViewController viewDidAppear];
 		
 		self.currentHttpViewController = self.httpGetViewController;
 		activeView = kHttpViewGet;
@@ -97,9 +101,13 @@
 		[httpPostView setFrame:[self.contentBox bounds]];
 		[httpPostView setAutoresizingMask:(NSViewWidthSizable| NSViewHeightSizable)];
 		
-		[self.httpGetViewController viewWillSwitch];
+		[self.httpGetViewController viewWillDisappear];
+		[self.httpPostViewController viewWillAppear];
+		
 		[self.contentBox replaceSubview:[[self.contentBox subviews] objectAtIndex:0] with:httpPostView];
-		[self.httpPostViewController viewDidSwitch];		
+		
+		[self.httpGetViewController viewDidDisappear];
+		[self.httpPostViewController viewDidAppear];
 		
 		self.currentHttpViewController = self.httpPostViewController;
 		activeView = kHttpViewPost;

@@ -12,3 +12,9 @@
 
 #define kHttpPostKeys	@"httpPostKeys"
 #define kHttpPostValues	@"httpPostValues"
+
+enum ContentTypes {
+	contentTypeJson,
+	contentTypeXml,
+	contentTypeHtml
+};

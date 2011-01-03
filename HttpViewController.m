@@ -12,7 +12,7 @@
 
 @implementation HttpViewController
 @synthesize managedObjectContext, urlHistoryController;
-@synthesize urlField, statusLabel, progressIndicator, isLoading, statusMessage;
+@synthesize urlField, statusLabel, progressIndicator, isLoading, statusMessage, contentType, goButton;
 @dynamic currentUrl;
 
 - (id) init
@@ -103,13 +103,19 @@
 }
 
 #pragma mark -
-- (void)viewWillSwitch {
+- (void)viewWillDisappear {
+	
+}
+- (void)viewDidDisappear {
+	
+}
+- (void)viewWillAppear {
+	
+}
+- (void)viewDidAppear {
 	
 }
 
-- (void)viewDidSwitch {
-	
-}
 
 - (void)loadWithBookmark:(Bookmark *)bookmark openUrl:(BOOL)opening {
 	DLog(@"Loading view with bookmark %@", bookmark.name);

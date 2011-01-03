@@ -11,30 +11,17 @@
 
 @class TreeNode;
 
-enum ContentTypes {
-	contentTypeJson,
-	contentTypeXml
-};
-
 @interface HttpGetViewController : HttpViewController <NSComboBoxDelegate> {
-	NSButton *goButton;
 	NSOutlineView *dataView;
 	NSTextView *resultsView;
 	
-	NSMutableData *received;
 	NSMutableArray *dataArray;
-
-	NSString *contentType;
-	int parseType;
 }
 
-@property (nonatomic, retain) IBOutlet NSButton *goButton;
 @property (nonatomic, retain) IBOutlet NSTextView *resultsView;
 @property (nonatomic, retain) IBOutlet NSOutlineView *dataView;
 
 @property (nonatomic, retain) NSMutableArray *dataArray;
-
-@property (nonatomic, retain) NSString *contentType;
 
 - (IBAction)goAction:sender;
 

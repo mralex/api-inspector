@@ -14,7 +14,7 @@
 #import "Bookmark.h"
 
 @implementation HttpGetViewController
-@synthesize resultsView, dataView, goButton, dataArray, contentType;
+@synthesize resultsView, dataView, dataArray;
 
 - (id) init
 {

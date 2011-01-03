@@ -12,7 +12,7 @@
 #import "Bookmark.h"
 
 @implementation HttpPostViewController
-@synthesize goButton, addButton, removeButton, bodyView, resultsView, valuesTable, keysArray, valuesArray;
+@synthesize addButton, removeButton, bodyView, resultsView, valuesTable, keysArray, valuesArray;
 
 
 - (void) loadView {

@@ -17,9 +17,15 @@
 	NSComboBox *urlField;
 	NSTextField *statusLabel;
 	NSProgressIndicator *progressIndicator;
+	NSButton *goButton;
 
 	BOOL isLoading;
 	NSString *statusMessage;
+
+	NSMutableData *received;
+
+	NSString *contentType;
+	int parseType;
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
@@ -27,6 +33,7 @@
 @property (nonatomic, retain) IBOutlet NSComboBox *urlField;
 @property (nonatomic, retain) IBOutlet NSTextField *statusLabel;
 @property (nonatomic, retain) IBOutlet NSProgressIndicator *progressIndicator;
+@property (nonatomic, retain) IBOutlet NSButton *goButton;
 
 @property (nonatomic, retain, readonly) NSString *currentUrl;
 
@@ -34,13 +41,16 @@
 
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, retain) NSString *statusMessage;
+@property (nonatomic, retain) NSString *contentType;
 
 //- (NSUInteger)indexOfItemInHistoryWithStringValue:(NSString *)value;
 - (void)updateUrlSelection;
 - (void)urlFieldChanged:(NSNotification *)aNotification;
 
-- (void)viewWillSwitch;
-- (void)viewDidSwitch;
+- (void)viewWillDisappear;
+- (void)viewDidDisappear;
+- (void)viewWillAppear;
+- (void)viewDidAppear;
 
 - (void)loadWithBookmark:(Bookmark *)bookmark openUrl:(BOOL)opening;
 
