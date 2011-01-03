@@ -128,8 +128,6 @@
 									[[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]];
 	
 	[[[RawDataWindow sharedDataWindow] textView] setString:@""];
-	
-	[[[RawDataWindow sharedDataWindow] textView] setString:@""];
 }
 
 - (TreeNode *)parseJsonObject:(id)object withKey:(id)key {
@@ -337,6 +335,18 @@
 	return self.urlField.stringValue;
 }
 
+#pragma mark -
+- (void)viewWillDisappear {
+	[[[RawDataWindow sharedDataWindow] textView] setString:@""];
+	[[[RawDataWindow sharedDataWindow] contentTypeField] setStringValue:@""];
+}
 
+- (void)viewWillAppear {
+	if ((received == nil) || ([received length] < 1) || self.isLoading) return;
+	
+	NSString *rawString = [[NSString alloc] initWithBytes:[received bytes] length:[received length] encoding:NSStringEncodingConversionAllowLossy];
+	[[[RawDataWindow sharedDataWindow] textView] setString:rawString];
+	[[[RawDataWindow sharedDataWindow] contentTypeField] setStringValue:self.contentType];
+}
 
 @end

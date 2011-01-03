@@ -19,7 +19,7 @@
 {
 	self = [super init];
 	if (self != nil) {
-	
+		contentType = nil;
 	}
 	return self;
 }

@@ -10,6 +10,7 @@
 #import "HttpPostViewController.h"
 #import "History.h"
 #import "Bookmark.h"
+#import "RawDataWindow.h"
 
 @implementation HttpPostViewController
 @synthesize addButton, removeButton, bodyView, resultsView, valuesTable, keysArray, valuesArray;
@@ -109,7 +110,8 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-
+	self.contentType = [[(NSHTTPURLResponse *)response allHeaderFields] objectForKey:@"Content-Type"];
+	[[[RawDataWindow sharedDataWindow] contentTypeField] setStringValue:self.contentType];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
@@ -121,7 +123,10 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 
-	[self.resultsView setString:[[NSString alloc] initWithBytes:[received bytes] length:[received length] encoding:NSStringEncodingConversionAllowLossy]];
+	NSString *rawString = [[NSString alloc] initWithBytes:[received bytes] length:[received length] encoding:NSStringEncodingConversionAllowLossy];
+	[[[RawDataWindow sharedDataWindow] textView] setString:rawString];
+	
+	[self.resultsView setString:rawString];
 	
 	[connection release];
 	self.isLoading = NO;
@@ -157,6 +162,20 @@
 
 - (NSString *)currentUrl {
 	return self.urlField.stringValue;
+}
+
+#pragma mark -
+- (void)viewWillDisappear {
+	[[[RawDataWindow sharedDataWindow] textView] setString:@""];
+	[[[RawDataWindow sharedDataWindow] contentTypeField] setStringValue:@""];
+}
+
+- (void)viewWillAppear {
+	if ((received == nil) || ([received length] < 1) || self.isLoading) return;
+	
+	NSString *rawString = [[NSString alloc] initWithBytes:[received bytes] length:[received length] encoding:NSStringEncodingConversionAllowLossy];
+	[[[RawDataWindow sharedDataWindow] textView] setString:rawString];
+	[[[RawDataWindow sharedDataWindow] contentTypeField] setStringValue:self.contentType];
 }
 
 
