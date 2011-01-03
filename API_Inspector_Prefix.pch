@@ -6,5 +6,6 @@
     #import <Cocoa/Cocoa.h>
 	#import <YAJL/YAJL.h>
 	#import <BWToolkitFramework/BWToolkitFramework.h>
+	#import <Sparkle/Sparkle.h>
 	#import "debug.h"
 #endif
