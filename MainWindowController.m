@@ -240,7 +240,8 @@
 
 - (void)handleSelectedBookmarkAndLoad:(BOOL)load {
 	Bookmark *selected = [self.sourcelist itemAtRow:[self.sourcelist selectedRow]];
-	
+	[self.bookmarksController setSelectedObjects:[NSArray arrayWithObject:selected]];
+
 	switch ([selected.httpAction intValue]) {
 		case kHttpViewPost:
 			[self switchView:kHttpViewPost];
@@ -286,6 +287,12 @@
 
 	DLog(@"selected objects!");
 	
+	if (![[NSUserDefaults standardUserDefaults] boolForKey:@"confirmBookmarkDelete"]) {
+		[self.bookmarksController removeObject:selected];
+		[self handleSelectedBookmarkAndLoad:NO];
+		return;
+	}
+	
 	NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"Are you sure you want to delete bookmark '%@'?",  selected.name]
 									 defaultButton:@"Yes" alternateButton:@"No" otherButton:nil 
 						 informativeTextWithFormat:@"Deleting bookmarks can be undone."];
@@ -294,15 +301,17 @@
 	[alert setIcon:[NSImage imageNamed:NSImageNameCaution]];
 	[alert setShowsSuppressionButton:YES];
 	[alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
-	return;
-
-	//[self.sourcelist deselectAll:nil];
 }
 
 - (void) alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
 	if (returnCode == NSOKButton) {
 		[self.bookmarksController removeObjects:[self.bookmarksController selectedObjects]];
 		[self handleSelectedBookmarkAndLoad:NO];
+		
+		NSButton *suppress = [alert suppressionButton];
+		if ([suppress state] == NSOnState) {
+			[[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"confirmBookmarkDelete"];
+		}
 	}
 }
 
