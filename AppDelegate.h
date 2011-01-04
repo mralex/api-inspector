@@ -23,7 +23,6 @@
 	
 	MainWindowController *mainWindow;
 	RawDataWindow *dataWindow;
-	
 }
 
 //@property (nonatomic, retain) IBOutlet NSWindow *window;
@@ -41,6 +40,5 @@
 - (IBAction)showRawData:sender;
 
 - (IBAction)showMainWindow:(id)sender;
-- (IBAction)showPreferences:(id)sender;
 
 @end

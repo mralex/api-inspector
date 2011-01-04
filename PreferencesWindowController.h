@@ -12,7 +12,6 @@
 @interface PreferencesWindowController : NSWindowController {
 
 }
-
-+ (PreferencesWindowController *) sharedPreferencesWindowController;
+- (void)showWindow:(id)sender;
 
 @end

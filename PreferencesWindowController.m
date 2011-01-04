@@ -8,16 +8,23 @@
 
 #import "PreferencesWindowController.h"
 
-static PreferencesWindowController *_prefsController = nil;
-
 @implementation PreferencesWindowController
 
-+ (PreferencesWindowController *) sharedPreferencesWindowController {
-	if (_prefsController == nil) {
-		_prefsController = [[PreferencesWindowController alloc] initWithWindowNibName:@"PreferencesWindow"];
+- (id) init
+{
+	self = [super initWithWindowNibName:@"PreferencesWindow"];
+	if (self != nil) {
+		
 	}
+	return self;
+}
+
+- (void)showWindow:(id)sender {
+	if (![self.window isVisible])
+		[self.window center];
 	
-	return _prefsController;
+	[self.window makeKeyAndOrderFront:self];
+	[self.window makeFirstResponder:self.window];
 }
 
 @end
