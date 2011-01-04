@@ -41,5 +41,6 @@
 - (IBAction)showRawData:sender;
 
 - (IBAction)showMainWindow:(id)sender;
+- (IBAction)showPreferences:(id)sender;
 
 @end

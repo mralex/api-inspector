@@ -33,6 +33,8 @@
 		538586A312D167B300D26763 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538586A212D167B300D26763 /* Sparkle.framework */; };
 		538586AA12D167BB00D26763 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 538586A212D167B300D26763 /* Sparkle.framework */; };
 		538586B912D1690D00D26763 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 538586B812D1690D00D26763 /* dsa_pub.pem */; };
+		538586CE12D2D96B00D26763 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 538586CD12D2D96B00D26763 /* PreferencesWindowController.m */; };
+		538586D212D2D99C00D26763 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538586D112D2D99C00D26763 /* PreferencesWindow.xib */; };
 		53E59D9B12A1D9A4008F47E1 /* YAJL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E59D9A12A1D9A4008F47E1 /* YAJL.framework */; };
 		53E59DAA12A1D9E8008F47E1 /* YAJL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53E59D9A12A1D9A4008F47E1 /* YAJL.framework */; };
 		53E5A07712A2FE51008F47E1 /* RawDataWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A07612A2FE51008F47E1 /* RawDataWindow.m */; };
@@ -107,6 +109,9 @@
 		5385858012D1510F00D26763 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = ../../BWToolkit/bwtoolkit/build/Release/BWToolkitFramework.framework; sourceTree = SOURCE_ROOT; };
 		538586A212D167B300D26763 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "../Sparkle/build/Release (GC dual-mode; 10.5-only)/Sparkle.framework"; sourceTree = SOURCE_ROOT; };
 		538586B812D1690D00D26763 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		538586CC12D2D96B00D26763 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
+		538586CD12D2D96B00D26763 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
+		538586D112D2D99C00D26763 /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 		53E59D9A12A1D9A4008F47E1 /* YAJL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJL.framework; path = Frameworks/YAJL.framework; sourceTree = "<group>"; };
 		53E5A07512A2FE51008F47E1 /* RawDataWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawDataWindow.h; sourceTree = "<group>"; };
 		53E5A07612A2FE51008F47E1 /* RawDataWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawDataWindow.m; sourceTree = "<group>"; };
@@ -168,6 +173,8 @@
 				5322516212CE950400251185 /* WMOutlineView.m */,
 				53224FFC12CBCC6200251185 /* ImageAndTextCell.h */,
 				53224FFD12CBCC6200251185 /* ImageAndTextCell.m */,
+				538586CC12D2D96B00D26763 /* PreferencesWindowController.h */,
+				538586CD12D2D96B00D26763 /* PreferencesWindowController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -272,6 +279,7 @@
 				53E5A1DF12A4D632008F47E1 /* HttpGetView.xib */,
 				53E5A4BA12A8C514008F47E1 /* HttpPostView.xib */,
 				53224D7412CAB11C00251185 /* NewBookmarkSheet.xib */,
+				538586D112D2D99C00D26763 /* PreferencesWindow.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -363,6 +371,7 @@
 				5322504512CC0B9300251185 /* toolbar-post-2.png in Resources */,
 				538583C012CEB88500D26763 /* api-inspector.icns in Resources */,
 				538586B912D1690D00D26763 /* dsa_pub.pem in Resources */,
+				538586D212D2D99C00D26763 /* PreferencesWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +399,7 @@
 				53224FFE12CBCC6200251185 /* ImageAndTextCell.m in Sources */,
 				532250AD12CE776F00251185 /* API Inspector.xcmappingmodel in Sources */,
 				5322516312CE950400251185 /* WMOutlineView.m in Sources */,
+				538586CE12D2D96B00D26763 /* PreferencesWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

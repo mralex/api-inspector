@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MainWindowController.h"
 #import "RawDataWindow.h"
+#import "PreferencesWindowController.h"
 
 @implementation AppDelegate
 
@@ -34,6 +35,10 @@
 
 - (IBAction)showRawData:sender {
 	[dataWindow showWindow:nil];
+}
+
+- (IBAction)showPreferences:(id)sender {
+	[[PreferencesWindowController sharedPreferencesWindowController] showWindow:sender];
 }
 
 /**
