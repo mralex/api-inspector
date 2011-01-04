@@ -22,11 +22,14 @@
 }
 
 - (NSMenu *)menuForEvent:(NSEvent *)event {
-	DLog(@"Menu?");
+
 	NSPoint mousePoint = [self convertPoint:[event locationInWindow] fromView:nil];
 	
 	int row = [self rowAtPoint:mousePoint];
-	if (row >= 0) {
+	DLog(@"Menu? %d", row);
+	[self deselectAll:nil];
+
+	if (row >= 1) {
 		[self selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
 	} else {
 		return nil;
