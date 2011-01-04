@@ -13,6 +13,10 @@
 @implementation AppDelegate
 
 @synthesize mainWindow, dataWindow;
++ (void) initialize {
+	[[NSUserDefaults standardUserDefaults] registerDefaults: 
+	 [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource: @"Defaults" ofType: @"plist"]]];
+}
 
 - (id) init
 {

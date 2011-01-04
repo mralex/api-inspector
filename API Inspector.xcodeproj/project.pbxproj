@@ -35,6 +35,7 @@
 		538586B912D1690D00D26763 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 538586B812D1690D00D26763 /* dsa_pub.pem */; };
 		538586CE12D2D96B00D26763 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 538586CD12D2D96B00D26763 /* PreferencesWindowController.m */; };
 		538586D212D2D99C00D26763 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538586D112D2D99C00D26763 /* PreferencesWindow.xib */; };
+		5385883D12D2ED8600D26763 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5385883C12D2ED8600D26763 /* Defaults.plist */; };
 		53E59D9B12A1D9A4008F47E1 /* YAJL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E59D9A12A1D9A4008F47E1 /* YAJL.framework */; };
 		53E59DAA12A1D9E8008F47E1 /* YAJL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53E59D9A12A1D9A4008F47E1 /* YAJL.framework */; };
 		53E5A07712A2FE51008F47E1 /* RawDataWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A07612A2FE51008F47E1 /* RawDataWindow.m */; };
@@ -112,6 +113,7 @@
 		538586CC12D2D96B00D26763 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
 		538586CD12D2D96B00D26763 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
 		538586D112D2D99C00D26763 /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
+		5385883C12D2ED8600D26763 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		53E59D9A12A1D9A4008F47E1 /* YAJL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJL.framework; path = Frameworks/YAJL.framework; sourceTree = "<group>"; };
 		53E5A07512A2FE51008F47E1 /* RawDataWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawDataWindow.h; sourceTree = "<group>"; };
 		53E5A07612A2FE51008F47E1 /* RawDataWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawDataWindow.m; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				53E5A1E112A4D64B008F47E1 /* xib */,
 				8D1107310486CEB800E47090 /* API_Inspector-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				5385883C12D2ED8600D26763 /* Defaults.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				538583C012CEB88500D26763 /* api-inspector.icns in Resources */,
 				538586B912D1690D00D26763 /* dsa_pub.pem in Resources */,
 				538586D212D2D99C00D26763 /* PreferencesWindow.xib in Resources */,
+				5385883D12D2ED8600D26763 /* Defaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

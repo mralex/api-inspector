@@ -24,7 +24,6 @@
 		[self.window center];
 	
 	[self.window makeKeyAndOrderFront:self];
-	[self.window makeFirstResponder:self.window];
 }
 
 @end
