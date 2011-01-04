@@ -52,7 +52,7 @@
 		NSInteger action = [delegate httpActionForBookmark];
 		[obj setHttpAction:[NSNumber numberWithInt:action]];
 		
-		if (action == kHttpViewPost) {
+		if ((action == kHttpViewPost) && ([[NSUserDefaults standardUserDefaults] boolForKey:@"savePostQuery"])) {
 			NSDictionary *keysAndValues = [delegate postKeysAndValuesForBookmark];
 			[obj setKeyArray:[keysAndValues objectForKey:kHttpPostKeys]];
 			[obj setValueArray:[keysAndValues objectForKey:kHttpPostValues]];
@@ -124,6 +124,8 @@
 		
 		if (!isEditing) {
 			NSManagedObject *newObj = [self.sourceArrayController newObject];
+			NSArray *keys;
+			
 			[newObj setValuesForKeysWithDictionary:[sheetObj dictionaryWithValuesForKeys:[NSArray arrayWithObjects:@"name", @"url", @"httpAction", @"keyArray", @"valueArray", nil]]];
 			[sourceArrayController addObject:newObj];
 		}
