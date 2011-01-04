@@ -230,6 +230,8 @@
 }
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {
+	if (![[self.sourcelist selectedRowIndexes] count]) return;
+	
 	Bookmark *selected = [self.sourcelist itemAtRow:[self.sourcelist selectedRow]];
 	[self.bookmarksController setSelectedObjects:[NSArray arrayWithObject:selected]];
 	//[self.editBookmarkMenuItem isEnabled:YES];
@@ -239,6 +241,8 @@
 }
 
 - (void)handleSelectedBookmarkAndLoad:(BOOL)load {
+	if (![[self.sourcelist selectedRowIndexes] count]) return;
+
 	Bookmark *selected = [self.sourcelist itemAtRow:[self.sourcelist selectedRow]];
 	[self.bookmarksController setSelectedObjects:[NSArray arrayWithObject:selected]];
 
@@ -257,10 +261,15 @@
 }
 
 - (IBAction)bookmarksClicked:(id)sender {
+	if ([[self.sourcelist selectedRowIndexes] count] && ([[NSUserDefaults standardUserDefaults] integerForKey:@"launchBookmarkClick"] == singleClickBookmark)) {
+		[self handleSelectedBookmarkAndLoad:YES];
+	}
 }
 
 - (IBAction)bookmarksDoubleClicked:(id)sender {
-	[self handleSelectedBookmarkAndLoad:YES];
+	if ([[self.sourcelist selectedRowIndexes] count] && ([[NSUserDefaults standardUserDefaults] integerForKey:@"launchBookmarkClick"] == doubleClickBookmark)) {
+		[self handleSelectedBookmarkAndLoad:YES];
+	}
 }
 
 - (void)managedObjectContextDidChange:(NSNotification *)notification {

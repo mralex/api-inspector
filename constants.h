@@ -18,3 +18,8 @@ enum ContentTypes {
 	contentTypeXml,
 	contentTypeHtml
 };
+
+enum BookmarkLaunchClicks {
+	singleClickBookmark,
+	doubleClickBookmark
+};

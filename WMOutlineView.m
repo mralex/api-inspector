@@ -38,4 +38,13 @@
 	return [self menu];
 }
 
+- (void)mouseDown:(NSEvent *)theEvent {
+	NSPoint mousePoint = [self convertPoint:[theEvent locationInWindow] fromView:nil];
+	
+	int row = [self rowAtPoint:mousePoint];
+	if (row == -1) [self deselectAll:nil];
+	
+	[super mouseDown:theEvent];
+}
+
 @end
