@@ -109,7 +109,7 @@
 		NSString *dest = [applicationSupportDirectory stringByAppendingPathComponent:storeFileName];
 		
 		NSError *err = nil;
-		[fileManager moveItemAtPath:src toPath:dest error:&err];
+		[fileManager copyItemAtPath:src toPath:dest error:&err];
 		if (err != nil) {
 			DLog(@"Err desc:%@", [err localizedDescription]);
 			DLog(@"Err reason: %@", [err localizedFailureReason]);
