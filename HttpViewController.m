@@ -12,7 +12,7 @@
 
 @implementation HttpViewController
 @synthesize managedObjectContext, urlHistoryController;
-@synthesize urlField, statusLabel, progressIndicator, isLoading, statusMessage, contentType, goButton;
+@synthesize urlField, statusLabel, progressIndicator, isLoading, statusMessage, contentType, goButton, urlFieldHasUrl;
 @dynamic currentUrl;
 
 - (id) init
@@ -27,9 +27,12 @@
 - (void) awakeFromNib {
 	NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"updated_at" ascending:NO];
 	self.urlHistoryController.sortDescriptors = [NSArray arrayWithObject:sort];
-	
+
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(urlFieldChanged:) name:NSControlTextDidChangeNotification object:self.urlField];
+
 	[self addObserver:self forKeyPath:@"isLoading" options:(NSKeyValueObservingOptionNew) context:NULL];
 	[self addObserver:self forKeyPath:@"statusMessage" options:(NSKeyValueObservingOptionNew) context:NULL];
+	self.urlFieldHasUrl = NO;
 }
 
 //- (NSUInteger)indexOfItemInHistoryWithStringValue:(NSString *)value {
@@ -87,8 +90,9 @@
 
 - (void)urlFieldChanged:(NSNotification *)aNotification {
 	NSString *url = self.urlField.stringValue;
-	
+	self.urlFieldHasUrl = NO;
 	if ([url length] < 6) return;
+	self.urlFieldHasUrl = YES;
 	
 	if (([url rangeOfString:@"http:"].location != NSNotFound) || ([url rangeOfString:@"https:"].location != NSNotFound)) return;
 	
@@ -100,6 +104,7 @@
 - (void)comboBoxSelectionDidChange:(NSNotification *)notification {
 	DLog(@"New selection idx: %d", [[notification object] indexOfSelectedItem]);
 	[self.urlHistoryController setSelectionIndex:[[notification object] indexOfSelectedItem]];
+	self.urlFieldHasUrl = YES;
 }
 
 #pragma mark -

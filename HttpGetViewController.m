@@ -33,7 +33,6 @@
 	dataArray = [NSMutableArray array];
 	
 	[self addObserver:self forKeyPath:@"isLoading" options:(NSKeyValueObservingOptionNew) context:NULL];	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(urlFieldChanged:) name:NSControlTextDidChangeNotification object:self.urlField];
 }
 
 #pragma mark -

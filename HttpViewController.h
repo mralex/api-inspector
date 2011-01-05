@@ -26,6 +26,7 @@
 
 	NSString *contentType;
 	int parseType;
+	BOOL urlFieldHasUrl;
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
@@ -40,6 +41,7 @@
 @property (nonatomic, retain) IBOutlet NSArrayController *urlHistoryController;
 
 @property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, assign) BOOL urlFieldHasUrl;
 @property (nonatomic, retain) NSString *statusMessage;
 @property (nonatomic, retain) NSString *contentType;
 

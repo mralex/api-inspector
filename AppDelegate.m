@@ -24,12 +24,15 @@
 	if (self != nil) {
 		mainWindow = [[MainWindowController alloc] init];
 		//mainWindow.delegate = self;
-		
+
 		dataWindow = [RawDataWindow sharedDataWindow];
 		//[dataWindow showWindow:nil];
 		//[dataWindow close];
 	}
 	return self;
+}
+
+- (void) awakeFromNib {
 }
 
 - (IBAction)showMainWindow:(id)sender {

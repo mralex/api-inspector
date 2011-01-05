@@ -31,6 +31,7 @@
 {
 	self = [super initWithWindowNibName:@"MainWindow"];
 	if (self != nil) {
+		managedObjectContext = nil;
 	}
 	return self;
 }
@@ -147,10 +148,12 @@
 	}
 	
 	if ([keyPath isEqual:@"arrangedObjects"]) {
-		DLog(@"Change observered in bookmarks array controller! %@", change);
-		[sourcelist reloadData];
-		
-		return;
+		if (self.managedObjectContext != nil) {
+			DLog(@"Change observered in bookmarks array controller! %@", change);
+			[sourcelist reloadData];
+			
+			return;	
+		}
 	}
 	
 	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
@@ -230,7 +233,10 @@
 }
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {
-	if (![[self.sourcelist selectedRowIndexes] count]) return;
+	if (![[self.sourcelist selectedRowIndexes] count]) {
+		[self.bookmarksController setSelectedObjects:nil];
+		return;
+	}
 	
 	Bookmark *selected = [self.sourcelist itemAtRow:[self.sourcelist selectedRow]];
 	[self.bookmarksController setSelectedObjects:[NSArray arrayWithObject:selected]];

@@ -18,8 +18,6 @@
 
 - (void) loadView {
 	[super loadView];
-
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(urlFieldChanged:) name:NSControlTextDidChangeNotification object:self.urlField];
 	
 	[self.bodyView setFont:[NSFont userFixedPitchFontOfSize:11]];	
 	[self.resultsView setFont:[NSFont userFixedPitchFontOfSize:11]];

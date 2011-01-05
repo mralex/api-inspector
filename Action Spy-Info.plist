@@ -31,7 +31,7 @@
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 	<key>SUFeedURL</key>
-	<string>http://redprocess.com/api-inspector/sufeed.xml</string>
+	<string>http://redprocess.com/actionspy/sufeed.xml</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>© 2011, Alex Roberts</string>
 </dict>
