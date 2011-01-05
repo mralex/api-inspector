@@ -18,6 +18,7 @@
 @dynamic updated_at;
 @dynamic name;
 @dynamic url;
+@dynamic position;
 
 - (void)awakeFromInsert {
 	DLog(@"Holla!");

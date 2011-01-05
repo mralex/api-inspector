@@ -25,7 +25,6 @@
 		5322503512CC001400251185 /* toolbar-bookmarks-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5322503412CC001400251185 /* toolbar-bookmarks-2.png */; };
 		5322503B12CC098D00251185 /* toolbar-get-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5322503A12CC098D00251185 /* toolbar-get-2.png */; };
 		5322504512CC0B9300251185 /* toolbar-post-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5322504412CC0B9300251185 /* toolbar-post-2.png */; };
-		532250AD12CE776F00251185 /* API Inspector.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 532250AC12CE776F00251185 /* API Inspector.xcmappingmodel */; };
 		5322516312CE950400251185 /* WMOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5322516212CE950400251185 /* WMOutlineView.m */; };
 		538583C012CEB88500D26763 /* api-inspector.icns in Resources */ = {isa = PBXBuildFile; fileRef = 538583BF12CEB88500D26763 /* api-inspector.icns */; };
 		5385858112D1510F00D26763 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5385858012D1510F00D26763 /* BWToolkitFramework.framework */; };
@@ -38,6 +37,7 @@
 		5385883D12D2ED8600D26763 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5385883C12D2ED8600D26763 /* Defaults.plist */; };
 		53CD331712D43BA200C23F6A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CD331612D43BA200C23F6A /* WebKit.framework */; };
 		53CD333E12D443B200C23F6A /* sampledata.xml in Resources */ = {isa = PBXBuildFile; fileRef = 53CD333D12D443B200C23F6A /* sampledata.xml */; };
+		53CD335C12D45D8800C23F6A /* API_Inspector_mapping_model.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 53CD335B12D45D8800C23F6A /* API_Inspector_mapping_model.xcmappingmodel */; };
 		53E59D9B12A1D9A4008F47E1 /* YAJL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E59D9A12A1D9A4008F47E1 /* YAJL.framework */; };
 		53E59DAA12A1D9E8008F47E1 /* YAJL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53E59D9A12A1D9A4008F47E1 /* YAJL.framework */; };
 		53E5A07712A2FE51008F47E1 /* RawDataWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A07612A2FE51008F47E1 /* RawDataWindow.m */; };
@@ -90,7 +90,6 @@
 		53224D7412CAB11C00251185 /* NewBookmarkSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewBookmarkSheet.xib; sourceTree = "<group>"; };
 		53224DDB12CAC13600251185 /* Bookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bookmark.h; sourceTree = "<group>"; };
 		53224DDC12CAC13600251185 /* Bookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bookmark.m; sourceTree = "<group>"; };
-		53224DFC12CAC26A00251185 /* API_Inspector_DataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "API_Inspector_DataModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		53224F3A12CBBF0F00251185 /* bookmark-get.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bookmark-get.png"; sourceTree = "<group>"; };
 		53224F3B12CBBF0F00251185 /* bookmark-post.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bookmark-post.png"; sourceTree = "<group>"; };
 		53224F4A12CBBFE700251185 /* WMNoteItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMNoteItemCell.h; sourceTree = "<group>"; };
@@ -104,7 +103,6 @@
 		5322503A12CC098D00251185 /* toolbar-get-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar-get-2.png"; sourceTree = "<group>"; };
 		5322504412CC0B9300251185 /* toolbar-post-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar-post-2.png"; sourceTree = "<group>"; };
 		5322508512CE76FA00251185 /* API_Inspector_DataModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "API_Inspector_DataModel 3.xcdatamodel"; sourceTree = "<group>"; };
-		532250AC12CE776F00251185 /* API Inspector.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = "API Inspector.xcmappingmodel"; sourceTree = "<group>"; };
 		5322516112CE950400251185 /* WMOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMOutlineView.h; sourceTree = "<group>"; };
 		5322516212CE950400251185 /* WMOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMOutlineView.m; sourceTree = "<group>"; };
 		5322516712CE952800251185 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
@@ -118,6 +116,8 @@
 		5385883C12D2ED8600D26763 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		53CD331612D43BA200C23F6A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		53CD333D12D443B200C23F6A /* sampledata.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sampledata.xml; sourceTree = "<group>"; };
+		53CD335A12D45D0500C23F6A /* API_Inspector_DataModel 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "API_Inspector_DataModel 4.xcdatamodel"; sourceTree = "<group>"; };
+		53CD335B12D45D8800C23F6A /* API_Inspector_mapping_model.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = API_Inspector_mapping_model.xcmappingmodel; sourceTree = "<group>"; };
 		53E59D9A12A1D9A4008F47E1 /* YAJL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJL.framework; path = Frameworks/YAJL.framework; sourceTree = "<group>"; };
 		53E5A07512A2FE51008F47E1 /* RawDataWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawDataWindow.h; sourceTree = "<group>"; };
 		53E5A07612A2FE51008F47E1 /* RawDataWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawDataWindow.m; sourceTree = "<group>"; };
@@ -409,9 +409,9 @@
 				53224DDD12CAC13600251185 /* Bookmark.m in Sources */,
 				53224F4C12CBBFE700251185 /* WMNoteItemCell.m in Sources */,
 				53224FFE12CBCC6200251185 /* ImageAndTextCell.m in Sources */,
-				532250AD12CE776F00251185 /* API Inspector.xcmappingmodel in Sources */,
 				5322516312CE950400251185 /* WMOutlineView.m in Sources */,
 				538586CE12D2D96B00D26763 /* PreferencesWindowController.m in Sources */,
+				53CD335C12D45D8800C23F6A /* API_Inspector_mapping_model.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,11 +550,11 @@
 		53224DFA12CAC26A00251185 /* API_Inspector_DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				53224DFC12CAC26A00251185 /* API_Inspector_DataModel 2.xcdatamodel */,
 				5322508512CE76FA00251185 /* API_Inspector_DataModel 3.xcdatamodel */,
-				532250AC12CE776F00251185 /* API Inspector.xcmappingmodel */,
+				53CD335A12D45D0500C23F6A /* API_Inspector_DataModel 4.xcdatamodel */,
+				53CD335B12D45D8800C23F6A /* API_Inspector_mapping_model.xcmappingmodel */,
 			);
-			currentVersion = 5322508512CE76FA00251185 /* API_Inspector_DataModel 3.xcdatamodel */;
+			currentVersion = 53CD335A12D45D0500C23F6A /* API_Inspector_DataModel 4.xcdatamodel */;
 			path = API_Inspector_DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
