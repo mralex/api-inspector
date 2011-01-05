@@ -46,7 +46,7 @@
 
 	History *historic;
 	
-	[self updateUrlSelection];
+	if (![self updateUrlSelection]) return; // FIXME: Throw an error?
 	
 	DLog(@"selection: %d", [self.urlHistoryController selectionIndex]);
 	

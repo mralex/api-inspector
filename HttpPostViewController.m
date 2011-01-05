@@ -42,7 +42,7 @@
 	
 	DLog(@"POST Go!");
 	
-	[self updateUrlSelection];
+	if (![self updateUrlSelection]) return; // FIXME: Throw an error?
 
 	// Create url history item here
 	History *historic;

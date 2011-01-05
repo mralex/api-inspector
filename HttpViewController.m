@@ -79,13 +79,21 @@
 //}
 
 #pragma mark -
-- (void)updateUrlSelection {
+- (BOOL)updateUrlSelection {
 	NSString *url = self.urlField.stringValue;
+	
+	// http://a.co/
+	if ([url length] < 12) {
+		DLog(@"No URL entered!");
+		return NO;
+	}
+	
 	NSUInteger index = [self.urlField indexOfItemWithObjectValue:url];
 	
 	if (index != NSNotFound) {
 		[self.urlHistoryController setSelectionIndex:index];
 	}
+	return YES;
 }
 
 - (void)urlFieldChanged:(NSNotification *)aNotification {

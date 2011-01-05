@@ -46,7 +46,7 @@
 @property (nonatomic, retain) NSString *contentType;
 
 //- (NSUInteger)indexOfItemInHistoryWithStringValue:(NSString *)value;
-- (void)updateUrlSelection;
+- (BOOL)updateUrlSelection;
 - (void)urlFieldChanged:(NSNotification *)aNotification;
 
 - (void)viewWillDisappear;
