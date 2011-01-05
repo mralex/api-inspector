@@ -13,7 +13,7 @@
 #import "RawDataWindow.h"
 
 @implementation HttpPostViewController
-@synthesize addButton, removeButton, bodyView, resultsView, valuesTable, keysArray, valuesArray;
+@synthesize addButton, removeButton, bodyView, resultsView, valuesTable, keysArray, valuesArray, resultsWebView;
 
 
 - (void) loadView {
@@ -124,7 +124,8 @@
 	NSString *rawString = [[NSString alloc] initWithBytes:[received bytes] length:[received length] encoding:NSStringEncodingConversionAllowLossy];
 	[[[RawDataWindow sharedDataWindow] textView] setString:rawString];
 	
-	[self.resultsView setString:rawString];
+	//[self.resultsView setString:rawString];
+	[[self.resultsWebView mainFrame] loadHTMLString:rawString baseURL:[NSURL URLWithString:[self.urlField stringValue]]];
 	
 	[connection release];
 	self.isLoading = NO;

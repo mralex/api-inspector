@@ -4,6 +4,7 @@
 
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
+	#import <WebKit/WebKit.h>
 	#import <YAJL/YAJL.h>
 	#import <BWToolkitFramework/BWToolkitFramework.h>
 	#import <Sparkle/Sparkle.h>

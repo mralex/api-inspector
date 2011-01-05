@@ -343,7 +343,7 @@
 - (void)viewWillAppear {
 	if ((received == nil) || ([received length] < 1) || self.isLoading) return;
 	
-	NSString *rawString = [[NSString alloc] initWithBytes:[received bytes] length:[received length] encoding:NSStringEncodingConversionAllowLossy];
+	NSString *rawString = [[NSString alloc] initWithBytes:[received bytes] length:[received length] encoding:NSStringEncodingConversionExternalRepresentation];
 	[[[RawDataWindow sharedDataWindow] textView] setString:rawString];
 	[[[RawDataWindow sharedDataWindow] contentTypeField] setStringValue:self.contentType];
 }

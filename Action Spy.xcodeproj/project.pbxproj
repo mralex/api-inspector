@@ -36,6 +36,7 @@
 		538586CE12D2D96B00D26763 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 538586CD12D2D96B00D26763 /* PreferencesWindowController.m */; };
 		538586D212D2D99C00D26763 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538586D112D2D99C00D26763 /* PreferencesWindow.xib */; };
 		5385883D12D2ED8600D26763 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5385883C12D2ED8600D26763 /* Defaults.plist */; };
+		53CD331712D43BA200C23F6A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CD331612D43BA200C23F6A /* WebKit.framework */; };
 		53E59D9B12A1D9A4008F47E1 /* YAJL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E59D9A12A1D9A4008F47E1 /* YAJL.framework */; };
 		53E59DAA12A1D9E8008F47E1 /* YAJL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53E59D9A12A1D9A4008F47E1 /* YAJL.framework */; };
 		53E5A07712A2FE51008F47E1 /* RawDataWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A07612A2FE51008F47E1 /* RawDataWindow.m */; };
@@ -114,6 +115,7 @@
 		538586CD12D2D96B00D26763 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
 		538586D112D2D99C00D26763 /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 		5385883C12D2ED8600D26763 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
+		53CD331612D43BA200C23F6A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		53E59D9A12A1D9A4008F47E1 /* YAJL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJL.framework; path = Frameworks/YAJL.framework; sourceTree = "<group>"; };
 		53E5A07512A2FE51008F47E1 /* RawDataWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawDataWindow.h; sourceTree = "<group>"; };
 		53E5A07612A2FE51008F47E1 /* RawDataWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawDataWindow.m; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				53E59D9B12A1D9A4008F47E1 /* YAJL.framework in Frameworks */,
 				5385858112D1510F00D26763 /* BWToolkitFramework.framework in Frameworks */,
 				538586A312D167B300D26763 /* Sparkle.framework in Frameworks */,
+				53CD331712D43BA200C23F6A /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +201,7 @@
 				77C82804067257F0000B614F /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				53CD331612D43BA200C23F6A /* WebKit.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";

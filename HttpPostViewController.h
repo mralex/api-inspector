@@ -14,7 +14,7 @@
 	NSTextView *bodyView;
 	NSTextView *resultsView;
 	NSTableView *valuesTable;
-
+	WebView *resultsWebView;
 	NSButton *addButton;
 	NSButton *removeButton;
 	
@@ -25,6 +25,7 @@
 
 @property (nonatomic, retain) IBOutlet NSTextView *bodyView;
 @property (nonatomic, retain) IBOutlet NSTextView *resultsView;
+@property (nonatomic, retain) IBOutlet WebView *resultsWebView;
 @property (nonatomic, retain) IBOutlet NSTableView *valuesTable;
 @property (nonatomic, retain) IBOutlet NSButton *addButton;
 @property (nonatomic, retain) IBOutlet NSButton *removeButton;
