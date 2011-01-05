@@ -21,7 +21,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="18"/>
+			<integer value="16"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -297,7 +297,7 @@
 													<object class="NSTableView" id="902229185">
 														<reference key="NSNextResponder" ref="765035898"/>
 														<int key="NSvFlags">256</int>
-														<string key="NSFrameSize">{601, 190}</string>
+														<string key="NSFrameSize">{601, 93}</string>
 														<reference key="NSSuperview" ref="765035898"/>
 														<bool key="NSEnabled">YES</bool>
 														<object class="NSTableHeaderView" key="NSHeaderView" id="990783004">
@@ -394,7 +394,7 @@
 														<int key="NSTableViewDraggingDestinationStyle">0</int>
 													</object>
 												</object>
-												<string key="NSFrame">{{1, 17}, {601, 190}}</string>
+												<string key="NSFrame">{{1, 17}, {601, 93}}</string>
 												<reference key="NSSuperview" ref="994675526"/>
 												<reference key="NSNextKeyView" ref="902229185"/>
 												<reference key="NSDocView" ref="902229185"/>
@@ -437,7 +437,7 @@
 											</object>
 											<reference ref="133250206"/>
 										</object>
-										<string key="NSFrame">{{0, 60}, {603, 208}}</string>
+										<string key="NSFrame">{{0, 60}, {603, 111}}</string>
 										<reference key="NSSuperview" ref="1035881370"/>
 										<reference key="NSNextKeyView" ref="765035898"/>
 										<int key="NSsFlags">562</int>
@@ -449,7 +449,7 @@
 										<bytes key="NSScrollAmts">QSAAAEEgAABBmAAAQZgAAA</bytes>
 									</object>
 								</object>
-								<string key="NSFrameSize">{603, 268}</string>
+								<string key="NSFrameSize">{603, 171}</string>
 								<reference key="NSSuperview" ref="577138248"/>
 								<string key="NSClassName">NSView</string>
 							</object>
@@ -458,7 +458,7 @@
 								<int key="NSvFlags">256</int>
 								<object class="NSMutableArray" key="NSSubviews">
 									<bool key="EncodedWithXMLCoder">YES</bool>
-									<object class="WebView" id="61933612">
+									<object class="WebView" id="477346472">
 										<reference key="NSNextResponder" ref="903868607"/>
 										<int key="NSvFlags">4370</int>
 										<object class="NSMutableSet" key="NSDragTypes">
@@ -482,7 +482,7 @@
 												<string>public.url-name</string>
 											</object>
 										</object>
-										<string key="NSFrameSize">{603, 74}</string>
+										<string key="NSFrameSize">{603, 171}</string>
 										<reference key="NSSuperview" ref="903868607"/>
 										<reference key="NSNextKeyView"/>
 										<string key="FrameName"/>
@@ -515,7 +515,7 @@
 										<bool key="AllowsUndo">YES</bool>
 									</object>
 								</object>
-								<string key="NSFrame">{{0, 278}, {603, 74}}</string>
+								<string key="NSFrame">{{0, 181}, {603, 171}}</string>
 								<reference key="NSSuperview" ref="577138248"/>
 								<string key="NSClassName">NSView</string>
 							</object>
@@ -745,7 +745,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">resultsWebView</string>
 						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="61933612"/>
+						<reference key="destination" ref="477346472"/>
 					</object>
 					<int key="connectionID">77</int>
 				</object>
@@ -816,7 +816,7 @@
 						<reference key="object" ref="903868607"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="61933612"/>
+							<reference ref="477346472"/>
 						</object>
 						<reference key="parent" ref="577138248"/>
 					</object>
@@ -968,7 +968,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">76</int>
-						<reference key="object" ref="61933612"/>
+						<reference key="object" ref="477346472"/>
 						<reference key="parent" ref="903868607"/>
 					</object>
 				</object>
@@ -1018,7 +1018,7 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{608, 425}, {603, 428}}</string>
+					<string>{{342, 275}, {603, 428}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{628, 654}</string>
 					<string>{{217, 442}, {480, 272}}</string>
