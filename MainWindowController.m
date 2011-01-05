@@ -243,7 +243,7 @@
 	//[self.editBookmarkMenuItem isEnabled:YES];
 	DLog(@"Selection changed");
 	[self handleSelectedBookmarkAndLoad:NO];
-
+	self.currentHttpViewController.urlFieldHasUrl = YES; // FIXME
 }
 
 - (void)handleSelectedBookmarkAndLoad:(BOOL)load {
