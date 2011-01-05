@@ -1,0 +1,54 @@
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE database SYSTEM "file:///System/Library/DTDs/CoreData.dtd">
+
+<database>
+    <databaseInfo>
+        <version>134481920</version>
+        <UUID>41930411-CEB0-4385-8439-EC93557C47CE</UUID>
+        <nextObjectID>167</nextObjectID>
+        <metadata>
+            <plist version="1.0">
+                <dict>
+                    <key>NSPersistenceFrameworkVersion</key>
+                    <integer>251</integer>
+                    <key>NSStoreModelVersionHashes</key>
+                    <dict>
+                        <key>Bookmark</key>
+                        <data>
+		L7l9oTMbP6VRp2hCdbCTlVBFJZEVu2kXr8dGyA+UZgk=
+		</data>
+                        <key>History</key>
+                        <data>
+		IwWtqs+IgTajiMtzUqlYHG4KnfVHzhGIexxiJFKi7Q4=
+		</data>
+                    </dict>
+                    <key>NSStoreModelVersionHashesVersion</key>
+                    <integer>3</integer>
+                    <key>NSStoreModelVersionIdentifiers</key>
+                    <array></array>
+                </dict>
+            </plist>
+        </metadata>
+    </databaseInfo>
+    <object type="BOOKMARK" id="z124">
+        <attribute name="url" type="string">http://api.twitter.com/1/statuses/user_timeline.json?screen_name=mralex</attribute>
+        <attribute name="updated_at" type="date">315343875.39052599668502807617</attribute>
+        <attribute name="name" type="string">Twitter Timeline</attribute>
+        <attribute name="httpaction" type="int16">1</attribute>
+        <attribute name="created_at" type="date">315343875.39052599668502807617</attribute>
+    </object>
+
+    <object type="BOOKMARK" id="z133">
+        <attribute name="valuearray" type="encodable">YnBsaXN0MDDUAQIDBAUGFhdYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoKQH
+CA4PVSRudWxs0gkKCwxWJGNsYXNzWk5TLm9iamVjdHOAA6ENgAJTRm9v0hAREhNaJGNsYXNzbmFtZVgkY2xhc3Nlc15OU011dGFibGVBcnJheaMSFBVXTlNBcnJheVhOU09iamVjdF8QD05TS2V5ZWRBcmNoaXZlctEYGVRyb290gAEIERojLTI3PEJHTllbXV9jaHN8i4+XoLK1ugAAAAAAAAEBAAAAAAAAABoAAAAAAAAAAAAAAAAAAAC8
+</attribute>
+        <attribute name="url" type="string">http://www.snee.com/xml/crud/posttest.cgi</attribute>
+        <attribute name="updated_at" type="date">315521258.63486200571060180664</attribute>
+        <attribute name="name" type="string">Snee Post Test</attribute>
+        <attribute name="keyarray" type="encodable">YnBsaXN0MDDUAQIDBAUGFhdYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoKQH
+CA4PVSRudWxs0gkKCwxWJGNsYXNzWk5TLm9iamVjdHOAA6ENgAJVZm5hbWXSEBESE1okY2xhc3NuYW1lWCRjbGFzc2VzXk5TTXV0YWJsZUFycmF5oxIUFVdOU0FycmF5WE5TT2JqZWN0XxAPTlNLZXllZEFyY2hpdmVy0RgZVHJvb3SAAQgRGiMtMjc8QkdOWVtdX2VqdX6NkZmitLe8AAAAAAAAAQEAAAAAAAAAGgAAAAAAAAAAAAAAAAAAAL4=
+</attribute>
+        <attribute name="httpaction" type="int16">2</attribute>
+        <attribute name="created_at" type="date">315521258.63486200571060180664</attribute>
+    </object>
+</database>

@@ -103,8 +103,21 @@
     }
     
 	// FIXME: Copy default store file from bundle to support directory
+	NSString *storeFileName = @"data.xml";
 	
-    NSURL *url = [NSURL fileURLWithPath: [applicationSupportDirectory stringByAppendingPathComponent: @"data.xml"]];
+	if (![fileManager fileExistsAtPath:[applicationSupportDirectory stringByAppendingPathComponent:storeFileName]]) {
+		NSString *src = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"sampledata.xml"];
+		NSString *dest = [applicationSupportDirectory stringByAppendingPathComponent:storeFileName];
+		
+		NSError *err = nil;
+		[fileManager moveItemAtPath:src toPath:dest error:&err];
+		if (err != nil) {
+			DLog(@"Err desc:%@", [err localizedDescription]);
+			DLog(@"Err reason: %@", [err localizedFailureReason]);
+		}
+	}
+	
+    NSURL *url = [NSURL fileURLWithPath: [applicationSupportDirectory stringByAppendingPathComponent:storeFileName]];
 	NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
 							 [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
 							 [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
