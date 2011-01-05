@@ -10,10 +10,7 @@
 			<string key="com.apple.InterfaceBuilder.CocoaPlugin">823</string>
 			<string key="com.brandonwalkin.BWToolkit">1.2.5</string>
 		</dictionary>
-		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
-			<integer value="136"/>
-			<integer value="3"/>
-		</array>
+		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs"/>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 			<string>com.brandonwalkin.BWToolkit</string>
@@ -37,7 +34,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{6, 472}, {735, 481}}</string>
 				<int key="NSWTFlags">544735232</int>
-				<string key="NSWindowTitle">API Inspector</string>
+				<string key="NSWindowTitle">Action Spy</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<object class="NSToolbar" key="NSViewClass" id="383273812">
 					<object class="NSMutableString" key="NSToolbarIdentifier">
@@ -333,7 +330,7 @@
 				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
 				<string key="NSWindowContentMinSize">{480, 410}</string>
 				<object class="NSView" key="NSWindowView" id="417939656">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="BWSplitView" id="820967037">
@@ -595,7 +592,6 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{735, 481}</string>
-					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMinSize">{480, 488}</string>
@@ -1170,6 +1166,7 @@
 				<integer value="1" key="3.ImportedFromIB2"/>
 				<boolean value="YES" key="3.NSWindowTemplate.visibleAtLaunch"/>
 				<integer value="1" key="3.windowTemplate.hasMinSize"/>
+				<string key="3.windowTemplate.maxSize">{1.79769e+308, 1.79769e+308}</string>
 				<string key="3.windowTemplate.minSize">{480, 410}</string>
 				<string key="30.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="30.designableToolbarItemIdentifier">get</string>

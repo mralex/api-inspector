@@ -75,7 +75,7 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		2F7446980DB6B7EA00F9684A /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		32CA4F630368D1EE00C91783 /* API_Inspector_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_Inspector_Prefix.pch; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* Action_Spy_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action_Spy_Prefix.pch; sourceTree = "<group>"; };
 		53224A2B12C9694600251185 /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
 		53224A2C12C9694600251185 /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
 		53224A8512C971CA00251185 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
@@ -133,8 +133,8 @@
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		77C8280B06725ACE000B614F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		77C8280C06725ACE000B614F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8D1107310486CEB800E47090 /* API_Inspector-Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = "API_Inspector-Info.plist"; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* API Inspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "API Inspector.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107310486CEB800E47090 /* Action Spy-Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = "Action Spy-Info.plist"; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Action Spy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Action Spy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,7 +205,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* API Inspector.app */,
+				8D1107320486CEB800E47090 /* Action Spy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -227,7 +227,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32CA4F630368D1EE00C91783 /* API_Inspector_Prefix.pch */,
+				32CA4F630368D1EE00C91783 /* Action_Spy_Prefix.pch */,
 				5322516712CE952800251185 /* debug.h */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				53224A8512C971CA00251185 /* constants.h */,
@@ -241,7 +241,7 @@
 				538586B812D1690D00D26763 /* dsa_pub.pem */,
 				53224F3712CBBEF800251185 /* Icons */,
 				53E5A1E112A4D64B008F47E1 /* xib */,
-				8D1107310486CEB800E47090 /* API_Inspector-Info.plist */,
+				8D1107310486CEB800E47090 /* Action Spy-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				5385883C12D2ED8600D26763 /* Defaults.plist */,
 			);
@@ -306,9 +306,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* API Inspector */ = {
+		8D1107260486CEB800E47090 /* Action Spy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 26FC0A840875C7B200E6366F /* Build configuration list for PBXNativeTarget "API Inspector" */;
+			buildConfigurationList = 26FC0A840875C7B200E6366F /* Build configuration list for PBXNativeTarget "Action Spy" */;
 			buildPhases = (
 				53E59DB612A1DA38008F47E1 /* CopyFiles */,
 				8D1107290486CEB800E47090 /* Resources */,
@@ -319,10 +319,10 @@
 			);
 			dependencies = (
 			);
-			name = "API Inspector";
+			name = "Action Spy";
 			productInstallPath = "$(HOME)/Applications";
 			productName = "API Inspector";
-			productReference = 8D1107320486CEB800E47090 /* API Inspector.app */;
+			productReference = 8D1107320486CEB800E47090 /* Action Spy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -333,7 +333,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = NO;
 			};
-			buildConfigurationList = 26FC0A880875C7B200E6366F /* Build configuration list for PBXProject "API Inspector" */;
+			buildConfigurationList = 26FC0A880875C7B200E6366F /* Build configuration list for PBXProject "Action Spy" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -347,7 +347,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* API Inspector */,
+				8D1107260486CEB800E47090 /* Action Spy */,
 			);
 		};
 /* End PBXProject section */
@@ -452,11 +452,11 @@
 				GCC_PREFIX_HEADER = API_Inspector_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "API_Inspector-Info.plist";
+				INFOPLIST_FILE = "Action Spy-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = "API Inspector";
+				PRODUCT_NAME = "Action Spy";
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -478,13 +478,13 @@
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = API_Inspector_Prefix.pch;
+				GCC_PREFIX_HEADER = Action_Spy_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "API_Inspector-Info.plist";
+				INFOPLIST_FILE = "Action Spy-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = "API Inspector";
+				PRODUCT_NAME = "Action Spy";
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -518,7 +518,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		26FC0A840875C7B200E6366F /* Build configuration list for PBXNativeTarget "API Inspector" */ = {
+		26FC0A840875C7B200E6366F /* Build configuration list for PBXNativeTarget "Action Spy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				26FC0A850875C7B200E6366F /* Debug */,
@@ -527,7 +527,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		26FC0A880875C7B200E6366F /* Build configuration list for PBXProject "API Inspector" */ = {
+		26FC0A880875C7B200E6366F /* Build configuration list for PBXProject "Action Spy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				26FC0A890875C7B200E6366F /* Debug */,
