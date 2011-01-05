@@ -102,7 +102,6 @@
 		}
     }
     
-	// FIXME: Copy default store file from bundle to support directory
 	NSString *storeFileName = @"data.xml";
 	
 	if (![fileManager fileExistsAtPath:[applicationSupportDirectory stringByAppendingPathComponent:storeFileName]]) {
