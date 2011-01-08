@@ -8,6 +8,7 @@
 
 #import <CoreData/CoreData.h>
 
+@class Authentication;
 
 @interface History :  NSManagedObject  
 {
@@ -17,6 +18,8 @@
 @property (nonatomic, retain) NSNumber * httpAction;
 @property (nonatomic, retain) NSDate * updated_at;
 @property (nonatomic, retain) NSString * url;
+
+@property (nonatomic, retain) Authentication *authentication;
 
 @end
 

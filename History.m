@@ -7,7 +7,7 @@
 //
 
 #import "History.h"
-
+#import "Authentication.h"
 
 @implementation History 
 
@@ -15,6 +15,7 @@
 @dynamic httpAction;
 @dynamic updated_at;
 @dynamic url;
+@dynamic authentication;
 
 - (void)awakeFromInsert {
 	self.added_at = self.updated_at = [NSDate date];

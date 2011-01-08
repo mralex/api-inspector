@@ -37,7 +37,6 @@
 		5385883D12D2ED8600D26763 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5385883C12D2ED8600D26763 /* Defaults.plist */; };
 		53CD331712D43BA200C23F6A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CD331612D43BA200C23F6A /* WebKit.framework */; };
 		53CD333E12D443B200C23F6A /* sampledata.xml in Resources */ = {isa = PBXBuildFile; fileRef = 53CD333D12D443B200C23F6A /* sampledata.xml */; };
-		53CD335C12D45D8800C23F6A /* API_Inspector_mapping_model.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 53CD335B12D45D8800C23F6A /* API_Inspector_mapping_model.xcmappingmodel */; };
 		53E59D9B12A1D9A4008F47E1 /* YAJL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E59D9A12A1D9A4008F47E1 /* YAJL.framework */; };
 		53E59DAA12A1D9E8008F47E1 /* YAJL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53E59D9A12A1D9A4008F47E1 /* YAJL.framework */; };
 		53E5A07712A2FE51008F47E1 /* RawDataWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A07612A2FE51008F47E1 /* RawDataWindow.m */; };
@@ -49,6 +48,8 @@
 		53E5A34A12A5FBF3008F47E1 /* TreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A34912A5FBF3008F47E1 /* TreeNode.m */; };
 		53E5A4BB12A8C514008F47E1 /* HttpPostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53E5A4BA12A8C514008F47E1 /* HttpPostView.xib */; };
 		53E5A4C812A8C5A8008F47E1 /* HttpPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A4C712A8C5A8008F47E1 /* HttpPostViewController.m */; };
+		53E6B97912D91C9D007FA70C /* API_Inspector_5_6_rel.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 53E6B97812D91C9D007FA70C /* API_Inspector_5_6_rel.xcmappingmodel */; };
+		53E6B97E12D91CD9007FA70C /* Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E6B97D12D91CD9007FA70C /* Authentication.m */; };
 		77C8280E06725ACE000B614F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C8280C06725ACE000B614F /* AppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -102,7 +103,6 @@
 		5322503412CC001400251185 /* toolbar-bookmarks-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar-bookmarks-2.png"; sourceTree = "<group>"; };
 		5322503A12CC098D00251185 /* toolbar-get-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar-get-2.png"; sourceTree = "<group>"; };
 		5322504412CC0B9300251185 /* toolbar-post-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar-post-2.png"; sourceTree = "<group>"; };
-		5322508512CE76FA00251185 /* API_Inspector_DataModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "API_Inspector_DataModel 3.xcdatamodel"; sourceTree = "<group>"; };
 		5322516112CE950400251185 /* WMOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMOutlineView.h; sourceTree = "<group>"; };
 		5322516212CE950400251185 /* WMOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMOutlineView.m; sourceTree = "<group>"; };
 		5322516712CE952800251185 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
@@ -116,8 +116,6 @@
 		5385883C12D2ED8600D26763 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		53CD331612D43BA200C23F6A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		53CD333D12D443B200C23F6A /* sampledata.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sampledata.xml; sourceTree = "<group>"; };
-		53CD335A12D45D0500C23F6A /* API_Inspector_DataModel 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "API_Inspector_DataModel 4.xcdatamodel"; sourceTree = "<group>"; };
-		53CD335B12D45D8800C23F6A /* API_Inspector_mapping_model.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = API_Inspector_mapping_model.xcmappingmodel; sourceTree = "<group>"; };
 		53E59D9A12A1D9A4008F47E1 /* YAJL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJL.framework; path = Frameworks/YAJL.framework; sourceTree = "<group>"; };
 		53E5A07512A2FE51008F47E1 /* RawDataWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RawDataWindow.h; sourceTree = "<group>"; };
 		53E5A07612A2FE51008F47E1 /* RawDataWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RawDataWindow.m; sourceTree = "<group>"; };
@@ -134,6 +132,11 @@
 		53E5A4BA12A8C514008F47E1 /* HttpPostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HttpPostView.xib; sourceTree = "<group>"; };
 		53E5A4C612A8C5A8008F47E1 /* HttpPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpPostViewController.h; sourceTree = "<group>"; };
 		53E5A4C712A8C5A8008F47E1 /* HttpPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpPostViewController.m; sourceTree = "<group>"; };
+		53E6B94612D9198B007FA70C /* API_Inspector_DataModel 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "API_Inspector_DataModel 5.xcdatamodel"; sourceTree = "<group>"; };
+		53E6B97512D91C48007FA70C /* API_Inspector_DataModel 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "API_Inspector_DataModel 6.xcdatamodel"; sourceTree = "<group>"; };
+		53E6B97812D91C9D007FA70C /* API_Inspector_5_6_rel.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = API_Inspector_5_6_rel.xcmappingmodel; sourceTree = "<group>"; };
+		53E6B97C12D91CD9007FA70C /* Authentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Authentication.h; sourceTree = "<group>"; };
+		53E6B97D12D91CD9007FA70C /* Authentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Authentication.m; sourceTree = "<group>"; };
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		77C8280B06725ACE000B614F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		77C8280C06725ACE000B614F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -306,6 +309,8 @@
 				53224C3F12CA69C100251185 /* Folder.m */,
 				53224DDB12CAC13600251185 /* Bookmark.h */,
 				53224DDC12CAC13600251185 /* Bookmark.m */,
+				53E6B97C12D91CD9007FA70C /* Authentication.h */,
+				53E6B97D12D91CD9007FA70C /* Authentication.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -411,7 +416,8 @@
 				53224FFE12CBCC6200251185 /* ImageAndTextCell.m in Sources */,
 				5322516312CE950400251185 /* WMOutlineView.m in Sources */,
 				538586CE12D2D96B00D26763 /* PreferencesWindowController.m in Sources */,
-				53CD335C12D45D8800C23F6A /* API_Inspector_mapping_model.xcmappingmodel in Sources */,
+				53E6B97912D91C9D007FA70C /* API_Inspector_5_6_rel.xcmappingmodel in Sources */,
+				53E6B97E12D91CD9007FA70C /* Authentication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,11 +556,11 @@
 		53224DFA12CAC26A00251185 /* API_Inspector_DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5322508512CE76FA00251185 /* API_Inspector_DataModel 3.xcdatamodel */,
-				53CD335A12D45D0500C23F6A /* API_Inspector_DataModel 4.xcdatamodel */,
-				53CD335B12D45D8800C23F6A /* API_Inspector_mapping_model.xcmappingmodel */,
+				53E6B94612D9198B007FA70C /* API_Inspector_DataModel 5.xcdatamodel */,
+				53E6B97512D91C48007FA70C /* API_Inspector_DataModel 6.xcdatamodel */,
+				53E6B97812D91C9D007FA70C /* API_Inspector_5_6_rel.xcmappingmodel */,
 			);
-			currentVersion = 53CD335A12D45D0500C23F6A /* API_Inspector_DataModel 4.xcdatamodel */;
+			currentVersion = 53E6B97512D91C48007FA70C /* API_Inspector_DataModel 6.xcdatamodel */;
 			path = API_Inspector_DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

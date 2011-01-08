@@ -25,3 +25,8 @@ enum BookmarkLaunchClicks {
 	singleClickBookmark,
 	doubleClickBookmark
 };
+
+enum AuthTypes {
+	authTypeOAuth,
+	authTypeBasic
+};
