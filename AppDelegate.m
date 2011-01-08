@@ -26,6 +26,7 @@
 		//mainWindow.delegate = self;
 
 		dataWindow = [RawDataWindow sharedDataWindow];
+		[dataWindow loadWindow];
 		//[dataWindow showWindow:nil];
 		//[dataWindow close];
 	}
