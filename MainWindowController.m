@@ -69,6 +69,10 @@
 	
 	[self.sourcelist expandItem:[self.sourcelist itemAtRow:0]];
 	[self.sourcelist setDoubleAction:@selector(bookmarksDoubleClicked:)];
+	
+	[self.sourcelist registerForDraggedTypes:[NSArray arrayWithObject:AS_PBOARD_TYPE]];
+	[self.sourcelist setDraggingSourceOperationMask:NSDragOperationEvery forLocal:YES];
+    [self.sourcelist setDraggingSourceOperationMask:NSDragOperationEvery forLocal:NO];
 }
 
 - (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window {
@@ -231,6 +235,42 @@
 	}
 	[(ImageAndTextCell *)cell setImage:icon];
 }
+
+#pragma mark Drag and drop
+- (BOOL)outlineView:(NSOutlineView *)ov writeItems:(NSArray *)items toPasteboard:(NSPasteboard *)pboard {
+	if ([[items objectAtIndex:0] class] == [Folder class]) return NO;
+	
+	//draggedNote = [items objectAtIndex:0];
+	
+	[pboard declareTypes:[NSArray arrayWithObjects:AS_PBOARD_TYPE, NSStringPboardType, NSFilesPromisePboardType, nil] owner:self];
+	
+	[pboard setData:[NSData data] forType:AS_PBOARD_TYPE];
+	
+	[pboard setString:[(Bookmark *)[items objectAtIndex:0] url] forType:NSStringPboardType];
+	[pboard setPropertyList:[NSArray arrayWithObjects:@"txt", nil] forType:NSFilesPromisePboardType];
+	
+	return YES;
+}
+
+- (NSDragOperation)outlineView:(NSOutlineView *)ov validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(NSInteger)childIndex {
+	NSDragOperation op = NSDragOperationGeneric;
+	
+	if ([item class] == [Bookmark class]) {
+		if (childIndex == NSOutlineViewDropOnItemIndex) {
+			// don't allow drops on top of item, only between
+			op = NSDragOperationNone;
+		}
+	} 
+	
+	// don't allow drops on the list as a whole (Maybe we should? Auto assign to NOTES?)
+	if (item == nil) op = NSDragOperationNone;
+	
+	// allow drops on folder item!
+	
+	return op;
+}
+
+
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {
 	if (![[self.sourcelist selectedRowIndexes] count]) {

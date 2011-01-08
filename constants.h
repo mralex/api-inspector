@@ -13,6 +13,8 @@
 #define kHttpPostKeys	@"httpPostKeys"
 #define kHttpPostValues	@"httpPostValues"
 
+#define AS_PBOARD_TYPE @"ASSourceListPBoardType"
+
 enum ContentTypes {
 	contentTypeJson,
 	contentTypeXml,
