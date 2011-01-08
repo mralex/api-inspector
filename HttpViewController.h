@@ -19,8 +19,8 @@
 	NSProgressIndicator *progressIndicator;
 	NSButton *goButton;
 	
-	NSButton *oauthButton;
-	NSPopUpButton *oauthPopup;
+	NSButton *authButton;
+	NSPopUpButton *authPopup;
 
 	BOOL isLoading;
 	NSString *statusMessage;
@@ -39,8 +39,8 @@
 @property (nonatomic, retain) IBOutlet NSProgressIndicator *progressIndicator;
 @property (nonatomic, retain) IBOutlet NSButton *goButton;
 
-@property (nonatomic, retain) IBOutlet NSButton *oauthButton;
-@property (nonatomic, retain) IBOutlet NSPopUpButton *oauthPopup;
+@property (nonatomic, retain) IBOutlet NSButton *authButton;
+@property (nonatomic, retain) IBOutlet NSPopUpButton *authPopup;
 
 @property (nonatomic, retain, readonly) NSString *currentUrl;
 

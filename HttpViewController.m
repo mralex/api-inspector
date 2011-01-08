@@ -12,7 +12,7 @@
 
 @implementation HttpViewController
 @synthesize managedObjectContext, urlHistoryController;
-@synthesize urlField, statusLabel, progressIndicator, isLoading, statusMessage, contentType, goButton, urlFieldHasUrl, oauthButton, oauthPopup;
+@synthesize urlField, statusLabel, progressIndicator, isLoading, statusMessage, contentType, goButton, urlFieldHasUrl, authButton, authPopup;
 @dynamic currentUrl;
 
 - (id) init
