@@ -10,6 +10,7 @@
 #import "NewBookmarkSheetController.h"
 
 @class Folder;
+@class Bookmark;
 @class HttpViewController;
 @class HttpGetViewController;
 @class HttpPostViewController;
@@ -36,6 +37,7 @@
 	NSArrayController *bookmarksController;
 	
 	Folder *bookmarks;
+	Bookmark *draggedBookmark;
 	
 	NewBookmarkSheetController *newBookmarkSheetController;
 }

@@ -43,7 +43,8 @@
 	
 	self.bookmarks = [[Folder alloc] initWithName:@"BOOKMARKS"];
 	
-	NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"created_at" ascending:NO];
+	// FIXME: Add a sorting preference
+	NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"position" ascending:NO];
 	self.bookmarksController.sortDescriptors = [NSArray arrayWithObject:sort];
 
 	[self.bookmarksController addObserver:self
@@ -240,7 +241,7 @@
 - (BOOL)outlineView:(NSOutlineView *)ov writeItems:(NSArray *)items toPasteboard:(NSPasteboard *)pboard {
 	if ([[items objectAtIndex:0] class] == [Folder class]) return NO;
 	
-	//draggedNote = [items objectAtIndex:0];
+	draggedBookmark = [items objectAtIndex:0];
 	
 	[pboard declareTypes:[NSArray arrayWithObjects:AS_PBOARD_TYPE, NSStringPboardType, NSFilesPromisePboardType, nil] owner:self];
 	
@@ -270,7 +271,38 @@
 	return op;
 }
 
+- (BOOL)outlineView:(NSOutlineView *)ov acceptDrop:(id <NSDraggingInfo>)info item:(id)item childIndex:(NSInteger)childIndex {
+//	DLog(@"dragged note yall: %@, %@", draggedNote.title, [(Folder *)item name]);
+//	
+//	Note *selected = [outlineView itemAtRow:[outlineView selectedRow]];
+//	
+//	Folder *target = (Folder *)item;
+//	Folder *source = draggedNote.folder;
+//	int index = [[source notesArray] indexOfObject:draggedNote];
+//	
+//	if (draggedNote.folder != target) {
+//		
+//		// move item to trash (Must add, then change the ownership, since the folder may not have faulted yet)
+//		[[target notesArray] addObject:draggedNote];
+//		draggedNote.folder = target;
+//		
+//		[[source notesArray] removeObjectAtIndex:index];
+//		
+//		[[target notesArray] sortUsingDescriptors:[outlineView sortDescriptors]];
+//		
+//		[outlineView reloadData];
+//		[outlineView expandItem:target];
+//		
+//		[outlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:[outlineView rowForItem:selected]] byExtendingSelection:NO];
+//		[self outlineViewSelectionDidChange:nil];
+//		
+//		[self autoSave];
+//	}
+	
+	return YES;
+}
 
+#pragma mark -
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {
 	if (![[self.sourcelist selectedRowIndexes] count]) {

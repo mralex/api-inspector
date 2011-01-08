@@ -124,9 +124,10 @@
 		
 		if (!isEditing) {
 			NSManagedObject *newObj = [self.sourceArrayController newObject];
-			NSArray *keys;
+			//NSArray *keys;
 			
 			[newObj setValuesForKeysWithDictionary:[sheetObj dictionaryWithValuesForKeys:[NSArray arrayWithObjects:@"name", @"url", @"httpAction", @"keyArray", @"valueArray", nil]]];
+			[newObj setValue:[NSNumber numberWithInt:[[self.sourceArrayController arrangedObjects] count]] forKey:@"position"];
 			[sourceArrayController addObject:newObj];
 		}
 		
