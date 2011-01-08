@@ -50,6 +50,8 @@
 		53E5A4C812A8C5A8008F47E1 /* HttpPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5A4C712A8C5A8008F47E1 /* HttpPostViewController.m */; };
 		53E6B97912D91C9D007FA70C /* API_Inspector_5_6_rel.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 53E6B97812D91C9D007FA70C /* API_Inspector_5_6_rel.xcmappingmodel */; };
 		53E6B97E12D91CD9007FA70C /* Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E6B97D12D91CD9007FA70C /* Authentication.m */; };
+		53E6BBA612D920F7007FA70C /* OAuthConsumer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E6BBA512D920F7007FA70C /* OAuthConsumer.framework */; };
+		53E6BBA712D92101007FA70C /* OAuthConsumer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53E6BBA512D920F7007FA70C /* OAuthConsumer.framework */; };
 		77C8280E06725ACE000B614F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C8280C06725ACE000B614F /* AppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -63,6 +65,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				53E6BBA712D92101007FA70C /* OAuthConsumer.framework in CopyFiles */,
 				538586AA12D167BB00D26763 /* Sparkle.framework in CopyFiles */,
 				538585B212D1511300D26763 /* BWToolkitFramework.framework in CopyFiles */,
 				53E59DAA12A1D9E8008F47E1 /* YAJL.framework in CopyFiles */,
@@ -137,6 +140,7 @@
 		53E6B97812D91C9D007FA70C /* API_Inspector_5_6_rel.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = API_Inspector_5_6_rel.xcmappingmodel; sourceTree = "<group>"; };
 		53E6B97C12D91CD9007FA70C /* Authentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Authentication.h; sourceTree = "<group>"; };
 		53E6B97D12D91CD9007FA70C /* Authentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Authentication.m; sourceTree = "<group>"; };
+		53E6BBA512D920F7007FA70C /* OAuthConsumer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthConsumer.framework; path = /Users/bse/src/projects/oauth/OAuthConsumer/build/Release/OAuthConsumer.framework; sourceTree = "<absolute>"; };
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		77C8280B06725ACE000B614F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		77C8280C06725ACE000B614F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				5385858112D1510F00D26763 /* BWToolkitFramework.framework in Frameworks */,
 				538586A312D167B300D26763 /* Sparkle.framework in Frameworks */,
 				53CD331712D43BA200C23F6A /* WebKit.framework in Frameworks */,
+				53E6BBA612D920F7007FA70C /* OAuthConsumer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +201,7 @@
 				5385858012D1510F00D26763 /* BWToolkitFramework.framework */,
 				53E59D9A12A1D9A4008F47E1 /* YAJL.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				53E6BBA512D920F7007FA70C /* OAuthConsumer.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -455,6 +461,7 @@
 					"\"$(SRCROOT)/../../BWToolkit\"",
 					"\"$(SRCROOT)/../../BWToolkit/bwtoolkit/build/Release\"",
 					"\"$(SRCROOT)/../Sparkle/build/Release (GC dual-mode; 10.5-only)\"",
+					"\"$(SRCROOT)/../oauth/OAuthConsumer/build/Release\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -466,6 +473,7 @@
 				GCC_PREFIX_HEADER = Action_Spy_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Action Spy-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
@@ -487,6 +495,7 @@
 					"\"$(SRCROOT)/../../BWToolkit\"",
 					"\"$(SRCROOT)/../../BWToolkit/bwtoolkit/build/Release\"",
 					"\"$(SRCROOT)/../Sparkle/build/Release (GC dual-mode; 10.5-only)\"",
+					"\"$(SRCROOT)/../oauth/OAuthConsumer/build/Release\"",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_ENABLE_OBJC_GC = required;
@@ -494,6 +503,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Action_Spy_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Action Spy-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
