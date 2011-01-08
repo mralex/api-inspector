@@ -242,6 +242,7 @@
 	if ([[items objectAtIndex:0] class] == [Folder class]) return NO;
 	
 	draggedBookmark = [items objectAtIndex:0];
+	//DLog(@"index of dragged: %d", [self.sourcelist rowForItem:draggedBookmark]);
 	
 	[pboard declareTypes:[NSArray arrayWithObjects:AS_PBOARD_TYPE, NSStringPboardType, NSFilesPromisePboardType, nil] owner:self];
 	
@@ -266,12 +267,44 @@
 	// don't allow drops on the list as a whole (Maybe we should? Auto assign to NOTES?)
 	if (item == nil) op = NSDragOperationNone;
 	
-	// allow drops on folder item!
+	
+	
+	// don't allow drops on folder item!
+	if (childIndex < 0) op = NSDragOperationNone;
 	
 	return op;
 }
 
 - (BOOL)outlineView:(NSOutlineView *)ov acceptDrop:(id <NSDraggingInfo>)info item:(id)item childIndex:(NSInteger)childIndex {
+	int origIndex = [self.sourcelist rowForItem:draggedBookmark] - 1; 
+	
+	int diff = origIndex - childIndex;
+	if (diff < 0) diff++;
+	
+	int oldPos = [draggedBookmark.position intValue];
+	int newPos = (oldPos + diff);
+
+	DLog(@"dragged index: %d, dropped index: %d, diff: %d, original position: %d, new position: %d", origIndex, childIndex, diff, oldPos, newPos);
+	
+	if (diff > 0) {
+		for (int i = (origIndex -1); i > (childIndex -1); i--){
+			Bookmark *mark = [self.bookmarksController.arrangedObjects objectAtIndex:i];
+			//DLog(@"i: %d, %@, new position: %d", i, mark.position, [mark.position intValue] - 1);
+			
+			mark.position = [NSNumber numberWithInt:[mark.position intValue] - 1];
+		}
+	} else {
+		for (int i = (origIndex + 1); i < childIndex; i++){
+			Bookmark *mark = [self.bookmarksController.arrangedObjects objectAtIndex:i];
+			//DLog(@"i: %d, %@, new position: %d", i, mark.position, [mark.position intValue] + 1);
+			
+			mark.position = [NSNumber numberWithInt:[mark.position intValue] + 1];
+		}
+	}
+
+	draggedBookmark.position = [NSNumber numberWithInt:newPos];
+
+	
 //	DLog(@"dragged note yall: %@, %@", draggedNote.title, [(Folder *)item name]);
 //	
 //	Note *selected = [outlineView itemAtRow:[outlineView selectedRow]];
