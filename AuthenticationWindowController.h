@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class Authentication;
+@class NewAuthWindowController;
 
 @interface AuthenticationWindowController : NSWindowController {
 	NSManagedObjectContext *managedObjectContext;
@@ -16,14 +17,13 @@
 	NSObjectController *account;
 	Authentication *currentAccount;
 	
-	NSWindow *newAccountWindow;
 	NSWindow *renameAccountWindow;
+	
+	NewAuthWindowController *newAuthWindowController;
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) IBOutlet NSArrayController *accountsArray;
-
-@property (nonatomic, retain) IBOutlet NSWindow *newAccountWindow;
 @property (nonatomic, retain) IBOutlet NSWindow *renameAccountWindow;
 
 @end

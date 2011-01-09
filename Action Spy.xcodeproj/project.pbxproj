@@ -54,6 +54,8 @@
 		53E6BBA712D92101007FA70C /* OAuthConsumer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53E6BBA512D920F7007FA70C /* OAuthConsumer.framework */; };
 		53E6BBD512D92616007FA70C /* AuthManagementWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53E6BBD412D92616007FA70C /* AuthManagementWindow.xib */; };
 		53E6BBDC12DA7EE0007FA70C /* AuthenticationWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E6BBDB12DA7EE0007FA70C /* AuthenticationWindowController.m */; };
+		53E6BBE512DA8048007FA70C /* NewAuthWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E6BBE412DA8048007FA70C /* NewAuthWindowController.m */; };
+		53E6BBE712DA8059007FA70C /* NewAuthWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53E6BBE612DA8059007FA70C /* NewAuthWindow.xib */; };
 		77C8280E06725ACE000B614F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C8280C06725ACE000B614F /* AppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -146,6 +148,9 @@
 		53E6BBD412D92616007FA70C /* AuthManagementWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthManagementWindow.xib; sourceTree = "<group>"; };
 		53E6BBDA12DA7EE0007FA70C /* AuthenticationWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationWindowController.h; sourceTree = "<group>"; };
 		53E6BBDB12DA7EE0007FA70C /* AuthenticationWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationWindowController.m; sourceTree = "<group>"; };
+		53E6BBE312DA8048007FA70C /* NewAuthWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAuthWindowController.h; sourceTree = "<group>"; };
+		53E6BBE412DA8048007FA70C /* NewAuthWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAuthWindowController.m; sourceTree = "<group>"; };
+		53E6BBE612DA8059007FA70C /* NewAuthWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewAuthWindow.xib; sourceTree = "<group>"; };
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		77C8280B06725ACE000B614F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		77C8280C06725ACE000B614F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -197,6 +202,8 @@
 				538586CD12D2D96B00D26763 /* PreferencesWindowController.m */,
 				53E6BBDA12DA7EE0007FA70C /* AuthenticationWindowController.h */,
 				53E6BBDB12DA7EE0007FA70C /* AuthenticationWindowController.m */,
+				53E6BBE312DA8048007FA70C /* NewAuthWindowController.h */,
+				53E6BBE412DA8048007FA70C /* NewAuthWindowController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -307,6 +314,7 @@
 				53224D7412CAB11C00251185 /* NewBookmarkSheet.xib */,
 				538586D112D2D99C00D26763 /* PreferencesWindow.xib */,
 				53E6BBD412D92616007FA70C /* AuthManagementWindow.xib */,
+				53E6BBE612DA8059007FA70C /* NewAuthWindow.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -404,6 +412,7 @@
 				5385883D12D2ED8600D26763 /* Defaults.plist in Resources */,
 				53CD333E12D443B200C23F6A /* sampledata.xml in Resources */,
 				53E6BBD512D92616007FA70C /* AuthManagementWindow.xib in Resources */,
+				53E6BBE712DA8059007FA70C /* NewAuthWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +443,7 @@
 				53E6B97912D91C9D007FA70C /* API_Inspector_5_6_rel.xcmappingmodel in Sources */,
 				53E6B97E12D91CD9007FA70C /* Authentication.m in Sources */,
 				53E6BBDC12DA7EE0007FA70C /* AuthenticationWindowController.m in Sources */,
+				53E6BBE512DA8048007FA70C /* NewAuthWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
