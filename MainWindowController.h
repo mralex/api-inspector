@@ -14,6 +14,7 @@
 @class HttpViewController;
 @class HttpGetViewController;
 @class HttpPostViewController;
+@class AuthenticationWindowController;
 
 @interface MainWindowController : NSWindowController <NewBookmarkSheetControllerDelegate> {
 	NSView *contentBox;
@@ -40,6 +41,7 @@
 	Bookmark *draggedBookmark;
 	
 	NewBookmarkSheetController *newBookmarkSheetController;
+	AuthenticationWindowController *authenticationWindowController;
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
@@ -59,6 +61,7 @@
 @property (nonatomic, retain) IBOutlet NSArrayController *bookmarksController;
 
 @property (nonatomic, retain) IBOutlet NewBookmarkSheetController *newBookmarkSheetController;
+@property (nonatomic, retain) AuthenticationWindowController *authenticationWindowController;
 
 - (IBAction)switchViewAction:(NSToolbarItem *)toolbarItem;
 
@@ -72,5 +75,7 @@
 - (void)handleSelectedBookmarkAndLoad:(BOOL)load;
 - (IBAction)bookmarksClicked:(id)sender;
 - (IBAction)bookmarksDoubleClicked:(id)sender;
+
+- (IBAction)showAuthenticationManager:(id)sender;
 
 @end

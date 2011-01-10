@@ -15,6 +15,7 @@
 #import "HttpPostViewController.h"
 #import "WMNoteItemCell.h"
 #import "ImageAndTextCell.h"
+#import "AuthenticationWindowController.h"
 
 @interface MainWindowController ()
 - (void)managedObjectContextDidChange:(NSNotification *)notification;
@@ -25,7 +26,7 @@
 @implementation MainWindowController
 
 @synthesize contentBox, currentHttpViewController, httpGetViewController, httpPostViewController, getToolbarItem, postToolbarItem, managedObjectContext, sourcelist, bookmarks;
-@synthesize bookmarksController, newBookmarkSheetController, editBookmarkMenuItem, splitView;
+@synthesize bookmarksController, newBookmarkSheetController, editBookmarkMenuItem, splitView, authenticationWindowController;
 
 - (id) init
 {
@@ -222,7 +223,7 @@
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item {
 	if ([item class] == [Folder class]) return;
 	
-	NSImage *icon;
+	NSImage *icon = nil;
 	switch ([[item httpAction] intValue]) {
 		case kHttpViewGet:
 			icon = [NSImage imageNamed:@"bookmark-get.png"];
@@ -447,6 +448,18 @@
 																			self.httpPostViewController.valuesArray, kHttpPostValues, nil];
 	
 	return keysAndValues;
+}
+
+#pragma mark -
+#pragma mark Authentication Manager Window
+#pragma mark -
+
+- (IBAction)showAuthenticationManager:(id)sender {
+	if (self.authenticationWindowController == nil) {
+		self.authenticationWindowController = [[AuthenticationWindowController alloc] init];
+		self.authenticationWindowController.managedObjectContext = self.managedObjectContext;
+	}
+	[self.authenticationWindowController showWindow:nil];
 }
 
 @end

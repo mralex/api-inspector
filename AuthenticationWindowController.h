@@ -24,7 +24,16 @@
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) IBOutlet NSArrayController *accountsArray;
+@property (nonatomic, retain) IBOutlet NSObjectController *account;
 @property (nonatomic, retain) IBOutlet NSWindow *renameAccountWindow;
+
+- (IBAction)add:(id)sender;
+- (IBAction)remove:(id)sender;
+- (IBAction)rename:(id)sender;
+
+- (IBAction)complete:sender;
+- (IBAction)cancelOperation:sender;
+
 
 @end
 
