@@ -21,7 +21,6 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="72"/>
 			<integer value="46"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -234,6 +233,7 @@
 									</object>
 									<string key="NSFrame">{{1, 17}, {419, 171}}</string>
 									<reference key="NSSuperview" ref="1054250846"/>
+									<reference key="NSNextKeyView" ref="446279385"/>
 									<reference key="NSDocView" ref="446279385"/>
 									<reference key="NSBGColor" ref="23685112"/>
 									<int key="NScvFlags">4</int>
@@ -266,6 +266,7 @@
 									</object>
 									<string key="NSFrame">{{1, 0}, {419, 17}}</string>
 									<reference key="NSSuperview" ref="1054250846"/>
+									<reference key="NSNextKeyView" ref="654438815"/>
 									<reference key="NSDocView" ref="654438815"/>
 									<reference key="NSBGColor" ref="23685112"/>
 									<int key="NScvFlags">4</int>
@@ -274,6 +275,7 @@
 							</object>
 							<string key="NSFrame">{{20, 48}, {421, 189}}</string>
 							<reference key="NSSuperview" ref="55939134"/>
+							<reference key="NSNextKeyView" ref="1024758213"/>
 							<int key="NSsFlags">562</int>
 							<reference key="NSVScroller" ref="222957928"/>
 							<reference key="NSHScroller" ref="179046972"/>
@@ -380,7 +382,7 @@
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
 				<object class="NSView" key="NSWindowView" id="448320530">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -474,7 +476,6 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{355, 90}</string>
-					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMaxSize">{1.79769e+308, 1.79769e+308}</string>
@@ -534,14 +535,6 @@
 						<reference key="destination" ref="499062322"/>
 					</object>
 					<int key="connectionID">173</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">renameAccountWindow</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="161682012"/>
-					</object>
-					<int key="connectionID">174</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -606,6 +599,62 @@
 						<reference key="destination" ref="611325889"/>
 					</object>
 					<int key="connectionID">186</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">renameAccountSheet</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="161682012"/>
+					</object>
+					<int key="connectionID">187</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">managedObjectContext: managedObjectContext</string>
+						<reference key="source" ref="499062322"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="499062322"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">managedObjectContext: managedObjectContext</string>
+							<string key="NSBinding">managedObjectContext</string>
+							<string key="NSKeyPath">managedObjectContext</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">188</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">managedObjectContext: managedObjectContext</string>
+						<reference key="source" ref="611325889"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="611325889"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">managedObjectContext: managedObjectContext</string>
+							<string key="NSBinding">managedObjectContext</string>
+							<string key="NSKeyPath">managedObjectContext</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">189</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: selectedObjects.@count</string>
+						<reference key="source" ref="95272716"/>
+						<reference key="destination" ref="499062322"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="95272716"/>
+							<reference key="NSDestination" ref="499062322"/>
+							<string key="NSLabel">enabled: selectedObjects.@count</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">selectedObjects.@count</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">192</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -976,7 +1025,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">186</int>
+			<int key="maxID">192</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1043,7 +1092,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>account</string>
 							<string>accountsArray</string>
-							<string>renameAccountWindow</string>
+							<string>renameAccountSheet</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1058,7 +1107,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>account</string>
 							<string>accountsArray</string>
-							<string>renameAccountWindow</string>
+							<string>renameAccountSheet</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1071,7 +1120,7 @@
 								<string key="candidateClassName">NSArrayController</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">renameAccountWindow</string>
+								<string key="name">renameAccountSheet</string>
 								<string key="candidateClassName">NSWindow</string>
 							</object>
 						</object>

@@ -18,7 +18,7 @@
 
 
 @implementation AuthenticationWindowController
-@synthesize managedObjectContext, accountsArray, account, renameAccountWindow;
+@synthesize managedObjectContext, accountsArray, account, renameAccountSheet;
 
 - (id) init
 {
@@ -52,7 +52,7 @@
 	
 	[[self.managedObjectContext undoManager] enableUndoRegistration];
 	
-	[NSApp beginSheet:self.renameAccountWindow 
+	[NSApp beginSheet:self.renameAccountSheet 
 	   modalForWindow:self.window 
 		modalDelegate:self 
 	   didEndSelector:@selector(renameAuthSheetDidEnd:returnCode:contextInfo:) 
@@ -60,11 +60,11 @@
 }
 
 - (IBAction)complete:sender {
-	[NSApp endSheet:self.renameAccountWindow returnCode:NSOKButton];
+	[NSApp endSheet:self.renameAccountSheet returnCode:NSOKButton];
 }
 
 - (IBAction)cancelOperation:sender {
-	[NSApp endSheet:self.renameAccountWindow returnCode:NSCancelButton];	
+	[NSApp endSheet:self.renameAccountSheet returnCode:NSCancelButton];	
 }
 
 - (void)renameAuthSheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo {
@@ -72,7 +72,7 @@
 	[self.managedObjectContext save:&error];
 	
 	[self.account setContent:nil];
-	[self.renameAccountWindow orderOut:nil];
+	[self.renameAccountSheet orderOut:nil];
 }
 
 @end

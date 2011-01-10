@@ -17,7 +17,7 @@
 	NSObjectController *account;
 	Authentication *currentAccount;
 	
-	NSWindow *renameAccountWindow;
+	NSWindow *renameAccountSheet;
 	
 	NewAuthWindowController *newAuthWindowController;
 }
@@ -25,7 +25,7 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) IBOutlet NSArrayController *accountsArray;
 @property (nonatomic, retain) IBOutlet NSObjectController *account;
-@property (nonatomic, retain) IBOutlet NSWindow *renameAccountWindow;
+@property (nonatomic, retain) IBOutlet NSWindow *renameAccountSheet;
 
 - (IBAction)add:(id)sender;
 - (IBAction)remove:(id)sender;
