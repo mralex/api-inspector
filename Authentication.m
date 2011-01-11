@@ -27,6 +27,7 @@
 @dynamic histories;
 
 - (void)awakeFromInsert {
+	DLog(@"Authentication hai!");
 	self.created_at = self.updated_at = [NSDate date];
 	self.forceHttps = [NSNumber numberWithBool:YES];
 	self.authType = authTypeOAuth;

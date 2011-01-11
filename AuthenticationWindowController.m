@@ -18,7 +18,7 @@
 
 
 @implementation AuthenticationWindowController
-@synthesize managedObjectContext, accountsArray, account, renameAccountSheet;
+@synthesize managedObjectContext, accountsArray, account, renameAccountSheet, newAuthWindowController;
 
 - (id) init
 {
@@ -34,6 +34,11 @@
 		[self.window center];
 	
 	[self.window makeKeyAndOrderFront:self];
+}
+
+- (void)awakeFromNib {
+	NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+	self.accountsArray.sortDescriptors = [NSArray arrayWithObject:sort];
 }
 
 - (IBAction)add:(id)sender {

@@ -27,6 +27,8 @@
 @property (nonatomic, retain) IBOutlet NSObjectController *account;
 @property (nonatomic, retain) IBOutlet NSWindow *renameAccountSheet;
 
+@property (nonatomic, retain) IBOutlet NewAuthWindowController *newAuthWindowController;
+
 - (IBAction)add:(id)sender;
 - (IBAction)remove:(id)sender;
 - (IBAction)rename:(id)sender;

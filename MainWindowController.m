@@ -459,6 +459,7 @@
 		self.authenticationWindowController = [[AuthenticationWindowController alloc] init];
 		self.authenticationWindowController.managedObjectContext = self.managedObjectContext;
 	}
+
 	[self.authenticationWindowController showWindow:nil];
 }
 
